@@ -3,17 +3,26 @@ import json
 import requests 
 
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 
 def crawl(url):
-    # TODO
-    return
+    return requests.get(url).text
 
-def crawl_with_links(url, link_pattern, n_links=20):
-    # TODO
-    return
+def crawl_with_links(url):
+    html = requests.get(url).text
+    soup = BeautifulSoup(html, 'html.parser')
+    url_list = []
+    for link in soup.find_all('link', href=True):
+        url_list.append(link["href"])
+
+    return url_list
+
 
 if __name__ == "__main__":
-    # TODO
-    # use https://en.wikipedia.org/wiki/Hannibal
-    
+    html = crawl('https://en.wikipedia.org/wiki/Hannibal')
+    links = crawl_with_links('https://en.wikipedia.org/wiki/Hannibal')
+    for link in links:
+        if link.find("https://") != -1:
+            additionalcrawl = crawl(link)
+
+    print(additionalcrawl)
