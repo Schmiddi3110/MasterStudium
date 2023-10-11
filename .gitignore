@@ -3,5 +3,6 @@
 
 # ignore PythonEnvironment
 PythonEnvironment
-*.iml
-*.xml
+
+#ignore .idea Folder
+.idea
