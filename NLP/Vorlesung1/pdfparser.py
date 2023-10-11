@@ -18,6 +18,6 @@ def extract_pages_miner(pdf_path):
     return
 
 if __name__ == "__main__":
-    extract_pages('1706.03762')
-    extract_pages_miner('1706.03762')
+    extract_pages('Attention is all you need.pdf')
+    extract_pages_miner('Attention is all you need.pdf')
     # TODO
