@@ -6,3 +6,6 @@ PythonEnvironment
 
 #ignore .idea Folder
 .idea
+
+#ignore NLP/nltk_data folder
+NPL/nltk_data
