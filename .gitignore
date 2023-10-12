@@ -8,4 +8,4 @@ PythonEnvironment
 .idea
 
 #ignore NLP/nltk_data folder
-NPL/nltk_data
+NPL/nltk_data/*
