@@ -8,4 +8,4 @@ PythonEnvironment
 .idea
 
 #ignore NLP/tokenizers folder
-NPL/tokenizers/*
+NPL/tokenizers
