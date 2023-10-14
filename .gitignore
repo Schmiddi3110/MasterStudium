@@ -7,5 +7,5 @@ PythonEnvironment
 #ignore .idea Folder
 .idea
 
-#ignore NLP/nltk_data folder
-NPL/nltk_data/*
+#ignore NLP/tokenizers folder
+NPL/tokenizers/*
