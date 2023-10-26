@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dya1u7pac0pst"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ipj03"]
+[ext_resource type="PackedScene" uid="uid://lhof5afybt0v" path="res://player.tscn" id="1_y12s2"]
+[ext_resource type="PackedScene" uid="uid://twuuuqea3px" path="res://mob.tscn" id="2_dmisf"]
+
+[sub_resource type="Curve2D" id="Curve2D_dk02r"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 146, 98, 0, 0, 0, 0, 665, 106, 0, 0, 0, 0, 675, 489, 0, 0, 0, 0, 151, 487, 0, 0, 0, 0, 142, 95)
+}
+point_count = 5
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_ipj03")
+mob_scene = ExtResource("2_dmisf")
+
+[node name="Player" parent="." instance=ExtResource("1_y12s2")]
+position = Vector2(296, 286)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_dk02r")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(675.084, 488.033)
+rotation = 1.54469
+progress = 900.967
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
