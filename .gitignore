@@ -9,3 +9,4 @@ PythonEnvironment
 
 #ignore NLP/NLTK_Data folder
 NLP/NLTK_Data
+*.x86_64
