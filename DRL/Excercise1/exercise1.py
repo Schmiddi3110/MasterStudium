@@ -10,7 +10,7 @@ GAMMA = 0.7
 THETA = 0.01
 
 
-def calc_v_values(env, state = None):
+def calc_v_values(env, state=None):
     v = np.zeros(env.num_states())
     if state is None:
         for state in range(len(v)):
@@ -21,7 +21,6 @@ def calc_v_values(env, state = None):
             next_state, reward, done = env.step_dp(state, action)
             v[state] = reward + GAMMA * v[next_state] * (done < 0.5)
     return v
-
 
 
 def calc_q_values(env, v_table, state=None):
