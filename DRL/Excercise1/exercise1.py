@@ -7,7 +7,7 @@ from gridworld import *
 from plot import *
 
 GAMMA = 0.7
-THETA = 0.01
+THETA = 0.001
 
 
 def calc_v_values(env, state=None):
@@ -118,12 +118,12 @@ def value_iteration(env):
 
 if __name__ == "__main__":
     # create environment
-    env = WaterWorld()
+    env = Random(size=12, water=0.3, mountain=0.0)
     # create nonsense V-values and nonsense policy
     # v_table = np.random.random((env.num_states()))
-    v_table = calc_v_values(env)
+    #v_table = calc_v_values(env)
     # q_table = np.random.random((env.num_states(), env.num_actions()))
-    q_table = calc_q_values(env, v_table)
+    #q_table = calc_q_values(env, v_table)
     # policy = np.random.random((env.num_states(), env.num_actions()))
     v_table, policy = policy_iteration(env)
 
@@ -132,4 +132,4 @@ if __name__ == "__main__":
     # plot_q_table(env, q_table)
     # ...or with the policy
     plot_v_table(env, v_table, policy)
-    plot_q_table(env, q_table, policy)
+    #plot_q_table(env, q_table, policy)

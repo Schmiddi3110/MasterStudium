@@ -2,6 +2,7 @@
 Small demo to illustrate how the plot function and the gridworld environment work
 """
 import numpy as np
+import optuna
 
 from gridworld import *
 from plot import *
@@ -10,8 +11,8 @@ from plot import *
 EPS = 0.1
 ALPHA = 0.1
 GAMMA = 0.9
-EPISODES = 10000
-MAX_EPISODE_LENGTH = 100
+EPISODES = 100000
+MAX_EPISODE_LENGTH = 200
 
 
 def sarsa(env):
@@ -58,7 +59,7 @@ def qlearning(env):
             next_action = select_action(next_state, q_table)
 
             # Q-Learning update rule
-            delta = reward + GAMMA * np.argmax(q_table[next_state, next_action]) * (done < 0.5) - q_table[state, action]
+            delta = reward + GAMMA * np.max(q_table[next_state, next_action]) * (done < 0.5) - q_table[state, action]
             q_table[state, action] += ALPHA * delta
 
             state = next_state
@@ -79,14 +80,15 @@ def select_action(state, q_table):
 
 if __name__ == "__main__":
     # create environment
-    env = ExerciseWorld()
+    env = Random(size=12, water=0.3, mountain=0.0)
     # create nonsense V-values and nonsense policy
-    sarsa_table = sarsa(env)
-    #q_learning_table = qlearning(env)
+    #sarsa_table = sarsa(env)
+
+    q_learning_table = qlearning(env)
 
     # either plot V-values and Q-values without the policy...
     # plot_v_table(env, v_table)
     # plot_q_table(env, q_table)
     # ...or with the policy
-    plot_q_table(env, sarsa_table)
-    #plot_q_table(env, q_learning_table)
+    #plot_q_table(env, sarsa_table)
+    plot_q_table(env, q_learning_table)
