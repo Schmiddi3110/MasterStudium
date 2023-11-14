@@ -11,7 +11,7 @@ from plot import *
 EPS = 0.1
 ALPHA = 0.1
 GAMMA = 0.9
-EPISODES = 100000
+EPISODES = 10000
 MAX_EPISODE_LENGTH = 200
 
 
@@ -42,8 +42,9 @@ def sarsa(env):
     return q_table
 
 
-def qlearning(env):
+def qlearning_episode(env):
     q_table = np.zeros((env.num_states(), env.num_actions()))
+    q_table.fill(1)
 
     # run a certain number of episodes
     for episode in range(EPISODES):
@@ -80,11 +81,11 @@ def select_action(state, q_table):
 
 if __name__ == "__main__":
     # create environment
-    env = Random(size=12, water=0.3, mountain=0.0)
+    env = Random(size=12, water=0.0, mountain=0.3)
     # create nonsense V-values and nonsense policy
     #sarsa_table = sarsa(env)
 
-    q_learning_table = qlearning(env)
+    q_learning_table = qlearning_episode(env)
 
     # either plot V-values and Q-values without the policy...
     # plot_v_table(env, v_table)
