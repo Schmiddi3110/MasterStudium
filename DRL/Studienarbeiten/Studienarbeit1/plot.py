@@ -6,7 +6,7 @@ import matplotlib.patheffects as pathEffects
 
 
 def plot_v_table(env, v_table, policy=None):
-    '''
+    """
     Plot V-function for a given gridworld environment
 
     :param env: GridworldEnv environment
@@ -15,12 +15,12 @@ def plot_v_table(env, v_table, policy=None):
     :param policy: (optional) 2D Numpy array with shape (number of states, number of actions). State order must be consistent with
     observations given by the GridworldEnv._state_to_obs function. Action order must be consistent with
     G_UP / G_RIGHT / G_DOWN / G_LEFT as described in the config.py file
-    '''
+    """
     plot_table(env=env, table=v_table, policy=policy)
 
 
 def plot_q_table(env, q_table, policy=None):
-    '''
+    """
     Plot Q-function for a given gridworld environment
 
     :param env: GridWorld environment
@@ -30,7 +30,7 @@ def plot_q_table(env, q_table, policy=None):
     :param policy: (optional) 2D Numpy array with shape (number of states, number of actions). State order must be consistent with
     observations given by the GridworldEnv._state_to_obs function. Action order must be consistent with
     G_UP / G_RIGHT / G_DOWN / G_LEFT as described in the config.py file
-    '''
+    """
     plot_table(env=env, table=q_table, policy=policy)
 
 
@@ -120,7 +120,7 @@ def draw_policy(x, y, action, values):
         dy = 0
 
     value = values[action]
-    plt.arrow(x, y, dx, dy, head_length=LENGTH, width = value/20)
+    plt.arrow(x, y, dx, dy, head_length=LENGTH, width=value / 20)
 
 
 def draw_q_polygon(x, y, action, values):
@@ -164,7 +164,7 @@ def draw_q_value(x, y, action, values):
 
 def draw_v_polygon(x, y, value):
     color = map_value_to_color(value)
-    rect = patches.Rectangle((x-0.5, y-0.5), 1, 1, facecolor=color)
+    rect = patches.Rectangle((x - 0.5, y - 0.5), 1, 1, facecolor=color)
     plt.gca().add_patch(rect)
 
 
@@ -175,13 +175,129 @@ def draw_v_value(x, y, value):
 
 def draw_state_type(x, y, type):
     if type == 'S' or type == 'A':
-        facecolor='none'
+        facecolor = 'none'
         offset = -0.15
     else:
-        facecolor='w'
+        facecolor = 'w'
         offset = 0
 
-    rect = patches.Rectangle((x-0.5, y-0.5), 1, 1, facecolor=facecolor)
+    rect = patches.Rectangle((x - 0.5, y - 0.5), 1, 1, facecolor=facecolor)
     plt.gca().add_patch(rect)
-    plt.text(x+offset, y+offset, type, ha="center", va="center", color='k', fontsize=24, fontweight='bold')
+    plt.text(x + offset, y + offset, type, ha="center", va="center", color='k', fontsize=24, fontweight='bold')
 
+
+def plot_A1(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
+    qlearning_x_avg = np.zeros(Q_EPISODES)
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+    plt.subplots_adjust(wspace=20, right=0.7)
+    for i in range(qlearning_data.keys().__len__()):
+        qlearning_x = [value[1] for value in list(qlearning_data[i].values())]
+
+        qlearning_x_avg = [sum(x) for x in zip(qlearning_x, qlearning_x_avg)]
+
+        ax1.plot(range(Q_EPISODES), qlearning_x, label='Env ' + str(i), alpha=0.3)
+
+    qlearning_x_avg = [a / 10 for a in qlearning_x_avg]
+    ax1.plot(range(Q_EPISODES), qlearning_x_avg, '--', label="Average")
+
+    ax1.set_xlabel('Episode', fontdict={'size': 15})
+    ax1.set_ylabel('Cumulative reward', fontdict={'size': 15})
+    ax1.set_title('Q-Learning', fontdict={'size': 15})
+    ax1.set_ylim(
+        min(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list),
+        max(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list))
+
+    ax1.set_xlim(0, 200)
+
+    # SARSA
+    sarsa_x_avg = np.zeros(SARSA_EPISODES)
+    for i in range(sarsa_data.keys().__len__()):
+        sarsa_x = [value[1] for value in list(sarsa_data[i].values())]
+
+        sarsa_x_avg = [sum(x) for x in zip(sarsa_x, sarsa_x_avg)]
+
+        ax2.plot(range(SARSA_EPISODES), sarsa_x, label='Env ' + str(i), alpha=0.3)
+
+    sarsa_x_avg = [a / 10 for a in sarsa_x_avg]
+    ax2.plot(range(SARSA_EPISODES), sarsa_x_avg, '--', label="Average")
+
+    ax2.set_xlabel('Episode', fontdict={'size': 15})
+    ax2.set_title('SARSA', fontdict={'size': 15})
+    ax2.set_ylim(
+        min(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list),
+        max(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list))
+    ax2.set_xlim(0, 169)
+    fig.suptitle("Cumulative reward over episodes", fontsize=25)
+
+    lines_labels = ax1.get_legend_handles_labels()
+    lines, labels = [sum(lol, []) for lol in zip(lines_labels)]
+    fig.legend(lines, labels, bbox_to_anchor=(1, 0.84), loc='upper left', ncol=1)
+
+    fig.tight_layout()
+    plt.show()
+
+
+def plot_A2(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+    plt.subplots_adjust(wspace=20, right=0.7)
+    qlearning_x_avg = np.zeros((Q_EPISODES))
+    qlearning_y_avg = np.zeros((Q_EPISODES))
+    for i in range(qlearning_data.keys().__len__()):
+        qlearning_x = np.cumsum([value[0] for value in list(qlearning_data[i].values())])
+        qlearning_y = np.cumsum([value[1] for value in list(qlearning_data[i].values())])
+
+        qlearning_x_avg = [sum(x) for x in zip(qlearning_x, qlearning_x_avg)]
+
+        qlearning_y_avg = [sum(y) for y in zip(qlearning_y, qlearning_y_avg)]
+
+        ax1.plot(qlearning_x, qlearning_y, label=i, alpha=0.2)
+
+    qlearning_x_avg = [a / 10 for a in qlearning_x_avg]
+    qlearning_y_avg = [a / 10 for a in qlearning_y_avg]
+
+    ax1.plot(qlearning_x_avg, qlearning_y_avg, '--', label="avg")
+
+    # Adding labels and title
+    ax1.set_xlabel('number of steps', fontdict={'size': 15})
+    ax1.set_ylabel('Cumulative reward', fontdict={'size': 15})
+    ax1.set_title('Q-Learning', fontdict={'size': 15})
+    ax1.set_ylim(
+        min(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list),
+        max(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list))
+    ax1.set_xlim(0, 9000)
+
+    # SARSA
+    sarsa_x_avg = np.zeros((SARSA_EPISODES))
+    sarsa_y_avg = np.zeros((SARSA_EPISODES))
+    for i in range(sarsa_data.keys().__len__()):
+        sarsa_x = np.cumsum([value[0] for value in list(sarsa_data[i].values())])
+        sarsa_y = np.cumsum([value[1] for value in list(sarsa_data[i].values())])
+
+        sarsa_x_avg = [sum(x) for x in zip(sarsa_x, sarsa_x_avg)]
+
+        sarsa_y_avg = [sum(y) for y in zip(sarsa_y, sarsa_y_avg)]
+
+        plt.plot(sarsa_x, sarsa_y, label=i, alpha=0.2)
+
+    sarsa_x_avg = [a / 10 for a in sarsa_x_avg]
+    sarsa_y_avg = [a / 10 for a in sarsa_y_avg]
+
+    plt.plot(sarsa_x_avg, sarsa_y_avg, '--', label="avg")
+
+    # Adding labels and title
+    ax2.set_xlabel('number of steps', fontdict={'size': 15})
+    ax2.set_title('SARSA', fontdict={'size': 15})
+    ax2.set_ylim(
+        min(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list),
+        max(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list))
+    ax2.set_xlim(0, 9000)
+
+    fig.suptitle("total number of steps over Cumulative reward", fontsize=25)
+
+    lines_labels = ax1.get_legend_handles_labels()
+    lines, labels = [sum(lol, []) for lol in zip(lines_labels)]
+    fig.legend(lines, labels, bbox_to_anchor=(1, 0.84), loc='upper left', ncol=1)
+
+    fig.tight_layout()
+    plt.show()
