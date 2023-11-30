@@ -186,7 +186,7 @@ def draw_state_type(x, y, type):
     plt.text(x + offset, y + offset, type, ha="center", va="center", color='k', fontsize=24, fontweight='bold')
 
 
-def plot_A1(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
+def plot_episodes(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
     qlearning_x_avg = np.zeros(Q_EPISODES)
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
@@ -238,7 +238,7 @@ def plot_A1(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
     plt.show()
 
 
-def plot_A2(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
+def plot_steps(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
     plt.subplots_adjust(wspace=20, right=0.7)
     qlearning_x_avg = np.zeros((Q_EPISODES))
