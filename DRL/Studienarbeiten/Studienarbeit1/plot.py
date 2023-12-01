@@ -265,6 +265,7 @@ def plot_steps(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
     ax1.set_ylim(
         min(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list),
         max(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list))
+        
     ax1.set_xlim(0, 9000)
 
     # SARSA
@@ -291,6 +292,7 @@ def plot_steps(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
     ax2.set_ylim(
         min(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list),
         max(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list))
+
     ax2.set_xlim(0, 9000)
 
     fig.suptitle("total number of steps over Cumulative reward", fontsize=25)
