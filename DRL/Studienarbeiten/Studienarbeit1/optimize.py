@@ -1,6 +1,6 @@
 import optuna
 import numpy as np
-import algorithms
+import select_action
 from gridworld import *
 
 
@@ -14,7 +14,7 @@ class optimize():
     def __init__(self, env):
         self.env = env
 
-    def run_study(self, study_name, storage, direction):
+    def run_study_qlearning_steps(self, study_name, storage, direction):
         study = optuna.create_study(study_name=study_name, storage=storage,load_if_exists=True, direction=direction)
         study.optimize(lambda trial: self.qlearning_steps(trial), n_trials=3000)
 
@@ -42,7 +42,7 @@ class optimize():
             # run episode until a goal state or the maximum number of steps has been reached
             while not done and episode_length < MAX_EPISODE_LENGTH:
                 next_state, reward, done = self.env.step(action)
-                next_action = algorithms.select_action(EPS, DECAY, episode, next_state, q_table)
+                next_action = select_action.select_action(EPS, DECAY, episode, next_state, q_table)
 
                 # Q-Learning update rule
                 delta = reward + GAMMA * np.max(q_table[next_state, next_action]) * (done < 0.5) - q_table[state, action]
