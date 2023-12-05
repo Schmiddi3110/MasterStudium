@@ -12,7 +12,7 @@ class qlearning():
         self.eps = eps
         self.decay = decay
 
-    def run(self, env):
+    def run_decay_epsilon_greedy(self, env):
         """
         This function performs the Q-Learning algorithm on a given GridWorld environment
         Parameters:
@@ -37,7 +37,7 @@ class qlearning():
         for episode in range(self.episodes):
             state = env.reset()
 
-            action = epsilon_greedy(self.eps, episode, state, q_table, self.decay)
+            action = decay_epsilon_greedy(self.eps, episode, state, q_table, self.decay)
 
             done = False
             episode_length = 0
@@ -45,11 +45,61 @@ class qlearning():
             # run episode until a goal state or the maximum number of steps has been reached
             while not done and episode_length < self.max_episode_length:
                 next_state, reward, done = env.step(action)
-                next_action = epsilon_greedy(self.eps, episode, next_state, q_table, self.decay)
+                next_action = decay_epsilon_greedy(self.eps, episode, next_state, q_table, self.decay)
 
                 # Q-Learning update rule
                 delta = reward + self.gamma * np.max(q_table[next_state, next_action]) * (done < 0.5) - q_table[
                     state, action]
+                q_table[state, action] += self.alpha * delta
+                cum_reward += self.alpha * delta
+
+                state = next_state
+                action = next_action
+                episode_length += 1
+
+            learning_data[episode] = [episode_length, cum_reward]
+
+        return learning_data
+
+
+    def run_epsilon_greedy(self, env):
+        """
+        This function performs the SARSA algorithm on a given GridWorld environment
+        Parameters:
+            env: Environment to perform Q-Learning on.
+            alpha: Learning rate
+            gamma: Discount factor
+            episodes: Number of episodes to perform
+            max_episode_length: Maximum length of an episode
+            init_reward: Initial reward for every possible action
+            eps: Chance to perform a random action
+            decay: Parameter for decaying epsilon-greedy
+
+        Return:
+             Dictionary of shape: environment_N: { episode_M: { [steps_taken_in_episode, reward_from_episode] } }
+        """
+        q_table = np.zeros((env.num_states(), env.num_actions()))
+        q_table.fill(self.init_reward)
+
+        learning_data = {}
+        cum_reward = 0
+        # run a certain number of episodes
+        for episode in range(self.episodes):
+
+            state = env.reset()
+            action = epsilon_greedy(self.eps, state, q_table)
+
+            done = False
+            episode_length = 0
+
+            # run episode until a goal state or the maximum number of steps has been reached
+            while not done and episode_length < self.max_episode_length:
+                next_state, reward, done = env.step(action)
+
+                next_action = epsilon_greedy(self.eps, state, q_table)
+
+                # Q-Learning update rule
+                delta = reward + self.gamma * np.max(q_table[next_state, next_action]) * (done < 0.5) - q_table[state, action]
                 q_table[state, action] += self.alpha * delta
                 cum_reward += self.alpha * delta
 

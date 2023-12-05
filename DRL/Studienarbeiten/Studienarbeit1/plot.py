@@ -186,51 +186,34 @@ def draw_state_type(x, y, type):
     plt.text(x + offset, y + offset, type, ha="center", va="center", color='k', fontsize=24, fontweight='bold')
 
 
-def plot_episodes(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
-    qlearning_x_avg = np.zeros(Q_EPISODES)
-
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+def plot_episodes(data, episodes_count, captions):
+    axes = [data.__len__()]
+    fig, axes = plt.subplots(int(data.__len__()/2), 2, figsize=(15, 5))
     plt.subplots_adjust(wspace=20, right=0.7)
-    for i in range(qlearning_data.keys().__len__()):
-        qlearning_x = [value[1] for value in list(qlearning_data[i].values())]
+    for j in range(data.__len__()):
+        x_avg_values = np.zeros(episodes_count[j])
+        for i in range(data[j].keys().__len__()):
+            x_values = [value[1] for value in list(data[j][i].values())]
 
-        qlearning_x_avg = [sum(x) for x in zip(qlearning_x, qlearning_x_avg)]
+            x_avg_values = [sum(x) for x in zip(x_values, x_avg_values)]
 
-        ax1.plot(range(Q_EPISODES), qlearning_x, label='Env ' + str(i), alpha=0.3)
+            axes[j].plot(range(len(x_values)), x_values, label='Env ' + str(i), alpha=0.3)
 
-    qlearning_x_avg = [a / 10 for a in qlearning_x_avg]
-    ax1.plot(range(Q_EPISODES), qlearning_x_avg, '--', label="Average")
+        x_avg_values = [a / 10 for a in x_avg_values]
+        axes[j].plot(range(len(x_avg_values)), x_avg_values, '--', label="Average")
 
-    ax1.set_xlabel('Episode', fontdict={'size': 15})
-    ax1.set_ylabel('Cumulative reward', fontdict={'size': 15})
-    ax1.set_title('Q-Learning', fontdict={'size': 15})
-    ax1.set_ylim(
-        min(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list),
-        max(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list))
+        axes[j].set_xlabel('Episode', fontdict={'size': 15})
+        axes[j].set_ylabel('Cumulative reward', fontdict={'size': 15})
+        axes[j].set_title(captions[j], fontdict={'size': 15})
+        axes[j].set_ylim(
+            min(val for inner_dict in data[j].values() for inner_list in inner_dict.values() for val in inner_list),
+            max(val for inner_dict in data[j].values() for inner_list in inner_dict.values() for val in inner_list))
 
-    ax1.set_xlim(0, 200)
+        axes[j].set_xlim(0, len(x_values))
 
-    # SARSA
-    sarsa_x_avg = np.zeros(SARSA_EPISODES)
-    for i in range(sarsa_data.keys().__len__()):
-        sarsa_x = [value[1] for value in list(sarsa_data[i].values())]
-
-        sarsa_x_avg = [sum(x) for x in zip(sarsa_x, sarsa_x_avg)]
-
-        ax2.plot(range(SARSA_EPISODES), sarsa_x, label='Env ' + str(i), alpha=0.3)
-
-    sarsa_x_avg = [a / 10 for a in sarsa_x_avg]
-    ax2.plot(range(SARSA_EPISODES), sarsa_x_avg, '--', label="Average")
-
-    ax2.set_xlabel('Episode', fontdict={'size': 15})
-    ax2.set_title('SARSA', fontdict={'size': 15})
-    ax2.set_ylim(
-        min(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list),
-        max(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list))
-    ax2.set_xlim(0, 169)
     fig.suptitle("Cumulative reward over episodes", fontsize=25)
 
-    lines_labels = ax1.get_legend_handles_labels()
+    lines_labels = axes[0].get_legend_handles_labels()
     lines, labels = [sum(lol, []) for lol in zip(lines_labels)]
     fig.legend(lines, labels, bbox_to_anchor=(1, 0.84), loc='upper left', ncol=1)
 
@@ -238,66 +221,68 @@ def plot_episodes(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
     plt.show()
 
 
-def plot_steps(qlearning_data, Q_EPISODES, sarsa_data, SARSA_EPISODES):
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5))
+def plot_steps(data, episodes_count, captions):
+    axes = [data.__len__()]
+    fig, axes = plt.subplots(int(data.__len__()/2), 2, figsize=(15, 5))
     plt.subplots_adjust(wspace=20, right=0.7)
-    qlearning_x_avg = np.zeros((Q_EPISODES))
-    qlearning_y_avg = np.zeros((Q_EPISODES))
-    for i in range(qlearning_data.keys().__len__()):
-        qlearning_x = np.cumsum([value[0] for value in list(qlearning_data[i].values())])
-        qlearning_y = np.cumsum([value[1] for value in list(qlearning_data[i].values())])
+    for j in range(data.__len__()):
+        x_avg_values = np.zeros((episodes_count[j]))
+        y_avg_values = np.zeros((episodes_count[j]))
+        for i in range(data[j].keys().__len__()):
+            x_values = np.cumsum([value[0] for value in list(data[j][i].values())])
+            y_values = np.cumsum([value[1] for value in list(data[j][i].values())])
 
-        qlearning_x_avg = [sum(x) for x in zip(qlearning_x, qlearning_x_avg)]
+            x_avg_values = [sum(x) for x in zip(x_values, x_avg_values)]
 
-        qlearning_y_avg = [sum(y) for y in zip(qlearning_y, qlearning_y_avg)]
+            y_avg_values = [sum(y) for y in zip(y_values, y_avg_values)]
 
-        ax1.plot(qlearning_x, qlearning_y, label=i, alpha=0.2)
+            axes[j].plot(x_values, y_values, label=i, alpha=0.2)
 
-    qlearning_x_avg = [a / 10 for a in qlearning_x_avg]
-    qlearning_y_avg = [a / 10 for a in qlearning_y_avg]
+        x_avg_values = [a / 10 for a in x_avg_values]
+        y_avg_values = [a / 10 for a in y_avg_values]
 
-    ax1.plot(qlearning_x_avg, qlearning_y_avg, '--', label="avg")
+        axes[j].plot(x_avg_values, y_avg_values, '--', label="avg")
 
-    # Adding labels and title
-    ax1.set_xlabel('number of steps', fontdict={'size': 15})
-    ax1.set_ylabel('Cumulative reward', fontdict={'size': 15})
-    ax1.set_title('Q-Learning', fontdict={'size': 15})
-    ax1.set_ylim(
-        min(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list),
-        max(val for inner_dict in qlearning_data.values() for inner_list in inner_dict.values() for val in inner_list))
-        
-    ax1.set_xlim(0, 9000)
+        # Adding labels and title
+        axes[j].set_xlabel('number of steps', fontdict={'size': 15})
+        axes[j].set_ylabel('Cumulative reward', fontdict={'size': 15})
+        axes[j].set_title(captions[j], fontdict={'size': 15})
+        axes[j].set_ylim(
+            min(val for inner_dict in data[j].values() for inner_list in inner_dict.values() for val in inner_list),
+            max(val for inner_dict in data[j].values() for inner_list in inner_dict.values() for val in inner_list))
+
+        axes[j].set_xlim(0, 9000)
 
     # SARSA
-    sarsa_x_avg = np.zeros((SARSA_EPISODES))
-    sarsa_y_avg = np.zeros((SARSA_EPISODES))
-    for i in range(sarsa_data.keys().__len__()):
-        sarsa_x = np.cumsum([value[0] for value in list(sarsa_data[i].values())])
-        sarsa_y = np.cumsum([value[1] for value in list(sarsa_data[i].values())])
-
-        sarsa_x_avg = [sum(x) for x in zip(sarsa_x, sarsa_x_avg)]
-
-        sarsa_y_avg = [sum(y) for y in zip(sarsa_y, sarsa_y_avg)]
-
-        plt.plot(sarsa_x, sarsa_y, label=i, alpha=0.2)
-
-    sarsa_x_avg = [a / 10 for a in sarsa_x_avg]
-    sarsa_y_avg = [a / 10 for a in sarsa_y_avg]
-
-    plt.plot(sarsa_x_avg, sarsa_y_avg, '--', label="avg")
-
-    # Adding labels and title
-    ax2.set_xlabel('number of steps', fontdict={'size': 15})
-    ax2.set_title('SARSA', fontdict={'size': 15})
-    ax2.set_ylim(
-        min(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list),
-        max(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list))
-
-    ax2.set_xlim(0, 9000)
+    #sarsa_x_avg = np.zeros((SARSA_EPISODES))
+    #sarsa_y_avg = np.zeros((SARSA_EPISODES))
+    #for i in range(sarsa_data.keys().__len__()):
+    #    sarsa_x = np.cumsum([value[0] for value in list(sarsa_data[i].values())])
+    #    sarsa_y = np.cumsum([value[1] for value in list(sarsa_data[i].values())])
+#
+    #    sarsa_x_avg = [sum(x) for x in zip(sarsa_x, sarsa_x_avg)]
+#
+    #    sarsa_y_avg = [sum(y) for y in zip(sarsa_y, sarsa_y_avg)]
+#
+    #    plt.plot(sarsa_x, sarsa_y, label=i, alpha=0.2)
+#
+    #sarsa_x_avg = [a / 10 for a in sarsa_x_avg]
+    #sarsa_y_avg = [a / 10 for a in sarsa_y_avg]
+#
+    #plt.plot(sarsa_x_avg, sarsa_y_avg, '--', label="avg")
+#
+    ## Adding labels and title
+    #ax2.set_xlabel('number of steps', fontdict={'size': 15})
+    #ax2.set_title('SARSA', fontdict={'size': 15})
+    #ax2.set_ylim(
+    #    min(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list),
+    #    max(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list))
+#
+    #ax2.set_xlim(0, 9000)
 
     fig.suptitle("total number of steps over Cumulative reward", fontsize=25)
 
-    lines_labels = ax1.get_legend_handles_labels()
+    lines_labels = axes[0].get_legend_handles_labels()
     lines, labels = [sum(lol, []) for lol in zip(lines_labels)]
     fig.legend(lines, labels, bbox_to_anchor=(1, 0.84), loc='upper left', ncol=1)
 
