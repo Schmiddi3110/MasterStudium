@@ -42,6 +42,19 @@ def epsilon_greedy(eps, state, q_table):
     else:
         return np.argmax(q_table[state])
 
+def ucb(t, ucb_table, eps, q_table):
+
+    if np.random.random() < eps:
+        return np.random.randint(0, len(q_table[0]))
+
+    else:
+        ucb_values = []
+        for action in ucb_table:
+            value = action[0]/t + np.sqrt(2 * np.log10(t)/action[1])
+            ucb_values.append(value)
+
+        return np.argmax(ucb_values)
+
 
 
 
