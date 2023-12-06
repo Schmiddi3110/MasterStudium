@@ -188,7 +188,7 @@ def draw_state_type(x, y, type):
 
 def plot_episodes(data, episodes_count, captions):
     axes = [data.__len__()]
-    fig, axes = plt.subplots(int(data.__len__()/2), 2, figsize=(15, 5))
+    fig, axes = plt.subplots(1, 2, figsize=(15, 5))
     plt.subplots_adjust(wspace=20, right=0.7)
     for j in range(data.__len__()):
         x_avg_values = np.zeros(episodes_count[j])
@@ -223,7 +223,7 @@ def plot_episodes(data, episodes_count, captions):
 
 def plot_steps(data, episodes_count, captions):
     axes = [data.__len__()]
-    fig, axes = plt.subplots(int(data.__len__()/2), 2, figsize=(15, 5))
+    fig, axes = plt.subplots(1, 2, figsize=(15, 5))
     plt.subplots_adjust(wspace=20, right=0.7)
     for j in range(data.__len__()):
         x_avg_values = np.zeros((episodes_count[j]))

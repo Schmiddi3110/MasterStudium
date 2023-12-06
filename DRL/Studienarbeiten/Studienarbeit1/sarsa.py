@@ -9,7 +9,10 @@ class sarsa():
         self.episodes = episodes
         self.max_episode_length = max_episode_length
         self.init_reward = init_reward
-        self.eps = eps
+        if decay is None:
+            self.eps = 0.1
+        else:
+            self.eps = eps
         self.decay = decay
 
     def run_decay_epsilon_greedy(self, env):
