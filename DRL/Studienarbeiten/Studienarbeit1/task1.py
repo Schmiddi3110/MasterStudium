@@ -7,7 +7,7 @@ import numpy as np
 import optuna
 from gridworld import *
 from plot import *
-import optimize
+import optimize_steps
 from sarsa import *
 from qlearning import *
 

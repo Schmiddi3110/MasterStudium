@@ -9,10 +9,7 @@ class sarsa():
         self.episodes = episodes
         self.max_episode_length = max_episode_length
         self.init_reward = init_reward
-        if decay is None:
-            self.eps = 0.1
-        else:
-            self.eps = eps
+        self.eps = eps
         self.decay = decay
 
     def run_decay_epsilon_greedy(self, env):
@@ -48,7 +45,7 @@ class sarsa():
             # run episode until a goal state or the maximum number of steps has been reached
             while not done and episode_length < self.max_episode_length:
                 next_state, reward, done = env.step(action)
-                next_action = decay_epsilon_greedy(self.eps, episode, next_state, q_table, self.decay)
+                next_action = decay_epsilon_greedy(self.eps,episode, next_state, q_table, self.decay)
 
                 # Q-Learning update rule
                 delta = reward + self.gamma * q_table[next_state, next_action] * (done < 0.5) - q_table[state, action]

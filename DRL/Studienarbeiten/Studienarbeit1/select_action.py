@@ -15,7 +15,7 @@ def decay_epsilon_greedy(eps, episode, state, q_table, decay):
         Action to take in a given state
     """
     # do random action
-    if np.random.random() < eps / (decay * (episode + 1)):
+    if np.random.random() < (eps / (decay * (episode + 1))):
         return np.random.randint(0, len(q_table[0]))
     # or do best action
     else:

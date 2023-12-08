@@ -9,10 +9,7 @@ class qlearning():
         self.episodes = episodes
         self.max_episode_length = max_episode_length
         self.init_reward = init_reward
-        if decay is None:
-            self.eps = 0.1
-        else:
-            self.eps = eps
+        self.eps = eps
         self.decay = decay
 
     def run_decay_epsilon_greedy(self, env):
@@ -48,7 +45,7 @@ class qlearning():
             # run episode until a goal state or the maximum number of steps has been reached
             while not done and episode_length < self.max_episode_length:
                 next_state, reward, done = env.step(action)
-                next_action = decay_epsilon_greedy(self.eps, episode, next_state, q_table, self.decay)
+                next_action = decay_epsilon_greedy(self.eps, episode, next_state, q_table)
 
                 # Q-Learning update rule
                 delta = reward + self.gamma * np.max(q_table[next_state, next_action]) * (done < 0.5) - q_table[
@@ -144,17 +141,17 @@ class qlearning():
         # run a certain number of episodes
         for episode in range(self.episodes):
             state = env.reset()
-            steps_taken = 0
-            action = ucb(steps_taken, ucb_table[state], self.eps, q_table)
+            episode_length = 0
+
+            action = ucb(episode_length, ucb_table[state], self.eps, q_table)
 
             done = False
-            episode_length = 0
 
             # run episode until a goal state or the maximum number of steps has been reached
             while not done and episode_length < self.max_episode_length:
                 next_state, reward, done = env.step(action)
                 ucb_table[state, action] = [ucb_table[state, action][0] + reward, ucb_table[state, action][1] + 1]
-                next_action = ucb(steps_taken, ucb_table[state], self.eps, q_table)
+                next_action = ucb(episode_length, ucb_table[state], self.eps, q_table)
 
                 # Q-Learning update rule
                 delta = reward + self.gamma * np.max(q_table[next_state, next_action]) * (done < 0.5) - q_table[state, action]
