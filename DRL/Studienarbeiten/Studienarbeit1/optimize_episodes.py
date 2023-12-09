@@ -37,8 +37,8 @@ class optimize_episodes():
 
     def __qlearning_decay_epsilon(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 1,15000)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,20)
+        EPISODES = trial.suggest_int('EPISODES', 20,5000)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
         MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',100,5000)
         GAMMA = trial.suggest_float('GAMMA', 0, 1)
         ALPHA = trial.suggest_float('ALPHA', 0, 1)
@@ -76,8 +76,8 @@ class optimize_episodes():
 
     def __qlearning_epsilon_greedy(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 1,15000)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,20)
+        EPISODES = trial.suggest_int('EPISODES', 20,5000)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
         MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',100,5000)
         GAMMA = trial.suggest_float('GAMMA', 0, 1)
         ALPHA = trial.suggest_float('ALPHA', 0, 1)
@@ -114,8 +114,8 @@ class optimize_episodes():
 
     def __qlearning_ucb(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 1,15000)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,20)
+        EPISODES = trial.suggest_int('EPISODES', 20,5000)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
         MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',100,5000)
         GAMMA = trial.suggest_float('GAMMA', 0, 1)
         ALPHA = trial.suggest_float('ALPHA', 0, 1)
@@ -163,8 +163,8 @@ class optimize_episodes():
 
     def __sarsa_decay_epsilon(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 1,15000)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,20)
+        EPISODES = trial.suggest_int('EPISODES', 20,5000)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
         MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',100,5000)
         GAMMA = trial.suggest_float('GAMMA', 0, 1)
         ALPHA = trial.suggest_float('ALPHA', 0, 1)
@@ -202,8 +202,8 @@ class optimize_episodes():
 
     def __sarsa_epsilon_greedy(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 1,15000)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,20)
+        EPISODES = trial.suggest_int('EPISODES', 20,5000)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
         MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',100,5000)
         GAMMA = trial.suggest_float('GAMMA', 0, 1)
         ALPHA = trial.suggest_float('ALPHA', 0, 1)
@@ -240,8 +240,8 @@ class optimize_episodes():
 
     def __sarsa_ucb(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 1,15000)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,20)
+        EPISODES = trial.suggest_int('EPISODES', 20,5000)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
         MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',100,5000)
         GAMMA = trial.suggest_float('GAMMA', 0, 1)
         ALPHA = trial.suggest_float('ALPHA', 0, 1)
