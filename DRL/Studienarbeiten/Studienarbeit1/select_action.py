@@ -50,7 +50,7 @@ def ucb(t, ucb_table, eps, q_table):
     else:
         ucb_values = []
         for action in ucb_table:
-            value = action[0]/t + np.sqrt(2 * np.log10(t)/action[1])
+            value = action[0]/action[1] + np.sqrt(2 * np.log10(t)/action[1])
             ucb_values.append(value)
 
         return np.argmax(ucb_values)

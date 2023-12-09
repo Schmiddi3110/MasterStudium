@@ -37,11 +37,11 @@ class optimize_steps():
 
     def __qlearning_decay_epsilon(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 20,250)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
-        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,1000)
-        GAMMA = trial.suggest_float('GAMMA', 0, 1)
-        ALPHA = trial.suggest_float('ALPHA', 0, 1)
+        EPISODES = trial.suggest_int('EPISODES', 50,250)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,10)
+        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,50000)
+        GAMMA = trial.suggest_float('GAMMA', 0.5, 1)
+        ALPHA = trial.suggest_float('ALPHA', 0.2, 1)
         EPS = trial.suggest_float('EPS',0, 1)
         DECAY = trial.suggest_float('DECAY', 0, 1)
         q_table.fill(INIT_VALUE)
@@ -72,15 +72,15 @@ class optimize_steps():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(episode_length)
+        return cum_reward/(MAX_EPISODE_LENGTH)
 
     def __qlearning_epsilon_greedy(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 10,250)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
-        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,3000)
-        GAMMA = trial.suggest_float('GAMMA', 0, 1)
-        ALPHA = trial.suggest_float('ALPHA', 0, 1)
+        EPISODES = trial.suggest_int('EPISODES', 50,250)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',3,15)
+        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,50000)
+        GAMMA = trial.suggest_float('GAMMA', 0.5, 1)
+        ALPHA = trial.suggest_float('ALPHA', 0.2, 1)
         EPS = trial.suggest_float('EPS',0, 1)
         q_table.fill(INIT_VALUE)
 
@@ -110,15 +110,15 @@ class optimize_steps():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(episode_length)
+        return cum_reward/(MAX_EPISODE_LENGTH)
 
     def __qlearning_ucb(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 20,250)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
-        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,3000)
-        GAMMA = trial.suggest_float('GAMMA', 0, 1)
-        ALPHA = trial.suggest_float('ALPHA', 0, 1)
+        EPISODES = trial.suggest_int('EPISODES', 50,250)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,10)
+        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,50000)
+        GAMMA = trial.suggest_float('GAMMA', 0.5, 1)
+        ALPHA = trial.suggest_float('ALPHA', 0.2, 1)
         EPS = trial.suggest_float('EPS',0, 1)
         q_table.fill(INIT_VALUE)
 
@@ -157,17 +157,17 @@ class optimize_steps():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(episode_length)
+        return cum_reward/(MAX_EPISODE_LENGTH)
 
 
 
     def __sarsa_decay_epsilon(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 2,250)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
-        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH', 30,3000)
-        GAMMA = trial.suggest_float('GAMMA', 0, 1)
-        ALPHA = trial.suggest_float('ALPHA', 0, 1)
+        EPISODES = trial.suggest_int('EPISODES', 50,250)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,10)
+        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH', 30,50000)
+        GAMMA = trial.suggest_float('GAMMA', 0.5, 1)
+        ALPHA = trial.suggest_float('ALPHA', 0.2, 1)
         EPS = trial.suggest_float('EPS',0, 1)
         DECAY = trial.suggest_float('DECAY', 0, 1)
         q_table.fill(INIT_VALUE)
@@ -198,15 +198,15 @@ class optimize_steps():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(episode_length)
+        return cum_reward/(MAX_EPISODE_LENGTH)
 
     def __sarsa_epsilon_greedy(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 20,250)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
-        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,3000)
-        GAMMA = trial.suggest_float('GAMMA', 0, 1)
-        ALPHA = trial.suggest_float('ALPHA', 0, 1)
+        EPISODES = trial.suggest_int('EPISODES', 50,250)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',3,15)
+        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,50000)
+        GAMMA = trial.suggest_float('GAMMA', 0.5, 1)
+        ALPHA = trial.suggest_float('ALPHA', 0.2, 1)
         EPS = trial.suggest_float('EPS',0, 1)
         q_table.fill(INIT_VALUE)
 
@@ -236,15 +236,15 @@ class optimize_steps():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(episode_length)
+        return cum_reward/(MAX_EPISODE_LENGTH)
 
     def __sarsa_ucb(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
-        EPISODES = trial.suggest_int('EPISODES', 20,250)
-        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,5)
-        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,3000)
-        GAMMA = trial.suggest_float('GAMMA', 0, 1)
-        ALPHA = trial.suggest_float('ALPHA', 0, 1)
+        EPISODES = trial.suggest_int('EPISODES', 50,250)
+        INIT_VALUE = trial.suggest_int('INIT_VALUE',0,10)
+        MAX_EPISODE_LENGTH = trial.suggest_int('MAX_EPISODE_LENGTH',30,50000)
+        GAMMA = trial.suggest_float('GAMMA', 0.5, 1)
+        ALPHA = trial.suggest_float('ALPHA', 0.2, 1)
         EPS = trial.suggest_float('EPS',0, 1)
         q_table.fill(INIT_VALUE)
 
@@ -283,6 +283,6 @@ class optimize_steps():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(episode_length)
+        return cum_reward/(MAX_EPISODE_LENGTH)
 
 

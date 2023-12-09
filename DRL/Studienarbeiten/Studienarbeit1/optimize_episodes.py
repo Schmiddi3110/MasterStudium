@@ -177,7 +177,7 @@ class optimize_episodes():
         # run a certain number of episodes
         for episode in range(EPISODES):
             state = self.env.reset()
-            action = decay_epsilon_greedy(EPS, DECAY, episode, state, q_table)
+            action = decay_epsilon_greedy(EPS,  episode, state, q_table, DECAY)
 
             done = False
             episode_length = 0
@@ -185,7 +185,7 @@ class optimize_episodes():
             # run episode until a goal state or the maximum number of steps has been reached
             while not done and episode_length < MAX_EPISODE_LENGTH:
                 next_state, reward, done = self.env.step(action)
-                next_action = decay_epsilon_greedy(EPS, DECAY, episode, next_state, q_table)
+                next_action = decay_epsilon_greedy(EPS,  episode, next_state, q_table, DECAY)
 
                 # Q-Learning update rule
                 delta = reward + GAMMA * q_table[next_state, next_action] * (done < 0.5) - q_table[state, action]

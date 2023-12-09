@@ -186,7 +186,7 @@ def draw_state_type(x, y, type):
     plt.text(x + offset, y + offset, type, ha="center", va="center", color='k', fontsize=24, fontweight='bold')
 
 
-def plot_episodes(data, episodes_count, captions):
+def plot_episodes(data, episodes_count, captions, bound):
     axes = [data.__len__()]
     fig, axes = plt.subplots(1, 2, figsize=(15, 5))
     plt.subplots_adjust(wspace=20, right=0.7)
@@ -206,8 +206,8 @@ def plot_episodes(data, episodes_count, captions):
         axes[j].set_ylabel('Cumulative reward', fontdict={'size': 15})
         axes[j].set_title(captions[j], fontdict={'size': 15})
         axes[j].set_ylim(
-            min(val for inner_dict in data[j].values() for inner_list in inner_dict.values() for val in inner_list),
-            max(val for inner_dict in data[j].values() for inner_list in inner_dict.values() for val in inner_list))
+            bound[0],
+            bound[1])
 
         axes[j].set_xlim(0, len(x_values))
 
