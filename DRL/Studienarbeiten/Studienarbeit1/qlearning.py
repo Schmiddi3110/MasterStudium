@@ -45,7 +45,7 @@ class qlearning():
             # run episode until a goal state or the maximum number of steps has been reached
             while not done and episode_length < self.max_episode_length:
                 next_state, reward, done = env.step(action)
-                next_action = decay_epsilon_greedy(self.eps, episode, next_state, q_table)
+                next_action = decay_epsilon_greedy(self.eps, episode, next_state, q_table, self.decay)
 
                 # Q-Learning update rule
                 delta = reward + self.gamma * np.max(q_table[next_state, next_action]) * (done < 0.5) - q_table[
