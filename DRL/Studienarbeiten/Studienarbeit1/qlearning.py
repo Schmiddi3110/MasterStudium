@@ -57,7 +57,7 @@ class qlearning():
                 action = next_action
                 episode_length += 1
 
-            learning_data[episode] = [episode_length, cum_reward]
+            learning_data[episode] = [episode_length, cum_reward, (reward == 100 and done)]
 
         return learning_data
 
@@ -109,7 +109,7 @@ class qlearning():
                 action = next_action
                 episode_length += 1
 
-            learning_data[episode] = [episode_length, cum_reward]
+            learning_data[episode] = [episode_length, cum_reward, (reward == 100 and done)]
 
         return learning_data
 
@@ -162,6 +162,6 @@ class qlearning():
                 action = next_action
                 episode_length += 1
 
-            learning_data[episode] = [episode_length, cum_reward]
+            learning_data[episode] = [episode_length, cum_reward, (reward == 100 and done)]
 
         return learning_data

@@ -221,7 +221,7 @@ def plot_episodes(data, episodes_count, captions, bound):
     plt.show()
 
 
-def plot_steps(data, episodes_count, captions):
+def plot_steps(data, episodes_count, captions, bound):
     axes = [data.__len__()]
     fig, axes = plt.subplots(1, 2, figsize=(15, 5))
     plt.subplots_adjust(wspace=20, right=0.7)
@@ -248,37 +248,12 @@ def plot_steps(data, episodes_count, captions):
         axes[j].set_ylabel('Cumulative reward', fontdict={'size': 15})
         axes[j].set_title(captions[j], fontdict={'size': 15})
         axes[j].set_ylim(
-            min(val for inner_dict in data[j].values() for inner_list in inner_dict.values() for val in inner_list),
-            max(val for inner_dict in data[j].values() for inner_list in inner_dict.values() for val in inner_list))
+            bound[0],
+            bound[1])
 
-        axes[j].set_xlim(0, 9000)
+        axes[j].set_xlim(0, bound[2])
 
-    # SARSA
-    #sarsa_x_avg = np.zeros((SARSA_EPISODES))
-    #sarsa_y_avg = np.zeros((SARSA_EPISODES))
-    #for i in range(sarsa_data.keys().__len__()):
-    #    sarsa_x = np.cumsum([value[0] for value in list(sarsa_data[i].values())])
-    #    sarsa_y = np.cumsum([value[1] for value in list(sarsa_data[i].values())])
-#
-    #    sarsa_x_avg = [sum(x) for x in zip(sarsa_x, sarsa_x_avg)]
-#
-    #    sarsa_y_avg = [sum(y) for y in zip(sarsa_y, sarsa_y_avg)]
-#
-    #    plt.plot(sarsa_x, sarsa_y, label=i, alpha=0.2)
-#
-    #sarsa_x_avg = [a / 10 for a in sarsa_x_avg]
-    #sarsa_y_avg = [a / 10 for a in sarsa_y_avg]
-#
-    #plt.plot(sarsa_x_avg, sarsa_y_avg, '--', label="avg")
-#
-    ## Adding labels and title
-    #ax2.set_xlabel('number of steps', fontdict={'size': 15})
-    #ax2.set_title('SARSA', fontdict={'size': 15})
-    #ax2.set_ylim(
-    #    min(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list),
-    #    max(val for inner_dict in sarsa_data.values() for inner_list in inner_dict.values() for val in inner_list))
-#
-    #ax2.set_xlim(0, 9000)
+
 
     fig.suptitle("total number of steps over Cumulative reward", fontsize=25)
 

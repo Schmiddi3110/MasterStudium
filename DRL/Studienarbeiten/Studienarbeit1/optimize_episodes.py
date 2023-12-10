@@ -9,31 +9,31 @@ class optimize_episodes():
 
     def study_qlearning_decay_epsilon(self, study_name, storage, direction):
         study = optuna.create_study(study_name=study_name, storage=storage,load_if_exists=True, direction=direction)
-        study.optimize(lambda trial: self.__qlearning_decay_epsilon(trial), n_trials=1000)
+        study.optimize(lambda trial: self.__qlearning_decay_epsilon(trial), n_trials=200)
 
     def study_qlearning_epsilon_greedy(self, study_name, storage, direction):
         study = optuna.create_study(study_name=study_name, storage=storage, load_if_exists=True,
                                     direction=direction)
-        study.optimize(lambda trial: self.__qlearning_epsilon_greedy(trial), n_trials=1000)
+        study.optimize(lambda trial: self.__qlearning_epsilon_greedy(trial), n_trials=200)
 
     def study_qlearning_ucb(self, study_name, storage, direction):
         study = optuna.create_study(study_name=study_name, storage=storage, load_if_exists=True,
                                     direction=direction)
-        study.optimize(lambda trial: self.__qlearning_ucb(trial), n_trials=1000)
+        study.optimize(lambda trial: self.__qlearning_ucb(trial), n_trials=200)
 
     def study_sarsa_decay_epsilon(self, study_name, storage, direction):
         study = optuna.create_study(study_name=study_name, storage=storage,load_if_exists=True, direction=direction)
-        study.optimize(lambda trial: self.__sarsa_decay_epsilon(trial), n_trials=1000)
+        study.optimize(lambda trial: self.__sarsa_decay_epsilon(trial), n_trials=200)
 
     def study_sarsa_epsilon_greedy(self, study_name, storage, direction):
         study = optuna.create_study(study_name=study_name, storage=storage, load_if_exists=True,
                                     direction=direction)
-        study.optimize(lambda trial: self.__sarsa_epsilon_greedy(trial), n_trials=1000)
+        study.optimize(lambda trial: self.__sarsa_epsilon_greedy(trial), n_trials=200)
 
     def study_sarsa_ucb(self, study_name, storage, direction):
         study = optuna.create_study(study_name=study_name, storage=storage, load_if_exists=True,
                                     direction=direction)
-        study.optimize(lambda trial: self.__sarsa_ucb(trial), n_trials=1000)
+        study.optimize(lambda trial: self.__sarsa_ucb(trial), n_trials=200)
 
     def __qlearning_decay_epsilon(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
@@ -72,7 +72,7 @@ class optimize_episodes():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(EPISODES)
+        return cum_reward/(episode_length)
 
     def __qlearning_epsilon_greedy(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
@@ -110,7 +110,7 @@ class optimize_episodes():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(EPISODES)
+        return cum_reward/(episode_length)
 
     def __qlearning_ucb(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
@@ -157,7 +157,7 @@ class optimize_episodes():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(EPISODES)
+        return cum_reward/(episode_length)
 
 
 
@@ -198,7 +198,7 @@ class optimize_episodes():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(EPISODES)
+        return cum_reward/(episode_length)
 
     def __sarsa_epsilon_greedy(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
@@ -236,7 +236,7 @@ class optimize_episodes():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(EPISODES)
+        return cum_reward/(episode_length)
 
     def __sarsa_ucb(self, trial):
         q_table = np.zeros((self.env.num_states(),self.env.num_actions()))
@@ -283,6 +283,6 @@ class optimize_episodes():
 
             learning_data[episode] = [episode_length, cum_reward]
 
-        return cum_reward/(EPISODES)
+        return cum_reward/(episode_length)
 
 
