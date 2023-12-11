@@ -43,6 +43,14 @@ def epsilon_greedy(eps, state, q_table):
         return np.argmax(q_table[state])
 
 def ucb(t, ucb_table, eps, q_table):
+    """
+    This function determines which action to take at a given time. UCB1 is used to calculate the next action
+    Parameters:
+        t: Current time
+        ucb_table: Dictionary of shape {action: [reward_from_action, amount_action_was_taken]}
+        eps: Probability of taking a random action
+        q_table: Current Q-table
+    """
 
     if np.random.random() < eps:
         return np.random.randint(0, len(q_table[0]))

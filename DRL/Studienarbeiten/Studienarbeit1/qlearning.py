@@ -14,19 +14,13 @@ class qlearning():
 
     def run_decay_epsilon_greedy(self, env):
         """
-        This function performs the Q-Learning algorithm on a given GridWorld environment
+        This function performs the Q-Learning algorithm on a given GridWorld environment using decaying epsilon greedy exploration
         Parameters:
             env: Environment to perform Q-Learning on.
-            alpha: Learning rate
-            gamma: Discount factor
-            episodes: Number of episodes to perform
-            max_episode_length: Maximum length of an episode
-            init_reward: Initial reward for every possible action
-            eps: Chance to perform a random action
-            decay: Parameter for decaying epsilon-greedy
+
 
         Return:
-             Dictionary of shape: environment_N: { episode_M: { [steps_taken_in_episode, reward_from_episode] } }
+             Dictionary of shape: environment_N: { episode_M: { [steps_taken_in_episode, reward_from_episode, goal_found] } }
         """
 
         q_table = np.zeros((env.num_states(), env.num_actions()))
@@ -64,19 +58,12 @@ class qlearning():
 
     def run_epsilon_greedy(self, env):
         """
-        This function performs the SARSA algorithm on a given GridWorld environment
+        This function performs the Q-Learning algorithm on a given GridWorld environment using epsilon-greedy exploration
         Parameters:
             env: Environment to perform Q-Learning on.
-            alpha: Learning rate
-            gamma: Discount factor
-            episodes: Number of episodes to perform
-            max_episode_length: Maximum length of an episode
-            init_reward: Initial reward for every possible action
-            eps: Chance to perform a random action
-            decay: Parameter for decaying epsilon-greedy
 
         Return:
-             Dictionary of shape: environment_N: { episode_M: { [steps_taken_in_episode, reward_from_episode] } }
+             Dictionary of shape: environment_N: { episode_M: { [steps_taken_in_episode, reward_from_episode, goal_found] } }
         """
         q_table = np.zeros((env.num_states(), env.num_actions()))
         q_table.fill(self.init_reward)
@@ -116,19 +103,12 @@ class qlearning():
 
     def run_ucb(self, env):
         """
-                This function performs the SARSA algorithm on a given GridWorld environment
+                This function performs the Q-Learning algorithm on a given GridWorld environment using UCB1 exploration
                 Parameters:
                     env: Environment to perform Q-Learning on.
-                    alpha: Learning rate
-                    gamma: Discount factor
-                    episodes: Number of episodes to perform
-                    max_episode_length: Maximum length of an episode
-                    init_reward: Initial reward for every possible action
-                    eps: Chance to perform a random action
-                    decay: Parameter for decaying epsilon-greedy
 
                 Return:
-                     Dictionary of shape: environment_N: { episode_M: { [steps_taken_in_episode, reward_from_episode] } }
+                     Dictionary of shape: environment_N: { episode_M: { [steps_taken_in_episode, reward_from_episode, goal_found] } }
                 """
         q_table = np.zeros((env.num_states(), env.num_actions()))
         q_table.fill(self.init_reward)
