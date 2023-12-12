@@ -14,3 +14,6 @@ NLP/NLTK_Data
 ARVR/Lukas_repo/avr-tasks/
 *.model
 *.npy
+
+MAL MNIST Datensatz
+MAL/SupportVectorMachines/mnist-dataset/*
