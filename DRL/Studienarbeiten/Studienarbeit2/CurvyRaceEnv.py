@@ -2,7 +2,7 @@ import gymnasium
 from gymnasium import spaces
 import numpy as np
 
-from DRL.Studienarbeiten.Studienarbeit2 import race
+#from DRL.Studienarbeiten.Studienarbeit2 import race
 from race import *
 
 
