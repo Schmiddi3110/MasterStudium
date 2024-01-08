@@ -13,7 +13,7 @@ class CurvyRaceEnv(gymnasium.Env):
         self.curr_step = 0
         # Initialize the CurvyRace environment
         self.curvy_race = CurvyRace()
-        self.action_space = spaces.Box(low=-1, high=1, shape=(2,), dtype=np.float32)
+        self.action_space = spaces.Box(low=-self.curvy_race.get_action_limits()[0], high=self.curvy_race.get_action_limits()[0], shape=(2,), dtype=np.float32)
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(3,), dtype=np.float32)
 
     def reset(self, seed=None):
@@ -26,6 +26,7 @@ class CurvyRaceEnv(gymnasium.Env):
 
     def step(self, action):
         self.curr_step += 1
+        #action[0] *= 4
         # Take a step in the CurvyRace environment
         obs, reward, done = self.curvy_race.step(action)
         if reward == 1:
