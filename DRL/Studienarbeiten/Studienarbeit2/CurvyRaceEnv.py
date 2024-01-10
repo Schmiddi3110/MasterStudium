@@ -30,19 +30,23 @@ class CurvyRaceEnv(gymnasium.Env):
 
     def step(self, action):
         self.curr_step += 1
-        #action[0] *= 4
+
         # Take a step in the CurvyRace environment
         obs, reward, done = self.curvy_race.step(action)
         if reward == 1:
+            #print("goal")
             self.goals_hit += 1
             reward = reward + 5*self.goals_hit
             self.dist_to_gate = self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs)
         else:
-            if self.dist_to_gate >= self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs):
-                reward = 2
-            else:
-                reward = -self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs)
+            new_dist_to_gate = self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs)
+            reward = -50
+            if abs(new_dist_to_gate- self.dist_to_gate) < 0.5 and new_dist_to_gate > self.dist_to_gate:
+                reward = -10
 
+            if action[0] >= 0:
+                reward -= 100
+            self.dist_to_gate = new_dist_to_gate
 
        # if self.last_action.sort() == action.sort():
         #    reward = -100
