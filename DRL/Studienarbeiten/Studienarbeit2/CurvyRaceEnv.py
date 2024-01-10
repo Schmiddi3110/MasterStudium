@@ -1,8 +1,8 @@
 import gymnasium
 from gymnasium import spaces
 import numpy as np
-
-#from DRL.Studienarbeiten.Studienarbeit2 import race
+import math
+# from DRL.Studienarbeiten.Studienarbeit2 import race
 from race import *
 
 
@@ -13,7 +13,11 @@ class CurvyRaceEnv(gymnasium.Env):
         self.curr_step = 0
         # Initialize the CurvyRace environment
         self.curvy_race = CurvyRace()
-        self.action_space = spaces.Box(low=-self.curvy_race.get_action_limits()[0], high=self.curvy_race.get_action_limits()[0], shape=(2,), dtype=np.float32)
+        self.last_action = []
+        self.dist_to_gate = self.curvy_race.get_gates()[0][0][0]
+        low = np.array([-self.curvy_race.get_action_limits()[0], -self.curvy_race.get_action_limits()[1]])
+        high = np.array([self.curvy_race.get_action_limits()[0], self.curvy_race.get_action_limits()[1]])
+        self.action_space = spaces.Box(low=low, high=high, shape=(2,), dtype=float)
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(3,), dtype=np.float32)
 
     def reset(self, seed=None):
@@ -31,12 +35,39 @@ class CurvyRaceEnv(gymnasium.Env):
         obs, reward, done = self.curvy_race.step(action)
         if reward == 1:
             self.goals_hit += 1
-            reward = reward + self.goals_hit / self.curr_step
+            reward = reward + 5*self.goals_hit
+            self.dist_to_gate = self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs)
         else:
-            reward = -0.1
+            if self.dist_to_gate >= self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs):
+                reward = 2
+            else:
+                reward = -self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs)
+
+
+       # if self.last_action.sort() == action.sort():
+        #    reward = -100
         obs = np.array(obs, dtype=np.float32)
 
         return obs, reward, done, False, {}
+
+    def dist_agent_gate(self, gate, obs):
+        # V: vector representing the line segment
+        V = np.array([gate[1][1] - gate[0][0], gate[1][0] - gate[0][1]])
+
+        # W: vector representing the line segment from P1 to Q
+        W = np.array([obs[0] - gate[0][0], obs[1] - gate[0][1]])
+
+        # Projection of W onto V
+        projection = np.dot(W, V) / np.dot(V, V) * V
+
+        # Point P' on the line segment
+        P_prime = np.array([gate[0][0], gate[1][1]]) + projection
+
+        # Distance between Q and P'
+        distance = np.linalg.norm(np.array([obs[0], obs[1]]) - P_prime)
+
+        return distance
+
 
     def render(self, mode='human'):
         # Render the CurvyRace environment (for visualization purposes)
