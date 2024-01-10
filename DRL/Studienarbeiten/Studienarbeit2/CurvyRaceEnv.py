@@ -15,14 +15,17 @@ class CurvyRaceEnv(gymnasium.Env):
         self.curvy_race = CurvyRace()
         self.last_action = []
         self.dist_to_gate = self.curvy_race.get_gates()[0][0][0]
+        self.steps_since_last_goal = 0
         low = np.array([-self.curvy_race.get_action_limits()[0], -self.curvy_race.get_action_limits()[1]])
         high = np.array([self.curvy_race.get_action_limits()[0], self.curvy_race.get_action_limits()[1]])
         self.action_space = spaces.Box(low=low, high=high, shape=(2,), dtype=float)
-        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(3,), dtype=np.float32)
+        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(5,), dtype=np.float32)
 
     def reset(self, seed=None):
         # Reset the CurvyRace environment
         obs = self.curvy_race.reset()
+        obs = np.append(obs, self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs))
+        obs = np.append(obs, self.steps_since_last_goal)
         # Explicitly cast the observation to float32
         obs = np.array(obs, dtype=np.float32)
         info = {}  # You can provide additional information here if needed
@@ -34,22 +37,35 @@ class CurvyRaceEnv(gymnasium.Env):
         # Take a step in the CurvyRace environment
         obs, reward, done = self.curvy_race.step(action)
         if reward == 1:
+            self.steps_since_last_goal = 0
+            
             #print("goal")
             self.goals_hit += 1
             reward = reward + 5*self.goals_hit
             self.dist_to_gate = self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs)
+            obs = np.append(obs, self.dist_to_gate)
+            obs = np.append(obs, self.steps_since_last_goal)
         else:
+            self.steps_since_last_goal += 1
             new_dist_to_gate = self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs)
-            reward = -50
-            if abs(new_dist_to_gate- self.dist_to_gate) < 0.5 and new_dist_to_gate > self.dist_to_gate:
-                reward = -10
+            reward = -self.steps_since_last_goal    #always minus ten
 
-            if action[0] >= 0:
-                reward -= 100
+            #moving away from gate
+            if new_dist_to_gate > self.dist_to_gate:
+                reward -= 10
+            
+            #moving towards gate significantly
+            if abs(new_dist_to_gate - self.dist_to_gate) >= 0.5:
+                reward = 5 - self.steps_since_last_goal
+           
+            obs = np.append(obs, new_dist_to_gate)
+            obs= np.append(obs, self.steps_since_last_goal)
+
+            
+
+
             self.dist_to_gate = new_dist_to_gate
-
-       # if self.last_action.sort() == action.sort():
-        #    reward = -100
+           
         obs = np.array(obs, dtype=np.float32)
 
         return obs, reward, done, False, {}
