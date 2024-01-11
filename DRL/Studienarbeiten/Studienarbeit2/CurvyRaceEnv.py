@@ -13,62 +13,70 @@ class CurvyRaceEnv(gymnasium.Env):
         self.curr_step = 0
         # Initialize the CurvyRace environment
         self.curvy_race = CurvyRace()
-        self.last_action = []
-        self.dist_to_gate = self.curvy_race.get_gates()[0][0][0]
-        self.steps_since_last_goal = 0
         low = np.array([-self.curvy_race.get_action_limits()[0], -self.curvy_race.get_action_limits()[1]])
         high = np.array([self.curvy_race.get_action_limits()[0], self.curvy_race.get_action_limits()[1]])
         self.action_space = spaces.Box(low=low, high=high, shape=(2,), dtype=float)
-        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(5,), dtype=np.float32)
+
+        # obs_low = np.array([-5, -10, - self.curvy_race.get_action_limits()[1]])
+        # obs_high = np.array([40, 10, self.curvy_race.get_action_limits()[1]])
+        self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(3,), dtype=np.float32)
 
     def reset(self, seed=None):
         # Reset the CurvyRace environment
         obs = self.curvy_race.reset()
-        obs = np.append(obs, self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs))
-        obs = np.append(obs, self.steps_since_last_goal)
         # Explicitly cast the observation to float32
+        #obs = self.__add_observations(obs)
         obs = np.array(obs, dtype=np.float32)
+
         info = {}  # You can provide additional information here if needed
         return obs, info
 
     def step(self, action):
         self.curr_step += 1
-
         # Take a step in the CurvyRace environment
         obs, reward, done = self.curvy_race.step(action)
         if reward == 1:
-            self.steps_since_last_goal = 0
-            
-            #print("goal")
             self.goals_hit += 1
-            reward = reward + 5*self.goals_hit
-            self.dist_to_gate = self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs)
-            obs = np.append(obs, self.dist_to_gate)
-            obs = np.append(obs, self.steps_since_last_goal)
+            reward = reward + self.goals_hit / self.curr_step
         else:
-            self.steps_since_last_goal += 1
-            new_dist_to_gate = self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs)
-            reward = -self.steps_since_last_goal    #always minus ten
-
-            #moving away from gate
-            if new_dist_to_gate > self.dist_to_gate:
-                reward -= 10
-            
-            #moving towards gate significantly
-            if abs(new_dist_to_gate - self.dist_to_gate) >= 0.5:
-                reward = 5 - self.steps_since_last_goal
-           
-            obs = np.append(obs, new_dist_to_gate)
-            obs= np.append(obs, self.steps_since_last_goal)
-
-            
-
-
-            self.dist_to_gate = new_dist_to_gate
-           
+            reward = -0.1
         obs = np.array(obs, dtype=np.float32)
 
         return obs, reward, done, False, {}
+
+
+
+    def __calculate_gate_reward(self):
+        self.gates_hit += 1
+        return 2 * self.gates_hit
+
+    def __calculate_angle_reward(self, angle, upperbound, lowerbound):
+        if lowerbound <= angle <= upperbound:
+            return 2
+        else:
+            return -2
+
+    def __add_observations(self, obs):
+        """
+        obs[0]: x-position
+        obs[1]: y-position
+        obs[2]: winkel
+        obs[3]: distanz zum nächsten gate
+        obs[4]: nötiger winkel lower bound
+        obs[5]: nötiger winkel upper bound
+        obs[6]: Count gates hit
+        """
+        obs = np.append(obs, self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs))
+        obs = np.append(obs, self.get_angle(self.curvy_race.get_gates()[self.curvy_race.gate_idx], obs))
+        obs = np.append(obs, self.gates_hit)
+        return obs
+
+    def get_angle(self, gate, obs):
+        angle_bounds = []
+        angle_bounds.append(math.sin(self.dist_to_gate / abs(gate[1][1] - obs[1])))
+        angle_bounds.append(math.sin(abs(gate[1][0] - obs[1] / self.dist_to_gate)))
+
+        return angle_bounds
 
     def dist_agent_gate(self, gate, obs):
         # V: vector representing the line segment
@@ -87,7 +95,6 @@ class CurvyRaceEnv(gymnasium.Env):
         distance = np.linalg.norm(np.array([obs[0], obs[1]]) - P_prime)
 
         return distance
-
 
     def render(self, mode='human'):
         # Render the CurvyRace environment (for visualization purposes)
