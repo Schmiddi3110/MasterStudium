@@ -31,12 +31,9 @@ class CurvyRaceEnv(gymnasium.Env):
         
         # Reset the CurvyRace environment
         obs = self.curvy_race.reset()
-        self.prev_pos = [0,0]
-        self.index_curr  =0
-        # Explicitly cast the observation to float32
-        #obs = self.__add_observations(obs)
-        #self.prev_gate_dist = obs[3]
-        obs = np.append(obs, [0,0])
+        self.index_curr = 0
+
+        obs = self.__add_observations(obs)
         obs = np.array(obs, dtype=np.float32)
 
         info = {}  # You can provide additional information here if needed
@@ -45,31 +42,24 @@ class CurvyRaceEnv(gymnasium.Env):
     def step(self, action):        
         obs, reward, done = self.curvy_race.step(action)
 
-        gates = self.curvy_race.get_gates()
-        index_next = self.curvy_race.get_gate_idx()
-
-        if index_next == 16:
+        #Passed last Gate
+        if self.curvy_race.get_gate_idx() == len(self.curvy_race.get_gates()):
             reward += 1000
             self.index_curr = 0
 
-            observation = np.append(obs, [0,0])
+            observation = np.append(obs, [0, 0])
             observation = np.array(observation, dtype=np.float32)
+
             return observation, reward, done, False, {}
 
-        next_gate = gates[index_next]
-        center_next_gate_x = next_gate[0][0]
-        center_next_gate_y = (next_gate[1][1] + next_gate[0][1])/2
+        observation = self.__add_observations(obs)
 
-        angle_to_next_gate = self.get_angle(center_next_gate_x, center_next_gate_y, obs)
+        #calculate reward
+        reward = -observation[4]/14
+        reward -= observation[3]/2
 
-        gatedist = self.dist_agent_gate(next_gate, obs)
-
-        observation = np.append(obs, [angle_to_next_gate, gatedist])
-
-        reward = -gatedist/14
-        reward -= angle_to_next_gate/2
-
-        if index_next > self.index_curr:
+        # passed gate
+        if self.curvy_race.get_gate_idx() > self.index_curr:
             reward += 10*self.curvy_race.get_gate_idx()
 
             self.index_curr += 1
@@ -91,11 +81,15 @@ class CurvyRaceEnv(gymnasium.Env):
         obs[0]: x-position
         obs[1]: y-position
         obs[2]: winkel
-        obs[3]: distanz zum nächsten gate
-        obs[4]: distanz zum letzten tor
+        obs[3]: angle to next gate center
+        obs[4]: distance to next gate
         """
-        obs = np.append(obs, self.dist_agent_gate(self.next_goal, obs))
-        obs = np.append(obs, self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.get_gates().__len__()-1], obs))
+        center_next_gate_x = self.curvy_race.get_gates()[self.curvy_race.get_gate_idx()][0][0]
+        center_next_gate_y = (self.curvy_race.get_gates()[self.curvy_race.get_gate_idx()][1][1] + self.curvy_race.get_gates()[self.curvy_race.get_gate_idx()][0][1]) / 2
+        
+        obs = np.append(obs, self.get_angle(center_next_gate_x, center_next_gate_y, obs))
+        
+        obs = np.append(obs, self.dist_agent_gate(self.curvy_race.get_gates()[self.curvy_race.get_gate_idx()], obs))
 
 
         
