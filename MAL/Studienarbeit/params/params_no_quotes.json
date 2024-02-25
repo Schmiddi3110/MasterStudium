@@ -1,0 +1,1 @@
+{"dt": {"max_depth": 4, "min_samples_leaf": 5}, "svm": {"C": 0.01, "gamma": "auto", "kernel": "linear"}, "rf": {"max_depth": 6, "min_samples_leaf": 2, "n_estimators": 50}}
