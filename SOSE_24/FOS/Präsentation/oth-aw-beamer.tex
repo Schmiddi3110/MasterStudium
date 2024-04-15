@@ -1,0 +1,312 @@
+\documentclass[aspectratio=169, lecture, amberg]{OTHAWbeamer}
+\let\Tiny=\tiny  % remove annoying warning 2
+% other formats possible, e.g. aspectratio=43 or aspectration=169
+% lecture argument adds the subtitle to the footline
+% instead of amberg, the option weiden oder amwen can be given. This changes the title backround
+
+\usepackage{ngerman}
+\usepackage{amssymb}
+
+\usepackage[utf8]{inputenc}
+%\usepackage{tikz}
+\usepackage{etex}
+
+\title[Forschungsseminar]{One-Step Image Translation with Text-to-Image Models}
+\subtitle{Forschungsseminar}
+\author[Schmidt]{Fabian Schmidt}
+\place{OTH Amberg-Weiden}
+\date{\today}
+%\institute{Fakultät XXX}
+
+\email{f.schmidt3@oth-aw.de}
+
+\begin{document}
+\maketitle
+
+\frame{
+\frametitle{Tabel of Contents}
+\begin{enumerate}
+    \item Introduction
+    \item Related Work
+    \item Terminology
+    \item Method
+    \item Experiments
+    \item Discussion and Limitations
+    \item Live Demo
+\end{enumerate}
+\tableofcontents
+}
+
+\begin{frame}
+\frametitle{Introduction}
+\framesubtitle{Problems with Diffusion Models}
+
+\begin{columns}
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/GANs_Diffusion_Autoencoders.png}
+
+    \column{0.5\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/Generation-with-Diffusion-Models-ezgif.com-webp-to-jpg-converter.jpg}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Introduction}
+\framesubtitle{Proposed solutions}
+\begin{itemize}
+    \item One-step image-to-image translation method for paired and unpaired settings
+    \item Reduce number of inference steps to 1
+    \item Trainable without image pairs
+    \item Adapt pre-trained text-conditional one-step diffusion model to new domains via adversarial learning
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Related Work}
+\framesubtitle{Text-to-Image translation}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Related Work}
+\framesubtitle{Text-to-Image models}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Related Work}
+\framesubtitle{One-step generative models}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Terminology}
+\framesubtitle{Generative Adversarial Networks(GAN)}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/blog_gan.png}
+    \caption{GAN training process}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\framesubtitle{Generative Adversarial Networks(GAN)}
+\begin{block}{Generator loss}
+\begin{equation}
+\min_G \mathcal{L}_G = \mathbb{E}_{z \sim p_z(z)} [\log(1 - D(G(z)))]
+\end{equation}
+
+
+
+\end{block}
+\begin{block}{Discriminator loss}
+\begin{equation}
+\max_D \mathcal{L}_D = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\log D(x)] + \mathbb{E}_{z \sim p_z(z)} [\log(1 - D(G(z)))]
+\end{equation}\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\framesubtitle{CycleGAN}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/blog_cyclegan_h2z2h-768x333.png}
+    \caption{CycleGAN Architecture}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\framesubtitle{CycleGAN}
+\begin{block}{Adversarial loss for G}
+\begin{equation}
+\mathcal{L}_{\text{GAN}}(G, D_Y, X, Y) = \mathbb{E}_{y \sim p_{\text{data}}(y)} [\log D_Y(y)] + \mathbb{E}_{x \sim p_{\text{data}}(x)} [\log(1 - D_Y(G(x)))]
+\end{equation}
+\end{block}
+
+\begin{block}{Adversarial loss for F}
+\begin{equation}
+\mathcal{L}_{\text{GAN}}(F, D_X, Y, X) = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\log D_X(x)] + \mathbb{E}_{y \sim p_{\text{data}}(y)} [\log(1 - D_X(F(y)))]
+\end{equation}
+\end{block}
+
+\begin{block}{Cycle consistency loss}
+\begin{equation}
+\mathcal{L}_{\text{cycle}}(G, F) = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\lVert F(G(x)) - x \rVert_1] + \mathbb{E}_{y \sim p_{\text{data}}(y)} [\lVert G(F(y)) - y \rVert_1]
+\end{equation}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\framesubtitle{CycleGAN}
+\begin{block}{Identity loss}
+\begin{align}
+\mathcal{L}_{\text{identity}}(G, F, X, Y) & = \mathbb{E}_{y \sim p_{\text{data}}(y)} [\lVert G(y) - y \rVert_1] \\
+\mathcal{L}_{\text{identity}}(F, G, Y, X) & = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\lVert F(x) - x \rVert_1]
+\end{align}
+\end{block}
+
+\begin{block}{Cycle loss}
+\begin{equation}
+\mathcal{L}(G, F, D_X, D_Y) = \mathcal{L}_{\text{GAN}}(G, D_Y, X, Y) + \mathcal{L}_{\text{GAN}}(F, D_X, Y, X) + \lambda \mathcal{L}_{\text{cycle}}(G, F) + \lambda_{\text{id}} \left( \mathcal{L}_{\text{identity}}(G, F, X, Y) + \mathcal{L}_{\text{identity}}(F, G, Y, X) \right)
+\end{equation}
+
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\framesubtitle{Paired vs unpaired data}
+\begin{columns}
+    \column{0.5\textwidth}
+    \centering    
+    \begin{figure}
+        \includegraphics[width=0.75\textwidth]{images/blog_unpairedimagetranslation2.png}
+        \caption{Unpaired Data}
+    \end{figure}
+
+    \column{0.5\textwidth}    
+    \centering    
+    \begin{figure}        
+        \includegraphics[width=0.75\textwidth]{images/blog_pairedimagetranslation.png}
+        \caption{Paired Data}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\framesubtitle{UNet and Skip Connections}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/Group14.jpg}
+    \caption{Architecture}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\framesubtitle{LoRA Weights}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\linewidth]{images/Bildschirmfoto vom 2024-04-15 10-21-59.png}
+    \caption{\textbf{Lo}w \textbf{R}ank \textbf{A}daption}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Terminology}
+\framesubtitle{Stable Diffusion}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+\framesubtitle{Goal}
+?
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+\framesubtitle{Adding Conditioning Input}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{images/Bildschirmfoto vom 2024-04-14 10-57-39.png}
+    \caption{Enter Caption}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+\framesubtitle{Preserving Input Details}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{images/Bildschirmfoto vom 2024-04-14 11-06-40.png}
+    \caption{Skip Connections help retain details}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+\framesubtitle{Preserving Input Details}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{images/method.jpg}
+    \caption{Model Architecture}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+\framesubtitle{Unpaired Training}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+\framesubtitle{Extensions}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Experiments}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Experiments}
+\framesubtitle{Comparison to Unpaired Methods}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Experiments}
+\framesubtitle{Ablation Study}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Experiments}
+\framesubtitle{Extensions}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Discussion and Limitations}
+\framesubtitle{Discussion}
+\begin{itemize}
+    \item one-step pre-trained models can serve as a backbone model for many image synthesis tasks
+    \item Adapting the models can be achieved through GAN objectives without multi-step diffusion training
+    \item model training requires a small number of additional trainable parameters
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Discussion and Limitations}
+\framesubtitle{Limitations}
+\begin{itemize}
+    \item cannot specify strength of guidance as SD-Turbo does not use classifier-free guidance
+    \item does not support negative prompt
+    \item training is memory intensive
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{The End}
+\begin{center}
+\scalebox{2}{Questions?}
+\end{center}
+\end{frame}
+\end{document}
+
