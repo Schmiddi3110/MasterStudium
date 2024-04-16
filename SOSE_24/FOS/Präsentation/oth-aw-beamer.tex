@@ -43,12 +43,13 @@
 \begin{columns}
     \column{0.5\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{images/GANs_Diffusion_Autoencoders.png}
+    \includegraphics[width=0.9\textwidth]{images/GANs_Diffusion_Autoencoders.png}
 
     \column{0.5\textwidth}
     \centering
     \includegraphics[width=\textwidth]{images/Generation-with-Diffusion-Models-ezgif.com-webp-to-jpg-converter.jpg}
   \end{columns}
+  \tiny{\footnotemark \url{https://developer.nvidia.com/blog/improving-diffusion-models-as-an-alternative-to-gans-part-1/}}
 \end{frame}
 
 
@@ -89,9 +90,11 @@
 \framesubtitle{Generative Adversarial Networks(GAN)}
 \begin{figure}
     \centering
-    \includegraphics[width=0.75\linewidth]{images/blog_gan.png}
+    \includegraphics[width=0.65\linewidth]{images/blog_gan.png}
     \caption{GAN training process}
 \end{figure}
+\tiny{\footnotemark \url{http://www.lherranz.org/2018/08/07/imagetranslation/}}
+
 \end{frame}
 
 \begin{frame}
@@ -109,6 +112,9 @@
 \begin{equation}
 \max_D \mathcal{L}_D = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\log D(x)] + \mathbb{E}_{z \sim p_z(z)} [\log(1 - D(G(z)))]
 \end{equation}\end{block}
+\tiny\footnotemark \url{Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair,
+S., Courville, A., Bengio, Y.: Generative adversarial nets. In: Neural Information
+Processing Systems (NeurIPS) (2014)}
 \end{frame}
 
 \begin{frame}
@@ -116,9 +122,11 @@
 \framesubtitle{CycleGAN}
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\linewidth]{images/blog_cyclegan_h2z2h-768x333.png}
+    \includegraphics[width=0.78\linewidth]{images/blog_cyclegan_h2z2h-768x333.png}
     \caption{CycleGAN Architecture}
 \end{figure}
+\tiny{\footnotemark \url{http://www.lherranz.org/2018/08/07/imagetranslation/}}
+
 \end{frame}
 
 \begin{frame}
@@ -155,11 +163,14 @@
 
 \begin{block}{Cycle loss}
 \begin{equation}
-\mathcal{L}(G, F, D_X, D_Y) = \mathcal{L}_{\text{GAN}}(G, D_Y, X, Y) + \mathcal{L}_{\text{GAN}}(F, D_X, Y, X) + \lambda \mathcal{L}_{\text{cycle}}(G, F) + \lambda_{\text{id}} \left( \mathcal{L}_{\text{identity}}(G, F, X, Y) + \mathcal{L}_{\text{identity}}(F, G, Y, X) \right)
-\end{equation}
-
+    \begin{split}
+        &\mathcal{L}(G, F, D_X, D_Y) = \mathcal{L}_{\text{GAN}}(G, D_Y, X, Y) + \mathcal{L}_{\text{GAN}}(F, D_X, Y, X) + \\
+        &\lambda \mathcal{L}_{\text{cycle}}(G, F) + \lambda_{\text{id}} \left( \mathcal{L}_{\text{identity}}(G, F, X, Y) + \mathcal{L}_{\text{identity}}(F, G, Y, X) \right)
+    \end{split}    
+    \end{equation}
 \end{block}
 \end{frame}
+\note{stuff here}
 
 \begin{frame}
 \frametitle{Terminology}
@@ -186,7 +197,7 @@
 \framesubtitle{UNet and Skip Connections}
 \begin{figure}
     \centering
-    \includegraphics[width=0.75\linewidth]{images/Group14.jpg}
+    \includegraphics[width=0.6\linewidth]{images/Group14.jpg}
     \caption{Architecture}
 \end{figure}
 \end{frame}
