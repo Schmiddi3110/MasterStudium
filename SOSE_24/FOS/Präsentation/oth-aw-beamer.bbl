@@ -1,0 +1,275 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{li2023gligen}{article}{}
+      \name{author}{8}{}{%
+        {{hash=09166056e97b4aead775c515aa26432f}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yuheng},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=a580d4b27cb901a9aa355d400bd9c16e}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Haotian},
+           giveni={H\bibinitperiod}}}%
+        {{hash=8b8f0b5eb82125a35828b30dbefc78ef}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Qingyang},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=bc11253bdc2284f117b3c7db4c02bb6b}{%
+           family={Mu},
+           familyi={M\bibinitperiod},
+           given={Fangzhou},
+           giveni={F\bibinitperiod}}}%
+        {{hash=28f60884b33f4a669bad592a2b59e04d}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Jianwei},
+           giveni={J\bibinitperiod}}}%
+        {{hash=159bca5607e3797666654a2e3022978a}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Jianfeng},
+           giveni={J\bibinitperiod}}}%
+        {{hash=307cd2ff14b0ecd5a0ae2ca42e7c71b2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Chunyuan},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0058780d2044b7ad95d263c45e1a1b15}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Yong\bibnamedelima Jae},
+           giveni={Y\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv:2301.07093}%
+      }
+      \strng{namehash}{bd6ed4af211d92eaf5e9849407224c2d}
+      \strng{fullhash}{8be7aebee4aeb3f873bc25a1404798bd}
+      \strng{bibnamehash}{bd6ed4af211d92eaf5e9849407224c2d}
+      \strng{authorbibnamehash}{bd6ed4af211d92eaf5e9849407224c2d}
+      \strng{authornamehash}{bd6ed4af211d92eaf5e9849407224c2d}
+      \strng{authorfullhash}{8be7aebee4aeb3f873bc25a1404798bd}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GLIGEN: Open-Set Grounded Text-to-Image Generation}
+      \field{year}{2023}
+    \endentry
+    \entry{mou2023t2i}{article}{}
+      \name{author}{8}{}{%
+        {{hash=47b1cfd24627701ec4d831bb092f52c6}{%
+           family={Mou},
+           familyi={M\bibinitperiod},
+           given={Chong},
+           giveni={C\bibinitperiod}}}%
+        {{hash=e994283fda3ac7656924778697a2c9c9}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xintao},
+           giveni={X\bibinitperiod}}}%
+        {{hash=4564b49ec3d201ce4df7e96dbaf70dd6}{%
+           family={Xie},
+           familyi={X\bibinitperiod},
+           given={Liangbin},
+           giveni={L\bibinitperiod}}}%
+        {{hash=ece40cb26ee15c401c4ec20fea2393ed}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Yanze},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=112faefb37293f52cd92c3bb36fcc08b}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=c291949822b0b4406ab3b2d2256a15dd}{%
+           family={Qi},
+           familyi={Q\bibinitperiod},
+           given={Zhongang},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=a0e29acfeb76985fc3a8e6627409227a}{%
+           family={Shan},
+           familyi={S\bibinitperiod},
+           given={Ying},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=11137c84fa84d9814cf1db3d9ebdbc4a}{%
+           family={Qie},
+           familyi={Q\bibinitperiod},
+           given={Xiaohu},
+           giveni={X\bibinitperiod}}}%
+      }
+      \strng{namehash}{b7e0cc8923549722321da71389acdb8b}
+      \strng{fullhash}{9d98ff6f27795aef72f74e256491f2e7}
+      \strng{bibnamehash}{b7e0cc8923549722321da71389acdb8b}
+      \strng{authorbibnamehash}{b7e0cc8923549722321da71389acdb8b}
+      \strng{authornamehash}{b7e0cc8923549722321da71389acdb8b}
+      \strng{authorfullhash}{9d98ff6f27795aef72f74e256491f2e7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2302.08453}
+      \field{title}{T2i-adapter: Learning adapters to dig out more controllable ability for text-to-image diffusion models}
+      \field{year}{2023}
+    \endentry
+    \entry{sasaki2021unitddpm}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=ac5f5272e133ce7246b61550c125a4fa}{%
+           family={Sasaki},
+           familyi={S\bibinitperiod},
+           given={Hiroshi},
+           giveni={H\bibinitperiod}}}%
+        {{hash=d33264c8a8b456f6e6441594008ee212}{%
+           family={Willcocks},
+           familyi={W\bibinitperiod},
+           given={Chris\bibnamedelima G.},
+           giveni={C\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=3637d9787b01e113924bbe65b1953b81}{%
+           family={Breckon},
+           familyi={B\bibinitperiod},
+           given={Toby\bibnamedelima P.},
+           giveni={T\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{ce6eed82ceb784f5082ce017bbf18150}
+      \strng{fullhash}{ce6eed82ceb784f5082ce017bbf18150}
+      \strng{bibnamehash}{ce6eed82ceb784f5082ce017bbf18150}
+      \strng{authorbibnamehash}{ce6eed82ceb784f5082ce017bbf18150}
+      \strng{authornamehash}{ce6eed82ceb784f5082ce017bbf18150}
+      \strng{authorfullhash}{ce6eed82ceb784f5082ce017bbf18150}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{UNIT-DDPM: UNpaired Image Translation with Denoising Diffusion Probabilistic Models}
+      \field{year}{2021}
+      \verb{eprint}
+      \verb 2104.05358
+      \endverb
+    \endentry
+    \entry{su2022dual}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=fd98f59299f47c8384d82788b3a35613}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Xuan},
+           giveni={X\bibinitperiod}}}%
+        {{hash=78372b7167d001d4c80db2b19d6a76f3}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Jiaming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=58f87d1ad306023b7f8301b2b85c1584}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Chenlin},
+           giveni={C\bibinitperiod}}}%
+        {{hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{2b1aa20078554ec1b2a7f998c9f08bfc}
+      \strng{fullhash}{8f7910b4998bf750d81f5b798ee46f41}
+      \strng{bibnamehash}{2b1aa20078554ec1b2a7f998c9f08bfc}
+      \strng{authorbibnamehash}{2b1aa20078554ec1b2a7f998c9f08bfc}
+      \strng{authornamehash}{2b1aa20078554ec1b2a7f998c9f08bfc}
+      \strng{authorfullhash}{8f7910b4998bf750d81f5b798ee46f41}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Conference on Learning Representations}
+      \field{title}{Dual Diffusion Implicit Bridges for Image-to-Image Translation}
+      \field{year}{2023}
+    \endentry
+    \entry{cyclediffusion}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=85a413ec9ee0ed334e122ea7179dfdfc}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Chen\bibnamedelima Henry},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=fa8b1d4f7117c982d757a278835bf114}{%
+           family={Torre},
+           familyi={T\bibinitperiod},
+           given={Fernando\bibnamedelima De},
+           giveni={F\bibinitperiod\bibinitdelim D\bibinitperiod},
+           prefix={la},
+           prefixi={l\bibinitperiod}}}%
+      }
+      \strng{namehash}{6e525619b8fa8f3939d771b23b5127dc}
+      \strng{fullhash}{6e525619b8fa8f3939d771b23b5127dc}
+      \strng{bibnamehash}{6e525619b8fa8f3939d771b23b5127dc}
+      \strng{authorbibnamehash}{6e525619b8fa8f3939d771b23b5127dc}
+      \strng{authornamehash}{6e525619b8fa8f3939d771b23b5127dc}
+      \strng{authorfullhash}{6e525619b8fa8f3939d771b23b5127dc}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{ArXiv}
+      \field{title}{Unifying Diffusion Models' Latent Space, with Applications to {CycleDiffusion} and Guidance}
+      \field{year}{2022}
+    \endentry
+    \entry{zhang2023adding}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=f5c0f0a3df2f70fe083e104bdb76106d}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Lvmin},
+           giveni={L\bibinitperiod}}}%
+        {{hash=0eb63bbaf2838d9027cabeb7c9cbb26a}{%
+           family={Rao},
+           familyi={R\bibinitperiod},
+           given={Anyi},
+           giveni={A\bibinitperiod}}}%
+        {{hash=2f600a42bcab8fe8771b080139adcc0a}{%
+           family={Agrawala},
+           familyi={A\bibinitperiod},
+           given={Maneesh},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{2bc8ddb67541ee6ac4fe25593bb995a2}
+      \strng{fullhash}{2bc8ddb67541ee6ac4fe25593bb995a2}
+      \strng{bibnamehash}{2bc8ddb67541ee6ac4fe25593bb995a2}
+      \strng{authorbibnamehash}{2bc8ddb67541ee6ac4fe25593bb995a2}
+      \strng{authornamehash}{2bc8ddb67541ee6ac4fe25593bb995a2}
+      \strng{authorfullhash}{2bc8ddb67541ee6ac4fe25593bb995a2}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{IEEE International Conference on Computer Vision (ICCV)}
+      \field{title}{Adding Conditional Control to Text-to-Image Diffusion Models}
+      \field{year}{2023}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
