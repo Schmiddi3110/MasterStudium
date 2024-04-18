@@ -141,20 +141,16 @@ Unpaired Image Translation
 \tiny{\footnotemark \url{http://www.lherranz.org/2018/08/07/imagetranslation/}}
 \end{frame}
 
+
 % ---------- CycleGAN ----------
 \begin{frame}
     \frametitle{Terminology}
     \framesubtitle{CycleGAN}
-    \begin{block}{Adversarial loss for G}
-        \begin{equation}
+    \begin{block}{Adversarial loss for G and F}
+        \begin{align}
+            \mathcal{L}_{\text{GAN}}(F, D_X, Y, X) = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\log D_X(x)] + \mathbb{E}_{y \sim p_{\text{data}}(y)} [\log(1 - D_X(F(y)))] \\
             \mathcal{L}_{\text{GAN}}(G, D_Y, X, Y) = \mathbb{E}_{y \sim p_{\text{data}}(y)} [\log D_Y(y)] + \mathbb{E}_{x \sim p_{\text{data}}(x)} [\log(1 - D_Y(G(x)))]
-        \end{equation}
-    \end{block}
-
-    \begin{block}{Adversarial loss for F}
-        \begin{equation}
-            \mathcal{L}_{\text{GAN}}(F, D_X, Y, X) = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\log D_X(x)] + \mathbb{E}_{y \sim p_{\text{data}}(y)} [\log(1 - D_X(F(y)))]
-        \end{equation}
+        \end{align}
     \end{block}
 
     \begin{block}{Cycle consistency loss}
@@ -163,7 +159,10 @@ Unpaired Image Translation
         \end{equation}
     \end{block}
 \end{frame}
-
+\note{\begin{itemize}
+    \item Adversarial loss: Standard GAN loss. Vergleich zwei Folien früher    
+    \item Cycle consistency loss: Wenn ein Bild von Domain X in Domain Y übersetzt wird und dann wieder zurück, sollte das Ergebnis dem Original entsprechen. Mit L1 Norm (mean absoulte Error)
+}
 % ---------- CycleGAN ----------
 \begin{frame}
     \frametitle{Terminology}
@@ -183,8 +182,12 @@ Unpaired Image Translation
             \end{split}    
         \end{equation}
     \end{block}
+    \tiny{\footnotemark \url{https://arxiv.org/pdf/1703.10593.pdf}}
 \end{frame}
-\note{stuff here}
+\note{\begin{itemize}
+    \item Identity loss: Wenn ein Bild von Domain X in Domain Y übersetzt wird, sollte das Ergebnis dem Original entsprechen
+    \item Cycle loss: gewichtete Kombination aus Adversarial loss, Cycle consistency loss und Identity loss
+}
 
 % ---------- Paired vs unpaired data ----------
 \begin{frame}
@@ -206,6 +209,13 @@ Unpaired Image Translation
     \end{figure}
   \end{columns}
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Paired data: Jedes Bild in Domain X hat ein korrespondierendes Bild in Domain Y
+        \item Unpaired data: Es gibt keine direkte Zuordnung zwischen den Bildern in Domain X und Domain Y
+    \end{itemize}
+
+}
 
 % ---------- UNet and Skip Connections ----------
 \begin{frame}
@@ -217,6 +227,16 @@ Unpaired Image Translation
     \caption{Architecture}
 \end{figure}
 \end{frame}
+\note{
+    \begin{itemize}
+        \item UNet: Convolutional Neural Network, das für Bildsegmentierung verwendet wird
+        \begin{itemize}
+            \item Encoder Pfad: Mehrere Blöcke von convolutional layers mit ReLU activation und max pooling. Reduziert die Dimensionalität des Inputs
+            \item Decoder Pfad: Mehrere Blöcke von convolutional layers mit RelU activation und upconvolution. Erhöht die Dimensionalität des Inputs. Außerdem Concatenation mit entsprechenden Encoder Pfad
+            \item Skip Connections: Verbindung zwischen Encoder und Decoder Pfad. Hilft details zu erhalten, die im Encoder verloren gehen würden
+        \end{itemize}
+    \end{itemize}
+}
 
 % ---------- LoRA Weights ----------
 \begin{frame}
