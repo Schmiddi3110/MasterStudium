@@ -19,6 +19,53 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{kakaobrain2022coyo-700m}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=efc104d6b6b71097531d426170762960}{%
+           family={Byeon},
+           familyi={B\bibinitperiod},
+           given={Minwoo},
+           giveni={M\bibinitperiod}}}%
+        {{hash=30706ba8b50974819fd7e53d316bf51e}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Beomhee},
+           giveni={B\bibinitperiod}}}%
+        {{hash=25835d2f2bd6dc3c39f6c7cdf746adfc}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Haecheon},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ff046a908316c6c06127544a2826ee10}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Sungjun},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d100634dfbe4fb484a68c525f1a8aa46}{%
+           family={Baek},
+           familyi={B\bibinitperiod},
+           given={Woonhyuk},
+           giveni={W\bibinitperiod}}}%
+        {{hash=a40317661a1c21902ceee2f11744f75e}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Saehoon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb2c98a90006237437001448a69405cd}
+      \strng{fullhash}{4d8e43e762e77802836a18a5abf685e7}
+      \strng{bibnamehash}{bb2c98a90006237437001448a69405cd}
+      \strng{authorbibnamehash}{bb2c98a90006237437001448a69405cd}
+      \strng{authornamehash}{bb2c98a90006237437001448a69405cd}
+      \strng{authorfullhash}{4d8e43e762e77802836a18a5abf685e7}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/kakaobrain/coyo-dataset}}
+      \field{title}{COYO-700M: Image-Text Pair Dataset}
+      \field{year}{2022}
+    \endentry
     \entry{li2023gligen}{article}{}
       \name{author}{8}{}{%
         {{hash=09166056e97b4aead775c515aa26432f}{%
@@ -77,6 +124,58 @@
       \field{labeltitlesource}{title}
       \field{title}{GLIGEN: Open-Set Grounded Text-to-Image Generation}
       \field{year}{2023}
+    \endentry
+    \entry{meng2022sdedit}{inproceedings}{}
+      \name{author}{7}{}{%
+        {{hash=58f87d1ad306023b7f8301b2b85c1584}{%
+           family={Meng},
+           familyi={M\bibinitperiod},
+           given={Chenlin},
+           giveni={C\bibinitperiod}}}%
+        {{hash=d6388c5c52cd35952d8cb685c51826cf}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Yutong},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=7dacbb5a6e92ab16944d46ba03705563}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=78372b7167d001d4c80db2b19d6a76f3}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Jiaming},
+           giveni={J\bibinitperiod}}}%
+        {{hash=3a7d08fff1af967fe4513ac63790e97d}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Jiajun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9fbb4b31963f07f34a13b375b4997338}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jun-Yan},
+           giveni={J\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=160929a7e6ceecdf3f7c9a13abd5ea35}{%
+           family={Ermon},
+           familyi={E\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{65f6a3e8cbbc1ffe1fb1385e69dcbb64}
+      \strng{fullhash}{27b66142db3963d837f67054228b15b8}
+      \strng{bibnamehash}{65f6a3e8cbbc1ffe1fb1385e69dcbb64}
+      \strng{authorbibnamehash}{65f6a3e8cbbc1ffe1fb1385e69dcbb64}
+      \strng{authornamehash}{65f6a3e8cbbc1ffe1fb1385e69dcbb64}
+      \strng{authorfullhash}{27b66142db3963d837f67054228b15b8}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Conference on Learning Representations}
+      \field{title}{{SDE}dit: Guided Image Synthesis and Editing with Stochastic Differential Equations}
+      \field{year}{2022}
     \endentry
     \entry{mou2023t2i}{article}{}
       \name{author}{8}{}{%
@@ -169,6 +268,107 @@
       \field{year}{2021}
       \verb{eprint}
       \verb 2104.05358
+      \endverb
+    \endentry
+    \entry{schuhmann2022laion5b}{misc}{}
+      \name{author}{16}{}{%
+        {{hash=04def16c8c350ee5bebf683b599747ca}{%
+           family={Schuhmann},
+           familyi={S\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+        {{hash=9a96dd68c471b4e6c9b138ba5f6c2f36}{%
+           family={Beaumont},
+           familyi={B\bibinitperiod},
+           given={Romain},
+           giveni={R\bibinitperiod}}}%
+        {{hash=9241ab3096850ed60962f9aaff374fdc}{%
+           family={Vencu},
+           familyi={V\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c17387b4289737b71b05a3605662984e}{%
+           family={Gordon},
+           familyi={G\bibinitperiod},
+           given={Cade},
+           giveni={C\bibinitperiod}}}%
+        {{hash=57500e512348bba88f1e664b289c7a79}{%
+           family={Wightman},
+           familyi={W\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=d2e5f820769dc4b20081d67a89d97130}{%
+           family={Cherti},
+           familyi={C\bibinitperiod},
+           given={Mehdi},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f2500c3082663f52c8029923bc0ac694}{%
+           family={Coombes},
+           familyi={C\bibinitperiod},
+           given={Theo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=db498c3e28fc8fc2847dec9ef95b7a57}{%
+           family={Katta},
+           familyi={K\bibinitperiod},
+           given={Aarush},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b7e4e2c95dd390b72df73129cd16d064}{%
+           family={Mullis},
+           familyi={M\bibinitperiod},
+           given={Clayton},
+           giveni={C\bibinitperiod}}}%
+        {{hash=19463711d20e6ca18c22c22f4c861e6a}{%
+           family={Wortsman},
+           familyi={W\bibinitperiod},
+           given={Mitchell},
+           giveni={M\bibinitperiod}}}%
+        {{hash=308e5e7ed62862b6c0f0a7442d291288}{%
+           family={Schramowski},
+           familyi={S\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=867a523605b51133c63add9be0cc43cc}{%
+           family={Kundurthy},
+           familyi={K\bibinitperiod},
+           given={Srivatsa},
+           giveni={S\bibinitperiod}}}%
+        {{hash=32cae97948232af8b4e677ab9cad4802}{%
+           family={Crowson},
+           familyi={C\bibinitperiod},
+           given={Katherine},
+           giveni={K\bibinitperiod}}}%
+        {{hash=bca2cf46e9eed1a3bcc54f4286b4e013}{%
+           family={Schmidt},
+           familyi={S\bibinitperiod},
+           given={Ludwig},
+           giveni={L\bibinitperiod}}}%
+        {{hash=405d64826a6cffc6c8059acec6e778ca}{%
+           family={Kaczmarczyk},
+           familyi={K\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c333c3e41e4aa4456eacafd67fd8c952}{%
+           family={Jitsev},
+           familyi={J\bibinitperiod},
+           given={Jenia},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{5fe14d8996e4f4a50538c126c76e31e7}
+      \strng{fullhash}{8ae57bc1a4026ebea3fad5663fc38890}
+      \strng{bibnamehash}{5fe14d8996e4f4a50538c126c76e31e7}
+      \strng{authorbibnamehash}{5fe14d8996e4f4a50538c126c76e31e7}
+      \strng{authornamehash}{5fe14d8996e4f4a50538c126c76e31e7}
+      \strng{authorfullhash}{8ae57bc1a4026ebea3fad5663fc38890}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{LAION-5B: An open large-scale dataset for training next generation image-text models}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2210.08402
       \endverb
     \endentry
     \entry{su2022dual}{inproceedings}{}
