@@ -19,6 +19,62 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{bijelic2020seeing}{misc}{}
+      \name{author}{7}{}{%
+        {{hash=2d8bb4f69d41491c1a1572b91f37318f}{%
+           family={Bijelic},
+           familyi={B\bibinitperiod},
+           given={Mario},
+           giveni={M\bibinitperiod}}}%
+        {{hash=1ef3f9fff8c37663c2e80a6c5ac1e639}{%
+           family={Gruber},
+           familyi={G\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+        {{hash=6e0f8920db831925fcdf16c430f36df9}{%
+           family={Mannan},
+           familyi={M\bibinitperiod},
+           given={Fahim},
+           giveni={F\bibinitperiod}}}%
+        {{hash=d5fa511313088859d5833467b78a44e4}{%
+           family={Kraus},
+           familyi={K\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=076985ffe4e1604f46c00e64e2fd4afe}{%
+           family={Ritter},
+           familyi={R\bibinitperiod},
+           given={Werner},
+           giveni={W\bibinitperiod}}}%
+        {{hash=2f1c83e71a33d1c7df6e6b4962d375bb}{%
+           family={Dietmayer},
+           familyi={D\bibinitperiod},
+           given={Klaus},
+           giveni={K\bibinitperiod}}}%
+        {{hash=2487c826a0790a643c4f24e93cbfd4eb}{%
+           family={Heide},
+           familyi={H\bibinitperiod},
+           given={Felix},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{e4c4dd1a0c5095b2b6606d72980fcd00}
+      \strng{fullhash}{1ea3a4a20988f1b3e2d6209ec7365311}
+      \strng{bibnamehash}{e4c4dd1a0c5095b2b6606d72980fcd00}
+      \strng{authorbibnamehash}{e4c4dd1a0c5095b2b6606d72980fcd00}
+      \strng{authornamehash}{e4c4dd1a0c5095b2b6606d72980fcd00}
+      \strng{authorfullhash}{1ea3a4a20988f1b3e2d6209ec7365311}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Seeing Through Fog Without Seeing Fog: Deep Multimodal Sensor Fusion in Unseen Adverse Weather}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 1902.08913
+      \endverb
+    \endentry
     \entry{kakaobrain2022coyo-700m}{misc}{}
       \name{author}{6}{}{%
         {{hash=efc104d6b6b71097531d426170762960}{%
@@ -65,6 +121,105 @@
       \field{howpublished}{\url{https://github.com/kakaobrain/coyo-dataset}}
       \field{title}{COYO-700M: Image-Text Pair Dataset}
       \field{year}{2022}
+    \endentry
+    \entry{5206848}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=0ae7fdc13773f928525f673b05f37149}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Jia},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7d87c5957b07153c7f18918b92830bf8}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=d5670b2600fea169724521e252d9d09d}{%
+           family={Socher},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2afdae52015b97674d81efea449edce2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Li-Jia},
+           giveni={L\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=4838f7fdd28d5cefb28f3b3c734976d4}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+        {{hash=cd00ce5bc45f687c432e52e0fa1a7aa6}{%
+           family={Fei-Fei},
+           familyi={F\bibinithyphendelim F\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{990420f755e01028377fcad1464c9706}
+      \strng{fullhash}{a16fdd05c52c264b99fe98f4a5e24c60}
+      \strng{bibnamehash}{990420f755e01028377fcad1464c9706}
+      \strng{authorbibnamehash}{990420f755e01028377fcad1464c9706}
+      \strng{authornamehash}{990420f755e01028377fcad1464c9706}
+      \strng{authorfullhash}{a16fdd05c52c264b99fe98f4a5e24c60}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2009 IEEE Conference on Computer Vision and Pattern Recognition}
+      \field{title}{ImageNet: A large-scale hierarchical image database}
+      \field{year}{2009}
+      \field{pages}{248\bibrangedash 255}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/CVPR.2009.5206848
+      \endverb
+      \keyw{Large-scale systems;Image databases;Explosions;Internet;Robustness;Information retrieval;Image retrieval;Multimedia databases;Ontologies;Spine}
+    \endentry
+    \entry{heusel2018gans}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=73191877890a6350d04aa0151d96fa10}{%
+           family={Heusel},
+           familyi={H\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f7ddff2d58ece37233af8650f706e499}{%
+           family={Ramsauer},
+           familyi={R\bibinitperiod},
+           given={Hubert},
+           giveni={H\bibinitperiod}}}%
+        {{hash=1a47640139e63b9b5969c969dfe95def}{%
+           family={Unterthiner},
+           familyi={U\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=46903af2a234346e2857b1bfc2f54949}{%
+           family={Nessler},
+           familyi={N\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod}}}%
+        {{hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{ab86da679ca4e1bc135f61f6671c8585}
+      \strng{fullhash}{d8b1bbf858e98229cb351aa71ede2179}
+      \strng{bibnamehash}{ab86da679ca4e1bc135f61f6671c8585}
+      \strng{authorbibnamehash}{ab86da679ca4e1bc135f61f6671c8585}
+      \strng{authornamehash}{ab86da679ca4e1bc135f61f6671c8585}
+      \strng{authorfullhash}{d8b1bbf858e98229cb351aa71ede2179}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{GANs Trained by a Two Time-Scale Update Rule Converge to a Local Nash Equilibrium}
+      \field{year}{2018}
+      \verb{eprint}
+      \verb 1706.08500
+      \endverb
     \endentry
     \entry{li2023gligen}{article}{}
       \name{author}{8}{}{%
@@ -408,6 +563,47 @@
       \field{title}{Dual Diffusion Implicit Bridges for Image-to-Image Translation}
       \field{year}{2023}
     \endentry
+    \entry{tumanyan2022splicing}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=ee9f4f3715c4e7d073904e59ffefa1e4}{%
+           family={Tumanyan},
+           familyi={T\bibinitperiod},
+           given={Narek},
+           giveni={N\bibinitperiod}}}%
+        {{hash=279924d49298c3de4dddda8c8cdf9b61}{%
+           family={Bar-Tal},
+           familyi={B\bibinithyphendelim T\bibinitperiod},
+           given={Omer},
+           giveni={O\bibinitperiod}}}%
+        {{hash=dc064ec00f18ad5efa4a0c5c97033ec9}{%
+           family={Bagon},
+           familyi={B\bibinitperiod},
+           given={Shai},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b8d9b5553cce7ae37689e63b3f09c09e}{%
+           family={Dekel},
+           familyi={D\bibinitperiod},
+           given={Tali},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{18b0ed24a5d14f168a687961e3866406}
+      \strng{fullhash}{8f917abd4a29cc457eb4b3d67e90ed4a}
+      \strng{bibnamehash}{18b0ed24a5d14f168a687961e3866406}
+      \strng{authorbibnamehash}{18b0ed24a5d14f168a687961e3866406}
+      \strng{authornamehash}{18b0ed24a5d14f168a687961e3866406}
+      \strng{authorfullhash}{8f917abd4a29cc457eb4b3d67e90ed4a}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Splicing ViT Features for Semantic Appearance Transfer}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2201.00424
+      \endverb
+    \endentry
     \entry{cyclediffusion}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=85a413ec9ee0ed334e122ea7179dfdfc}{%
@@ -436,6 +632,67 @@
       \field{booktitle}{ArXiv}
       \field{title}{Unifying Diffusion Models' Latent Space, with Applications to {CycleDiffusion} and Guidance}
       \field{year}{2022}
+    \endentry
+    \entry{yu2020bdd100k}{misc}{}
+      \name{author}{8}{}{%
+        {{hash=7d644ffcde545cbf48ce06126689b74c}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Fisher},
+           giveni={F\bibinitperiod}}}%
+        {{hash=b8fa82c747322d8345a9172cebc85ea7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Haofeng},
+           giveni={H\bibinitperiod}}}%
+        {{hash=03d3e23852937fa39b0e34246c4ecd1d}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=c93885ce64107dd06ced5179f7f1e589}{%
+           family={Xian},
+           familyi={X\bibinitperiod},
+           given={Wenqi},
+           giveni={W\bibinitperiod}}}%
+        {{hash=da6c79f9546ad88a2e796febc7e145da}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Yingying},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ad0d24bb008c9b37c59a3279f34cd576}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Fangchen},
+           giveni={F\bibinitperiod}}}%
+        {{hash=8f1c0df53b87aa308e99e41904c28b1d}{%
+           family={Madhavan},
+           familyi={M\bibinitperiod},
+           given={Vashisht},
+           giveni={V\bibinitperiod}}}%
+        {{hash=90180e1a30742e0d15328bfe637c2ef4}{%
+           family={Darrell},
+           familyi={D\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{cc2a6fc8dcf01707f6150fb813b13113}
+      \strng{fullhash}{9ccddb15b10cb3ea1933ecc9cd1470ea}
+      \strng{bibnamehash}{cc2a6fc8dcf01707f6150fb813b13113}
+      \strng{authorbibnamehash}{cc2a6fc8dcf01707f6150fb813b13113}
+      \strng{authornamehash}{cc2a6fc8dcf01707f6150fb813b13113}
+      \strng{authorfullhash}{9ccddb15b10cb3ea1933ecc9cd1470ea}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{BDD100K: A Diverse Driving Dataset for Heterogeneous Multitask Learning}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 1805.04687
+      \endverb
     \endentry
     \entry{zhang2023adding}{misc}{}
       \name{author}{3}{}{%
@@ -468,6 +725,93 @@
       \field{booktitle}{IEEE International Conference on Computer Vision (ICCV)}
       \field{title}{Adding Conditional Control to Text-to-Image Diffusion Models}
       \field{year}{2023}
+    \endentry
+    \entry{zhang2018unreasonable}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=0c65190dcbd461dee172354f7938ae43}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=cae9f806bc99a5f19fadea538fc2db04}{%
+           family={Isola},
+           familyi={I\bibinitperiod},
+           given={Phillip},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5a663b27298722834a8cf09bb93d8c94}{%
+           family={Efros},
+           familyi={E\bibinitperiod},
+           given={Alexei\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=739ef881fb9e0c2c8d7110c90325d960}{%
+           family={Shechtman},
+           familyi={S\bibinitperiod},
+           given={Eli},
+           giveni={E\bibinitperiod}}}%
+        {{hash=4954ab8be479c4a3f1496ddfbc21a605}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Oliver},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{a186c318a8836d77467280ce6646a302}
+      \strng{fullhash}{b4812124f82ca96d3c1cb10ee3db7804}
+      \strng{bibnamehash}{a186c318a8836d77467280ce6646a302}
+      \strng{authorbibnamehash}{a186c318a8836d77467280ce6646a302}
+      \strng{authornamehash}{a186c318a8836d77467280ce6646a302}
+      \strng{authorfullhash}{b4812124f82ca96d3c1cb10ee3db7804}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{The Unreasonable Effectiveness of Deep Features as a Perceptual Metric}
+      \field{year}{2018}
+      \verb{eprint}
+      \verb 1801.03924
+      \endverb
+    \endentry
+    \entry{zhu2020unpaired}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=9fbb4b31963f07f34a13b375b4997338}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jun-Yan},
+           giveni={J\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=b036e0ed5c21929ab46890b9a1033163}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Taesung},
+           giveni={T\bibinitperiod}}}%
+        {{hash=cae9f806bc99a5f19fadea538fc2db04}{%
+           family={Isola},
+           familyi={I\bibinitperiod},
+           given={Phillip},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5a663b27298722834a8cf09bb93d8c94}{%
+           family={Efros},
+           familyi={E\bibinitperiod},
+           given={Alexei\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6bbc73cad9d67ffe67a198aaeed8ce61}
+      \strng{fullhash}{69bc0b2da0c2e1bc9b8395c1d38556bb}
+      \strng{bibnamehash}{6bbc73cad9d67ffe67a198aaeed8ce61}
+      \strng{authorbibnamehash}{6bbc73cad9d67ffe67a198aaeed8ce61}
+      \strng{authornamehash}{6bbc73cad9d67ffe67a198aaeed8ce61}
+      \strng{authorfullhash}{69bc0b2da0c2e1bc9b8395c1d38556bb}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 1703.10593
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

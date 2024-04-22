@@ -30,7 +30,7 @@
     \item Related Work
     \item Terminology
     \item Method
-    \item Experiments
+    \item Experiments - Paired Image Translation
     \item Discussion and Limitations
     \item Live Demo
 \end{enumerate}
@@ -313,8 +313,8 @@ using one network G and two translations $G(x, c_y): \mathcal{X} \rightarrow \ma
     \begin{equation}
         \mathcal{L}_{\text{cycle}}(G, F) = \mathbb{E}_x [ \mathcal{L}_\text{rec} (G(G(x,c_Y), c_X), x) ] + \mathbb{E}_y [ \mathcal{L}_\text{rec} (G(G(y,c_X), c_Y), y) ]
     \end{equation}
-    with $\mathcal{L}_{\text{rec}}$ as combination of L1 and LPIPS. (Zitat einfügen)
 \end{block}
+with $\mathcal{L}_{\text{rec}}$ as combination of L1 and LPIPS \cite{zhang2018unreasonable}
 \begin{block}{Adversarial loss}
     \begin{align}
         \mathcal{L}_{\text{GAN}} &= \mathbb{E}_{y} [\log D_Y(y)] + \mathbb{E}_{x} [\log(1 - D_Y(G(x,c_Y)))] \\
@@ -378,16 +378,16 @@ using one network G and two translations $G(x, c_y): \mathcal{X} \rightarrow \ma
     \framesubtitle{Extensions - Generating diverse output}
     Three changes to the Architecture (3/3):
     \begin {itemize}
-        \item Scale reconstruction loss according to $\gamma$: $\mathcal{L}_{\text{diverse}} = \mathcal{L}_{x,y,z,\gamma} [\gamma\mathcal{L}_{\text{rec}}(G(x,z,\gamma),y)]$
+        \item Scale reconstruction loss according to $\gamma$: $\mathcal{L}_{\text{diverse}} = \mathcal{L}_{x,y,z,\gamma} \gamma\mathcal{L}_{\text{rec}}(G(x,z,\gamma),y)]$
         \item $\gamma = 0$ corresponds to default stochastic behavior of pretrained model, in this cas reconstruction loss is not enforced
         \item $\gamma = 1$ corresponds to deterministic translation from previoues seections
     \end{itemize}
 \end{frame}
 
-% ---------- Begin Sections Experiments ----------
-% ---------- Experiments ----------
+% ---------- Begin Sections Experiments - Paired Image Translation ----------
+% ---------- Experiments - Paired Image Translation ----------
 \begin{frame}
-\frametitle{Experiments}
+\frametitle{Experiments - Paired Image Translation}
 \framesubtitle{Baselines}
 Training details:
 \begin{itemize}
@@ -395,35 +395,150 @@ Training details:
     \item Adam Optimizer with learning rate: 1e-6, batch size:8, $\lambda _{\text{idt}} = 1$, $\lambda _{\text{GAN}} = 0.5$
 \end{itemize}
 Datasets:
-\begin{itemize}
-    \item Horse  Zebra \cite{5206848}
-    \item Summer  Winter
-    \item day  night
-    \item clear <-->  foggy
-    \item 
-\end{itemize}
-
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        Task & Images Source & Images Target & Dataset \\
+        \hline
+        Horse $\leftrightarrow$ Zebra & 939 & 1177 & ImageNet \cite{5206848}\\
+        Winter $\leftrightarrow$ Summer & 854 & 1273 & Flickr \cite{zhu2020unpaired} \\
+        Day $\leftrightarrow$ Night & Day subset & Night subset & BDD100k \cite{yu2020bdd100k}\\
+        Clear $\leftrightarrow$ Foggy & 12454 & 572 from & BDD100k and DENSE \cite{bijelic2020seeing}
+    \end{tabular}       
+\end{table}
 \end{frame}
 
-% ---------- Comparison to Unpaired Methods ----------
 \begin{frame}
-\frametitle{Experiments}
-\framesubtitle{Comparison to Unpaired Methods}
-
+    \frametitle{Experiments - Paired Image Translation}
+    \framesubtitle{Baselines}
+    Evaluation Protocol:
+    \begin{itemize}
+        \item match data distribution of target domain $\rightarrow$ FID \cite{heusel2018gans}
+        \item preserve input image structure in translated output $\rightarrow$ DINO \cite{tumanyan2022splicing}
+        \item Inference runtime using a single NVIDIA RTX A6000 GPU
+        \item human preceptual study
+    \end{itemize}
+    
+    
 \end{frame}
+% ---------- Comparison to Unpaired Methods ----------
+
+\begin{frame}
+    \frametitle{Experiments - Paired Image Translation}
+    \framesubtitle{Comparison to Unpaired Methods}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.85\linewidth]{images/horse_zebra.png}
+        
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Experiments - Paired Image Translation}
+    \framesubtitle{Comparison to Unpaired Methods}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{images/horse_zebra_table.png}
+        
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Experiments - Paired Image Translation}
+\framesubtitle{Comparison to Unpaired Methods}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/day_night.png}
+    
+\end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Experiments - Paired Image Translation}
+    \framesubtitle{Comparison to Unpaired Methods}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{images/day_night_table.png}
+        
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Experiments - Paired Image Translation}
+    \framesubtitle{Comparison to Unpaired Methods}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{images/human-pref.png}
+        
+    \end{figure}
+\end{frame}
+
 
 % ---------- Ablation Study ----------
 \begin{frame}
-\frametitle{Experiments}
+\frametitle{Experiments - Paired Image Translation}
 \framesubtitle{Ablation Study}
-
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{images/ablation_horse_zebra.png}
+    
+\end{figure}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Experiments - Paired Image Translation}
+    \framesubtitle{Ablation Study}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.55\linewidth]{images/ablation_images.png}
+        
+    \end{figure}
+    \end{frame}
 % ---------- Extensions ----------
 \begin{frame}
-\frametitle{Experiments}
-\framesubtitle{Extensions}
+\frametitle{Experiments - Unpaired Image Translation}
+\framesubtitle{Training Details}
+\begin{block}{Loss function}
+    \begin{align}
+        \arg \underset{G}{\min} \mathcal{L}_{\text{rec}} + \lambda _{\text{clip}} \mathcal{L}_{\text{CLIP}} + \lambda_{\text{GAN}}\mathcal{L}_{\text{GAN}}
+    \end{align}
+\end{block}
+with $\mathcal{L}_{\text{rec}}$ = L2-Norm + LPIPS, $\lambda_{\text{clip}} = 4$ and $\lambda_{\text{GAN}} = 0.4$
+\end{frame}
 
+\begin{frame}
+    \frametitle{Experiments - Unpaired Image Translation}
+    \framesubtitle{Training Details}
+        Edge-to-Image:
+        \begin{itemize}
+            \item Canny Edge Detector with random threshold
+            \item Adam Optimizer with learning rate: 1e-5, batch size: 40, Steps: 7500
+        \end{itemize}
+        Sketch-to-Image:
+        \begin{itemize}
+            \item Synthetic sketches with multiple augmentations
+            \item Initialized with Edge-to-Image model and fine-tuned for 5000 steps with same Optimizer
+        \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Experiments - Unpaired Image Translation}
+    \framesubtitle{Comparison to Unpaired Methods}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/unpaired_comp1.png}
+        
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Experiments - Unpaired Image Translation}
+    \framesubtitle{Comparison to Unpaired Methods}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{images/unpaired_comp2.png}
+            
+    \end{figure}
 \end{frame}
 
 % ---------- Begin Section Discussion ----------
@@ -457,7 +572,8 @@ Datasets:
 \scalebox{2}{Questions?}
 \end{center}
 \end{frame}
-\begin{frame}
+
+\begin{frame}[allowframebreaks]
 \frametitle{References}
 \printbibliography
 \end{frame}
