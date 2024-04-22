@@ -2353,15 +2353,17 @@
     <bcf:citekey order="7">schuhmann2022laion5b</bcf:citekey>
     <bcf:citekey order="8">kakaobrain2022coyo-700m</bcf:citekey>
     <bcf:citekey order="9">meng2022sdedit</bcf:citekey>
-    <bcf:citekey order="10">li2023gligen</bcf:citekey>
-    <bcf:citekey order="11">mou2023t2i</bcf:citekey>
-    <bcf:citekey order="12">zhang2023adding</bcf:citekey>
-    <bcf:citekey order="13">cyclediffusion</bcf:citekey>
-    <bcf:citekey order="14">su2022dual</bcf:citekey>
-    <bcf:citekey order="15">sasaki2021unitddpm</bcf:citekey>
-    <bcf:citekey order="16">schuhmann2022laion5b</bcf:citekey>
-    <bcf:citekey order="17">kakaobrain2022coyo-700m</bcf:citekey>
-    <bcf:citekey order="18">meng2022sdedit</bcf:citekey>
+    <bcf:citekey order="10">5206848</bcf:citekey>
+    <bcf:citekey order="11">li2023gligen</bcf:citekey>
+    <bcf:citekey order="12">mou2023t2i</bcf:citekey>
+    <bcf:citekey order="13">zhang2023adding</bcf:citekey>
+    <bcf:citekey order="14">cyclediffusion</bcf:citekey>
+    <bcf:citekey order="15">su2022dual</bcf:citekey>
+    <bcf:citekey order="16">sasaki2021unitddpm</bcf:citekey>
+    <bcf:citekey order="17">schuhmann2022laion5b</bcf:citekey>
+    <bcf:citekey order="18">kakaobrain2022coyo-700m</bcf:citekey>
+    <bcf:citekey order="19">meng2022sdedit</bcf:citekey>
+    <bcf:citekey order="20">5206848</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
@@ -2393,4 +2395,13 @@
     </bcf:sort>
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="nty/global//global/global"
+                type="entry"
+                sortingtemplatename="nty"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
 </bcf:controlfile>

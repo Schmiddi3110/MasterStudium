@@ -388,6 +388,20 @@ using one network G and two translations $G(x, c_y): \mathcal{X} \rightarrow \ma
 % ---------- Experiments ----------
 \begin{frame}
 \frametitle{Experiments}
+\framesubtitle{Baselines}
+Training details:
+\begin{itemize}
+    \item 330MB of trainable parameters for unpaired models(LoRA weights, zero-conv layer, first conv layer of U-Net)
+    \item Adam Optimizer with learning rate: 1e-6, batch size:8, $\lambda _{\text{idt}} = 1$, $\lambda _{\text{GAN}} = 0.5$
+\end{itemize}
+Datasets:
+\begin{itemize}
+    \item Horse  Zebra \cite{5206848}
+    \item Summer  Winter
+    \item day  night
+    \item clear <-->  foggy
+    \item 
+\end{itemize}
 
 \end{frame}
 
@@ -442,5 +456,9 @@ using one network G and two translations $G(x, c_y): \mathcal{X} \rightarrow \ma
 \begin{center}
 \scalebox{2}{Questions?}
 \end{center}
+\end{frame}
+\begin{frame}
+\frametitle{References}
+\printbibliography
 \end{frame}
 \end{document}
