@@ -30,7 +30,7 @@
     \item Related Work
     \item Terminology
     \item Method
-    \item Experiments - Paired Image Translation
+    \item Experiments
     \item Discussion and Limitations
     \item Live Demo
 \end{enumerate}
@@ -90,7 +90,7 @@ Unpaired Image Translation
 \frametitle{Related Work}
 \framesubtitle{Text-to-Image models}
 \begin{itemize}
-    \item Large-scale text-conditioned models have enhanced image quality and diversity by training on vast datasets \cite{schuhmann2022laion5b} \cite{kakaobrain2022coyo-700m}
+    \item Large-scale text-conditioned models have enhanced image quality and diversity by training on vast datasets \cite{schuhmann2022laion5b, kakaobrain2022coyo-700m}
     \item Zero-shot methods for editing real images use pre-trained text-to-image models, such as SDEdit \cite{meng2022sdedit}
     \item Prompt-to-Prompt techniques manipulate or preserve features in cross-attention and self-attention layers during image editing.
     \item Some approaches fine-tune networks or text embeddings for input images before editing or employ precise inversion methods.
@@ -103,7 +103,14 @@ Unpaired Image Translation
 \begin{frame}
 \frametitle{Related Work}
 \framesubtitle{One-step generative models}
+To expedite diffusion model inference, recent works focus on:
+\begin{itemize}
+    \item reducing the number of sampling steps using fast ODE solvers \cite{karras2022elucidating, lu2022dpmsolver}
+    \item distilling slow multistep teacher models into fast few-step student models \cite{meng2022sdedit, salimans2022progressive}
+    \item Using GANs directly for text-to-image synthesis \cite{kang2023scaling, sauer2023stylegant}
+\end{itemize}
 
+This work presents the first one-step conditional model that use both text and conditioning images.
 \end{frame}
 
 % ---------- Begin Section Terminology ----------
@@ -297,14 +304,18 @@ Unpaired Image Translation
 \end{frame}
 
 % ---------- Unpaired Training ----------
-\begin{frame}
-\frametitle{Method}
-\framesubtitle{Unpaired Training}
-Goal: Convert images from $\mathcal{X} \subset \mathbb{R} ^{H x W x 3}$ to $\mathcal{Y} \subset \mathbb{R} ^{H x W x 3}$ \newline
-given an unpaired dataset $\mathcal{X} = \{x \in \mathcal{X} \}$ and $\mathcal{Y} = \{y \in \mathcal{Y} \}$ \newline
-using one network G and two translations $G(x, c_y): \mathcal{X} \rightarrow \mathcal{Y}$ and $G(y, c_x): \mathcal{Y} \rightarrow \mathcal{X}$.
 
-\end{frame}
+\begin{frame}
+    \frametitle{Method}
+    \framesubtitle{Unpaired Training}
+    \begin{align*}
+    \text{Goal:} &\text{ Convert images from } \mathcal{X} \subset \mathbb{R} ^{H \times W \times 3} \
+    \text{ to } \mathcal{Y} \subset \mathbb{R} ^{H \times W \times 3} \\
+    &\text{ given an unpaired dataset } \mathcal{X} = {x \in \mathcal{X} } \text{ and } \mathcal{Y} = {y \in \mathcal{Y} } \\
+    &\text{ using one network } G \text{ and two translations } G(x, c_y): \mathcal{X} \rightarrow \mathcal{Y} \
+    \text{ and } G(y, c_x): \mathcal{Y} \rightarrow \mathcal{X}
+    \end{align*}
+    \end{frame}
 
 \begin{frame}
 \frametitle{Method}

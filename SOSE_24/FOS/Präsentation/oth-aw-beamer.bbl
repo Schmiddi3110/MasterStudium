@@ -221,6 +221,103 @@
       \verb 1706.08500
       \endverb
     \endentry
+    \entry{kang2023scaling}{misc}{}
+      \name{author}{7}{}{%
+        {{hash=9627928c45ea716ab65f5d2c8f86933c}{%
+           family={Kang},
+           familyi={K\bibinitperiod},
+           given={Minguk},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9fbb4b31963f07f34a13b375b4997338}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jun-Yan},
+           giveni={J\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=0c65190dcbd461dee172354f7938ae43}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=4601943d47b90174b1d991712b65af21}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Jaesik},
+           giveni={J\bibinitperiod}}}%
+        {{hash=739ef881fb9e0c2c8d7110c90325d960}{%
+           family={Shechtman},
+           familyi={S\bibinitperiod},
+           given={Eli},
+           giveni={E\bibinitperiod}}}%
+        {{hash=13acbde1d95e381ae8b4272e36d1982b}{%
+           family={Paris},
+           familyi={P\bibinitperiod},
+           given={Sylvain},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b036e0ed5c21929ab46890b9a1033163}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Taesung},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{4884ea88c416ea79dd1f4072153f62d2}
+      \strng{fullhash}{0f55facaab96cbd99bcab2e20d3029e8}
+      \strng{bibnamehash}{4884ea88c416ea79dd1f4072153f62d2}
+      \strng{authorbibnamehash}{4884ea88c416ea79dd1f4072153f62d2}
+      \strng{authornamehash}{4884ea88c416ea79dd1f4072153f62d2}
+      \strng{authorfullhash}{0f55facaab96cbd99bcab2e20d3029e8}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Scaling up GANs for Text-to-Image Synthesis}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2303.05511
+      \endverb
+    \endentry
+    \entry{karras2022elucidating}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=9c6cb97b8c2c22b41d64c2c4f4520c11}{%
+           family={Karras},
+           familyi={K\bibinitperiod},
+           given={Tero},
+           giveni={T\bibinitperiod}}}%
+        {{hash=46c9891d2dac80f9bbdd0f7e920aaea1}{%
+           family={Aittala},
+           familyi={A\bibinitperiod},
+           given={Miika},
+           giveni={M\bibinitperiod}}}%
+        {{hash=70c1210f7c167faac22c68d1db1d9175}{%
+           family={Aila},
+           familyi={A\bibinitperiod},
+           given={Timo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=e83c74e19bcc032813595328513ebd5c}{%
+           family={Laine},
+           familyi={L\bibinitperiod},
+           given={Samuli},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{338fbd4c2ccae5bf5e00de7691045566}
+      \strng{fullhash}{fbe05311ce2028186cf9f8da4a83471c}
+      \strng{bibnamehash}{338fbd4c2ccae5bf5e00de7691045566}
+      \strng{authorbibnamehash}{338fbd4c2ccae5bf5e00de7691045566}
+      \strng{authornamehash}{338fbd4c2ccae5bf5e00de7691045566}
+      \strng{authorfullhash}{fbe05311ce2028186cf9f8da4a83471c}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Elucidating the Design Space of Diffusion-Based Generative Models}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2206.00364
+      \endverb
+    \endentry
     \entry{li2023gligen}{article}{}
       \name{author}{8}{}{%
         {{hash=09166056e97b4aead775c515aa26432f}{%
@@ -279,6 +376,57 @@
       \field{labeltitlesource}{title}
       \field{title}{GLIGEN: Open-Set Grounded Text-to-Image Generation}
       \field{year}{2023}
+    \endentry
+    \entry{lu2022dpmsolver}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=2b5af236604cd7fdc03927d41de24eaf}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Cheng},
+           giveni={C\bibinitperiod}}}%
+        {{hash=86718cd959eccc231b89841a6abbde4c}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Yuhao},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=91bd444ea1d66939531e152b0eaf15fe}{%
+           family={Bao},
+           familyi={B\bibinitperiod},
+           given={Fan},
+           giveni={F\bibinitperiod}}}%
+        {{hash=916b50b17e2bbb295f7b575d3da19425}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Jianfei},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b50919e820a6aa8f2104bae73eca0f2d}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Chongxuan},
+           giveni={C\bibinitperiod}}}%
+        {{hash=7a47a154652ccc647a0e6adf1570095a}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{a58b5f28ed292c99d80544da95beb644}
+      \strng{fullhash}{d144c13f7f0319d693b1a568aa572052}
+      \strng{bibnamehash}{a58b5f28ed292c99d80544da95beb644}
+      \strng{authorbibnamehash}{a58b5f28ed292c99d80544da95beb644}
+      \strng{authornamehash}{a58b5f28ed292c99d80544da95beb644}
+      \strng{authorfullhash}{d144c13f7f0319d693b1a568aa572052}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{DPM-Solver: A Fast ODE Solver for Diffusion Probabilistic Model Sampling in Around 10 Steps}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2206.00927
+      \endverb
     \endentry
     \entry{meng2022sdedit}{inproceedings}{}
       \name{author}{7}{}{%
@@ -389,6 +537,37 @@
       \field{title}{T2i-adapter: Learning adapters to dig out more controllable ability for text-to-image diffusion models}
       \field{year}{2023}
     \endentry
+    \entry{salimans2022progressive}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=e6f76e1a4d058df028530916774ad3a7}{%
+           family={Salimans},
+           familyi={S\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=2ac2ca10b22e4d13af1767e87495412f}{%
+           family={Ho},
+           familyi={H\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{8035bf4cbd215d18ec6655dfa2a145b0}
+      \strng{fullhash}{8035bf4cbd215d18ec6655dfa2a145b0}
+      \strng{bibnamehash}{8035bf4cbd215d18ec6655dfa2a145b0}
+      \strng{authorbibnamehash}{8035bf4cbd215d18ec6655dfa2a145b0}
+      \strng{authornamehash}{8035bf4cbd215d18ec6655dfa2a145b0}
+      \strng{authorfullhash}{8035bf4cbd215d18ec6655dfa2a145b0}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{Progressive Distillation for Fast Sampling of Diffusion Models}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2202.00512
+      \endverb
+    \endentry
     \entry{sasaki2021unitddpm}{misc}{}
       \name{author}{3}{}{%
         {{hash=ac5f5272e133ce7246b61550c125a4fa}{%
@@ -423,6 +602,52 @@
       \field{year}{2021}
       \verb{eprint}
       \verb 2104.05358
+      \endverb
+    \endentry
+    \entry{sauer2023stylegant}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=c658a048d2fd269c35170dbf8ecf4f58}{%
+           family={Sauer},
+           familyi={S\bibinitperiod},
+           given={Axel},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9c6cb97b8c2c22b41d64c2c4f4520c11}{%
+           family={Karras},
+           familyi={K\bibinitperiod},
+           given={Tero},
+           giveni={T\bibinitperiod}}}%
+        {{hash=e83c74e19bcc032813595328513ebd5c}{%
+           family={Laine},
+           familyi={L\bibinitperiod},
+           given={Samuli},
+           giveni={S\bibinitperiod}}}%
+        {{hash=06133052ac3c14a188601b82783cd4f7}{%
+           family={Geiger},
+           familyi={G\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=70c1210f7c167faac22c68d1db1d9175}{%
+           family={Aila},
+           familyi={A\bibinitperiod},
+           given={Timo},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{7e396b73e076a47bc273d8bf21b4f1d3}
+      \strng{fullhash}{755f0b5775c3b1be1fa6d0c4f3a7df38}
+      \strng{bibnamehash}{7e396b73e076a47bc273d8bf21b4f1d3}
+      \strng{authorbibnamehash}{7e396b73e076a47bc273d8bf21b4f1d3}
+      \strng{authornamehash}{7e396b73e076a47bc273d8bf21b4f1d3}
+      \strng{authorfullhash}{755f0b5775c3b1be1fa6d0c4f3a7df38}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{StyleGAN-T: Unlocking the Power of GANs for Fast Large-Scale Text-to-Image Synthesis}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2301.09515
       \endverb
     \endentry
     \entry{schuhmann2022laion5b}{misc}{}

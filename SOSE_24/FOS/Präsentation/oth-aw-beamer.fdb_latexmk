@@ -1,13 +1,13 @@
 # Fdb version 3
-["biber oth-aw-beamer"] 1713813596 "oth-aw-beamer.bcf" "oth-aw-beamer.bbl" "oth-aw-beamer" 1713814705
-  "oth-aw-beamer.bcf" 1713814705 108838 1838ca167cb1c595e4fab61cc55d605b "pdflatex"
-  "references.bib" 1713813259 5422 fa262277a661d9bfd88a936afdd8cff2 ""
+["biber oth-aw-beamer"] 1713818051 "oth-aw-beamer.bcf" "oth-aw-beamer.bbl" "oth-aw-beamer" 1713818162
+  "oth-aw-beamer.bcf" 1713818161 109507 1895a600b5ad54642c4b86127bfbe2f3 "pdflatex"
+  "references.bib" 1713818047 7280 2fdf18b6d9f36818d5e3fa62d76dbcd3 ""
   (generated)
   "oth-aw-beamer.bbl"
   "oth-aw-beamer.blg"
-["pdflatex"] 1713814702 "/home/fabian/MasterStudium/SOSE_24/FOS/Präsentation/oth-aw-beamer.tex" "oth-aw-beamer.pdf" "oth-aw-beamer" 1713814705
+["pdflatex"] 1713818158 "/home/fabian/MasterStudium/SOSE_24/FOS/Präsentation/oth-aw-beamer.tex" "oth-aw-beamer.pdf" "oth-aw-beamer" 1713818162
   "/etc/texmf/web2c/texmf.cnf" 1713024996 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/fabian/MasterStudium/SOSE_24/FOS/Präsentation/oth-aw-beamer.tex" 1713814701 20917 9413f64df117b58f7f33e4b438014e75 ""
+  "/home/fabian/MasterStudium/SOSE_24/FOS/Präsentation/oth-aw-beamer.tex" 1713818158 21562 4fe5fd6aa093eb5f09d94ddd9e417108 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
@@ -257,6 +257,7 @@
   "/usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb" 1254938640 108953 1f7b36ba493bc956ac3c5eab8852ab76 ""
   "/usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb" 1254938640 106860 a773e4958b589eadcc5b01a914624508 ""
   "/usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb" 1254938640 27863 09ce3735688ffde955e72da27c95b61a ""
+  "/usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb" 1254938640 27802 5c876bb2c4040caaf035d60bd74a86bd ""
   "/usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb" 1254938640 113227 1010e11451afc2822c95dae77c390042 ""
   "/usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb" 1254938640 115291 2ae7034c644e971beb573b1e6606f863 ""
   "/usr/share/texmf/tex/latex/lm/lmodern.sty" 1256929440 1606 c17281c7cff2bbd7ff0173e1433487ec ""
@@ -293,13 +294,13 @@
   "images/unpaired_comp1.png" 1713814322 1262874 26d7a5d2d54bc693f469d39f523b529d ""
   "images/unpaired_comp2.png" 1713814394 857452 9c64e82fca8bedf59e94b0436c0e4d04 ""
   "logos/logo-oth-aw-text-seite.png" 1713206263 73952 592ed82984a4c94f34fbc21a4588cbc9 ""
-  "oth-aw-beamer.aux" 1713814705 10577 3e216829118e446bbd6f2ccefac9e825 "pdflatex"
-  "oth-aw-beamer.bbl" 1713813597 32136 026cb0577597b3a7d66edadec6a3e373 "biber oth-aw-beamer"
-  "oth-aw-beamer.nav" 1713814705 4144 5b281cae4debd9dd312749baae4c293f "pdflatex"
-  "oth-aw-beamer.out" 1713814705 93 aea4b6a8ae45636c75679c2f0dfa4493 "pdflatex"
-  "oth-aw-beamer.run.xml" 1713814705 2368 760106abdba83d936c8bdc0b6a7ef01e "pdflatex"
-  "oth-aw-beamer.tex" 1713814701 20917 9413f64df117b58f7f33e4b438014e75 ""
-  "oth-aw-beamer.toc" 1713814705 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "oth-aw-beamer.aux" 1713818161 11588 6bbfe2b9b030875f703f752e3fc67d3d "pdflatex"
+  "oth-aw-beamer.bbl" 1713818052 40783 da1bfad8b28e1c27ff21e4a72917b77f "biber oth-aw-beamer"
+  "oth-aw-beamer.nav" 1713818161 4236 5f954e07b7aaeacaa062d2e376064cdc "pdflatex"
+  "oth-aw-beamer.out" 1713818161 93 aea4b6a8ae45636c75679c2f0dfa4493 "pdflatex"
+  "oth-aw-beamer.run.xml" 1713818161 2368 760106abdba83d936c8bdc0b6a7ef01e "pdflatex"
+  "oth-aw-beamer.tex" 1713818158 21562 4fe5fd6aa093eb5f09d94ddd9e417108 ""
+  "oth-aw-beamer.toc" 1713818161 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "oth-aw-beamer.aux"
   "oth-aw-beamer.bcf"
