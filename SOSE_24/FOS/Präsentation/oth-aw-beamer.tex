@@ -5,6 +5,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{etex}
 \usepackage{biblatex}
+\usepackage{csquotes}
+\usepackage{comment}
+\usepackage{amsmath}
 \addbibresource{references.bib}
 
 \title[Forschungsseminar]{One-Step Image Translation with Text-to-Image Models}
@@ -118,6 +121,7 @@ Unpaired Image Translation
 \note{}
 
 % ---------- Generative Adversarial Networks(GAN) ----------
+\begin{comment}
 \begin{frame}
     \frametitle{Terminology}
     \framesubtitle{Generative Adversarial Networks(GAN)}
@@ -135,7 +139,7 @@ Unpaired Image Translation
     S., Courville, A., Bengio, Y.: Generative adversarial nets. In: Neural Information
     Processing Systems (NeurIPS) (2014)}
 \end{frame}
-
+\end{comment}
 % ---------- CycleGAN ----------
 \begin{frame}
 \frametitle{Terminology}
@@ -148,9 +152,10 @@ Unpaired Image Translation
 \tiny{\footnotemark \url{http://www.lherranz.org/2018/08/07/imagetranslation/}}
 \end{frame}
 
-
-% ---------- CycleGAN ----------
-\begin{frame}
+\begin{comment}
+    
+    % ---------- CycleGAN ----------
+    \begin{frame}
     \frametitle{Terminology}
     \framesubtitle{CycleGAN}
     \begin{block}{Adversarial loss for G and F}
@@ -159,19 +164,19 @@ Unpaired Image Translation
             \mathcal{L}_{\text{GAN}}(G, D_Y, X, Y) = \mathbb{E}_{y \sim p_{\text{data}}(y)} [\log D_Y(y)] + \mathbb{E}_{x \sim p_{\text{data}}(x)} [\log(1 - D_Y(G(x)))]
         \end{align}
     \end{block}
-
+    
     \begin{block}{Cycle consistency loss}
         \begin{equation}
-        \mathcal{L}_{\text{cycle}}(G, F) = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\lVert F(G(x)) - x \rVert_1] + \mathbb{E}_{y \sim p_{\text{data}}(y)} [\lVert G(F(y)) - y \rVert_1]
+            \mathcal{L}_{\text{cycle}}(G, F) = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\lVert F(G(x)) - x \rVert_1] + \mathbb{E}_{y \sim p_{\text{data}}(y)} [\lVert G(F(y)) - y \rVert_1]
         \end{equation}
     \end{block}
 \end{frame}
 \note{\begin{itemize}
     \item Adversarial loss: Standard GAN loss. Vergleich zwei Folien früher    
     \item Cycle consistency loss: Wenn ein Bild von Domain X in Domain Y übersetzt wird und dann wieder zurück, sollte das Ergebnis dem Original entsprechen. Mit L1 Norm (mean absoulte Error)
-}
-% ---------- CycleGAN ----------
-\begin{frame}
+    }
+    % ---------- CycleGAN ----------
+    \begin{frame}
     \frametitle{Terminology}
     \framesubtitle{CycleGAN}
     \begin{block}{Identity loss}
@@ -180,7 +185,7 @@ Unpaired Image Translation
             \mathcal{L}_{\text{identity}}(F, G, Y, X) & = \mathbb{E}_{x \sim p_{\text{data}}(x)} [\lVert F(x) - x \rVert_1]
         \end{align}
     \end{block}
-
+    
     \begin{block}{Cycle loss}
         \begin{equation}
             \begin{split}
@@ -194,7 +199,41 @@ Unpaired Image Translation
 \note{\begin{itemize}
     \item Identity loss: Wenn ein Bild von Domain X in Domain Y übersetzt wird, sollte das Ergebnis dem Original entsprechen
     \item Cycle loss: gewichtete Kombination aus Adversarial loss, Cycle consistency loss und Identity loss
+    }
+\end{comment}
+    
+    
+% ---------- UNet and Skip Connections ----------
+\begin{frame}
+    \frametitle{Terminology}
+    \framesubtitle{UNet and Skip Connections}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.6\linewidth]{images/Group14.jpg}
+        \caption{Architecture}
+    \end{figure}
+\end{frame}
+\note{
+    \begin{itemize}
+        \item UNet: Convolutional Neural Network, das für Bildsegmentierung verwendet wird
+        \begin{itemize}
+            \item Encoder Pfad: Mehrere Blöcke von convolutional layers mit ReLU activation und max pooling. Reduziert die Dimensionalität des Inputs
+            \item Decoder Pfad: Mehrere Blöcke von convolutional layers mit RelU activation und upconvolution. Erhöht die Dimensionalität des Inputs. Außerdem Concatenation mit entsprechenden Encoder Pfad
+            \item Skip Connections: Verbindung zwischen Encoder und Decoder Pfad. Hilft details zu erhalten, die im Encoder verloren gehen würden
+        \end{itemize}
+    \end{itemize}
 }
+
+% ---------- LoRA Weights ----------
+\begin{frame}
+    \frametitle{Terminology}
+    \framesubtitle{LoRA Weights}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.4\linewidth]{images/Bildschirmfoto vom 2024-04-15 10-21-59.png}
+        \caption{\textbf{Lo}w \textbf{R}ank \textbf{A}daption}
+    \end{figure}
+\end{frame}
 
 % ---------- Paired vs unpaired data ----------
 \begin{frame}
@@ -223,54 +262,7 @@ Unpaired Image Translation
     \end{itemize}
 
 }
-
-% ---------- UNet and Skip Connections ----------
-\begin{frame}
-\frametitle{Terminology}
-\framesubtitle{UNet and Skip Connections}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.6\linewidth]{images/Group14.jpg}
-    \caption{Architecture}
-\end{figure}
-\end{frame}
-\note{
-    \begin{itemize}
-        \item UNet: Convolutional Neural Network, das für Bildsegmentierung verwendet wird
-        \begin{itemize}
-            \item Encoder Pfad: Mehrere Blöcke von convolutional layers mit ReLU activation und max pooling. Reduziert die Dimensionalität des Inputs
-            \item Decoder Pfad: Mehrere Blöcke von convolutional layers mit RelU activation und upconvolution. Erhöht die Dimensionalität des Inputs. Außerdem Concatenation mit entsprechenden Encoder Pfad
-            \item Skip Connections: Verbindung zwischen Encoder und Decoder Pfad. Hilft details zu erhalten, die im Encoder verloren gehen würden
-        \end{itemize}
-    \end{itemize}
-}
-
-% ---------- LoRA Weights ----------
-\begin{frame}
-\frametitle{Terminology}
-\framesubtitle{LoRA Weights}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.4\linewidth]{images/Bildschirmfoto vom 2024-04-15 10-21-59.png}
-    \caption{\textbf{Lo}w \textbf{R}ank \textbf{A}daption}
-\end{figure}
-\end{frame}
-
-% ---------- Stabel Diffusion ----------
-\begin{frame}
-\frametitle{Terminology}
-\framesubtitle{Stable Diffusion}
-
-\end{frame}
-
-% ---------- Method ----------
-% ---------- Goal ----------
-\begin{frame}
-\frametitle{Method}
-\framesubtitle{Goal}
-?
-\end{frame}
-
+% ---------- Begin Section Method ----------
 % ---------- Adding Conditioning Input ----------
 \begin{frame}
 \frametitle{Method}
@@ -278,7 +270,7 @@ Unpaired Image Translation
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{images/Bildschirmfoto vom 2024-04-14 10-57-39.png}
-    \caption{Enter Caption}
+    \caption{Conflicts between noise and conditional input}
 \end{figure}
 \end{frame}
 
@@ -288,7 +280,7 @@ Unpaired Image Translation
 \framesubtitle{Preserving Input Details}
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{images/Bildschirmfoto vom 2024-04-14 11-06-40.png}
+    \includegraphics[width=0.9\linewidth]{images/Bildschirmfoto vom 2024-04-14 11-06-40.png}
     \caption{Skip Connections help retain details}
 \end{figure}
 \end{frame}
@@ -308,14 +300,88 @@ Unpaired Image Translation
 \begin{frame}
 \frametitle{Method}
 \framesubtitle{Unpaired Training}
+Goal: Convert images from $\mathcal{X} \subset \mathbb{R} ^{H x W x 3}$ to $\mathcal{Y} \subset \mathbb{R} ^{H x W x 3}$ \newline
+given an unpaired dataset $\mathcal{X} = \{x \in \mathcal{X} \}$ and $\mathcal{Y} = \{y \in \mathcal{Y} \}$ \newline
+using one network G and two translations $G(x, c_y): \mathcal{X} \rightarrow \mathcal{Y}$ and $G(y, c_x): \mathcal{Y} \rightarrow \mathcal{X}$.
 
 \end{frame}
+
+\begin{frame}
+\frametitle{Method}
+\framesubtitle{Unpaired Training}
+\begin{block}{Cycle consistency with perecptual loss}
+    \begin{equation}
+        \mathcal{L}_{\text{cycle}}(G, F) = \mathbb{E}_x [ \mathcal{L}_\text{rec} (G(G(x,c_Y), c_X), x) ] + \mathbb{E}_y [ \mathcal{L}_\text{rec} (G(G(y,c_X), c_Y), y) ]
+    \end{equation}
+    with $\mathcal{L}_{\text{rec}}$ as combination of L1 and LPIPS. (Zitat einfügen)
+\end{block}
+\begin{block}{Adversarial loss}
+    \begin{align}
+        \mathcal{L}_{\text{GAN}} &= \mathbb{E}_{y} [\log D_Y(y)] + \mathbb{E}_{x} [\log(1 - D_Y(G(x,c_Y)))] \\
+        &+ \mathbb{E}_{x} [\log D_X(x)] + \mathbb{E}_{Y} [\log(1 - D_X(G(y,c_X)))]
+    \end{align}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Method}
+\framesubtitle{Unpaired Training}
+\begin{block}{Identity regularization loss}
+    \begin{equation}
+        \mathcal{L} _{\text{idt}} = \mathbb{E} _y [ \mathcal{L}_{\text{rec}}(G(y,c_Y),y)] + \mathbb{E}_x [ \mathcal{L}_{\text{rec}}(G(x,c_X),x)]
+    \end{equation}
+\end{block}
+
+\begin{block}{Full objective}
+    \begin{equation}
+       \arg \underset{G}{\min} \mathcal{L}_{\text{cycle}} + \lambda _{\text{idt}} \mathcal{L}_{\text{idt}} + \lambda_{\text{GAN}}\mathcal{L}_{\text{GAN}}
+    \end{equation}
+\end{block}
+    
+
+\end{frame}
+
 
 % ---------- Extensions ----------
 \begin{frame}
 \frametitle{Method}
-\framesubtitle{Extensions}
+\framesubtitle{Extensions - Paired Training}
+\begin{itemize}
+    \item Adaptation of network G to paired setting, like edge-to-image or sketch-to-image, called pix2pix-Turbo
+    \item new translation function $G(x,c): X \rightarrow Y$ where $X$ is source domain, $Y$ target domain and $c$ conditioning input
+\end{itemize}
+\end{frame}
 
+\begin{frame}
+    \frametitle{Method}
+    \framesubtitle{Extensions - Generating diverse output}
+    Introduction of interpolation coefficient $\gamma$ \newline 
+    Three changes to the Architecture (1/3):
+    \begin {itemize}
+        \item Generator function $G(x,z,\gamma)$ combines noise z and encoder output like so: $\gamma G_{\text{enc}}(x) + (1 - \gamma) z$
+        \item Output as U-Net input
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Method}
+    \framesubtitle{Extensions - Generating diverse output}
+    Three changes to the Architecture (2/3):
+    \begin {itemize}
+        \item Scale LoRA weights and skip connections according to $\theta = \theta_0 + \gamma \Delta \theta$  
+        \item where $\theta_0$ and $\Delta \theta$ denote the original weights and new weights.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Method}
+    \framesubtitle{Extensions - Generating diverse output}
+    Three changes to the Architecture (3/3):
+    \begin {itemize}
+        \item Scale reconstruction loss according to $\gamma$: $\mathcal{L}_{\text{diverse}} = \mathcal{L}_{x,y,z,\gamma} [\gamma\mathcal{L}_{\text{rec}}(G(x,z,\gamma),y)]$
+        \item $\gamma = 0$ corresponds to default stochastic behavior of pretrained model, in this cas reconstruction loss is not enforced
+        \item $\gamma = 1$ corresponds to deterministic translation from previoues seections
+    \end{itemize}
 \end{frame}
 
 % ---------- Begin Sections Experiments ----------
