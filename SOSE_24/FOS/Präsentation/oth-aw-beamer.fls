@@ -1451,6 +1451,29 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfpages.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 INPUT ./oth-aw-beamer.aux
 INPUT oth-aw-beamer.aux
 INPUT oth-aw-beamer.aux
@@ -1608,10 +1631,12 @@ INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmss12.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmss8.tfm
-INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmss10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmss9.tfm
 INPUT ./oth-aw-beamer.toc
 INPUT oth-aw-beamer.toc
 INPUT oth-aw-beamer.toc
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT ./images/GANs_Diffusion_Autoencoders.png
 INPUT ./images/GANs_Diffusion_Autoencoders.png
 INPUT images/GANs_Diffusion_Autoencoders.png
@@ -1645,7 +1670,6 @@ INPUT ./images/blog_gan.png
 INPUT images/blog_gan.png
 INPUT ./images/blog_gan.png
 INPUT ./images/blog_gan.png
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmss10.tfm
 INPUT ./images/blog_cyclegan_h2z2h-768x333.png
 INPUT ./images/blog_cyclegan_h2z2h-768x333.png
 INPUT images/blog_cyclegan_h2z2h-768x333.png
@@ -1656,6 +1680,11 @@ INPUT ./images/Group14.jpg
 INPUT images/Group14.jpg
 INPUT ./images/Group14.jpg
 INPUT ./images/Group14.jpg
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmss10.tfm
 INPUT ./images/Bildschirmfoto vom 2024-04-15 10-21-59.png
 INPUT ./images/Bildschirmfoto vom 2024-04-15 10-21-59.png
 INPUT images/Bildschirmfoto vom 2024-04-15 10-21-59.png
@@ -1750,12 +1779,14 @@ INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc
+INPUT /usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmcsc10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmss10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmss12.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmss8.pfb
+INPUT /usr/share/texmf/fonts/type1/public/lm/lmss9.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmsso10.pfb
 INPUT /usr/share/texmf/fonts/type1/public/lm/lmsso8.pfb
