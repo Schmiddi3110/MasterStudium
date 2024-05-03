@@ -46,14 +46,14 @@ async def main():
     
     DEVICE = "cuda"
     DEVICE = "cpu"
-    MODEL_NAME = "google/flan-t5-xl"
+    MODEL_NAME = "google/flan-t5-xxl"
     TOKENIZER_GENERATE = T5Tokenizer.from_pretrained(MODEL_NAME)
     MODEL_GENERATE = T5ForConditionalGeneration.from_pretrained(MODEL_NAME).to(DEVICE)
 
     print ("%s LOADED" % MODEL_NAME)
 
 
-    async with websockets.serve(partial(receiver, model=MODEL_GENERATE, tokenizer=TOKENIZER_GENERATE, device=DEVICE), "127.0.0.1", 8765, ping_timeout=60):  # localhost
+    async with websockets.serve(partial(receiver, model=MODEL_GENERATE, tokenizer=TOKENIZER_GENERATE, device=DEVICE), "127.0.0.1", 8766, ping_timeout=60):  # localhost
         await asyncio.Future()  # run forever
 
 
