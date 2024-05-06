@@ -1,0 +1,21 @@
+\begin{frame}
+    \frametitle{Discussion and Limitations}
+    \framesubtitle{Discussion}
+    \begin{itemize}
+        \item one-step pre-trained models can serve as a backbone model for many image synthesis tasks
+        \item Adapting the models can be achieved through GAN objectives without multi-step diffusion training
+        \item model training requires a small number of additional trainable parameters
+    \end{itemize}
+\end{frame}
+    
+% ---------- Limitations ----------
+\begin{frame}
+    \frametitle{Discussion and Limitations}
+    \framesubtitle{Limitations}
+    \begin{itemize}
+        \item cannot specify strength of guidance as SD-Turbo does not use classifier-free guidance
+        \item does not support negative prompt
+        \item training is memory intensive
+    \end{itemize}
+    
+\end{frame}

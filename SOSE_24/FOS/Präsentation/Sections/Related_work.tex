@@ -1,0 +1,43 @@
+\begin{frame}
+    \frametitle{Related Work}
+    \framesubtitle{Image-to-Image translation}
+    Paired Image Translation
+    \begin{itemize}
+        \item e.g. GLIGEN \cite{li2023gligen}, T2I-Adapter \cite{mou2023t2i}, ControlNet \cite{zhang2023adding}
+        \item requires large number of training pairs
+        \item slow inference
+    \end{itemize}
+    Unpaired Image Translation
+    \begin{itemize}
+        \item GAN- or diffusion-based methods \cite{cyclediffusion} \cite{su2022dual} \cite{sasaki2021unitddpm}
+        \item require training from scratch on new domains   
+    \end{itemize}
+\end{frame}
+    
+    % ---------- Text-to-Image models ----------
+\begin{frame}
+    \frametitle{Related Work}
+    \framesubtitle{Text-to-Image models}
+    \begin{itemize}
+        \item Large-scale text-conditioned models have enhanced image quality and diversity by training on vast datasets \cite{schuhmann2022laion5b, kakaobrain2022coyo-700m}
+        \item Zero-shot methods for editing real images use pre-trained text-to-image models, such as SDEdit \cite{meng2022sdedit}
+        \item Prompt-to-Prompt techniques manipulate or preserve features in cross-attention and self-attention layers during image editing.
+        \item Some approaches fine-tune networks or text embeddings for input images before editing or employ precise inversion methods.
+        \item Despite impressive results, these methods face challenges in complex scenes with multiple objects.
+        \item Our work complements these methods by incorporating paired or unpaired data from new domains/tasks.    
+    \end{itemize}
+\end{frame}
+    
+    % ---------- One-step generative models ----------
+    \begin{frame}
+    \frametitle{Related Work}
+    \framesubtitle{One-step generative models}
+    To expedite diffusion model inference, recent works focus on:
+    \begin{itemize}
+        \item reducing the number of sampling steps using fast ODE solvers \cite{karras2022elucidating, lu2022dpmsolver}
+        \item distilling slow multistep teacher models into fast few-step student models \cite{meng2022sdedit, salimans2022progressive}
+        \item Using GANs directly for text-to-image synthesis \cite{kang2023scaling, sauer2023stylegant}
+    \end{itemize}
+    
+    This work presents the first one-step conditional model that use both text and conditioning images.
+\end{frame}
