@@ -45,38 +45,109 @@ Datasets:
     \end{figure}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Experiments - Paired Image Translation}
-    \framesubtitle{Comparison to Unpaired Methods}
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\linewidth]{images/horse_zebra_table.png}
-        
-    \end{figure}
-\end{frame}
 
 \begin{frame}
     \frametitle{Experiments - Paired Image Translation}
     \framesubtitle{Comparison to Unpaired Methods}
-    \scriptsize\centering\begin{tabular}{c c c c c c c c c c}
-        \Xhline{2\arrayrulewidth}
-        \multirow{2}{*}{\textbf{Method}} & \multirow{2}{*}{\textbf{\makecell{Inference \\ time}}}  & \multicolumn{2}{c}{\textbf{Horse $\rightarrow$ Zebra}} & \multicolumn{2}{c}{\textbf{Zebra $\rightarrow$ Horse}} & \multicolumn{2}{c}{\textbf{Summer $\rightarrow$ Winter}} & \multicolumn{2}{c}{\textbf{Winter $\rightarrow$ Summer}}\\
-        \cline{3-4} \cline{5-6} \cline{7-8} \cline{9-10}
-        & & FID $\downarrow$ & \makecell{DINO \\ Struct. $\downarrow$} & FID $\downarrow$ & \makecell{DINO \\ Struct. $\downarrow$} & FID $\downarrow$ & \makecell{DINO \\ Struct. $\downarrow$} & FID $\downarrow$ & \makecell{DINO \\ Struct. $\downarrow$} \\
-        \cline{1-10}
-        CycleGAN \cite{zhu2020unpaired} & 0.01s & 74.9 & 3.2 & 133.8 & 2.6 & 62.9 & 2.6 & 66.1 & 2.3\\ 
-        CUT \cite{park2019semantic} & 0.01s & 43.9 & 6.6 & 196.7 & 2.5& 72.1& 2.1 & 68.5 & 2.1\\
-        \cline{1-10}
-        SDEdit \cite{meng2022sdedit} & 1.56s & 77.2 & 4.0 & 198.5 & 4.6 & 66.1 & 2.1 & 76.9 & 2.1 \\
-        Plug-and-Play \cite{tumanyan2022plugandplay} & 7.57s & 57.3 & 5.2 & 152.4& 3.8 & 67.3 & 2.8 & 73.3 & 2.6\\
-        Pix2Pix-Zero & 14.75s & 81.5 & 8.0 & 147.4 & 7.8 & 68.0 & 3.0 & 93.4 & 4.3 \\
-        Cycle-Diffusion & 3.72s & \textbf{38.6} & 6.0 & 132.5 & 5.8 & 64.1 & 3.6 & 70.3 & 3.6 \\
-        DDIB & 4.37s & 44.4 & 13.1 & 163.3 & 11.1 & 90.8 & 7.2 & 88.9 & 6.8\\
-        InstructPix2Pix & 3.86s & 51.0 & 6.8 & 141.5 & 7.0 & 68.3 & 3.7 & 85.6 & 4.4\\
-        \cline{1-10}
-        \textbf{CycleGAN-Turbo} & 0.13s & 41.0 & \textbf{2.1} & \textbf{127.5} & \textbf{1.8} & \textbf{56.3} & \textbf{0.6} & \textbf{60.7} & \textbf{0.6}\\
-        \Xhline{2\arrayrulewidth}
+   
+    \begin{table}
+        \centering
+    
+     \vspace{-5pt}
+        \resizebox{\linewidth}{!}{
+        \begin{tabular}{l c cc cc cc cc}
+            \toprule 
+            \multirow{3}{*}{\textbf{Method}} 
+            & \multirow{3}{*}{\textbf{\shortstack[c]{Infrence \\ time }}} 
+            & \multicolumn{2}{c}{\textbf{Horse $\rightarrow$ Zebra} }
+            & \multicolumn{2}{c}{\textbf{Zebra $\rightarrow$ Horse} }
+            & \multicolumn{2}{c}{\textbf{Summer $\rightarrow$ Winter} }
+            & \multicolumn{2}{c}{\textbf{Winter $\rightarrow$ Summer} }
+            \\
+    
+            \cmidrule(lr){3-4} \cmidrule(lr){5-6} \cmidrule(lr){7-8} \cmidrule(lr){9-10} 
+            &
+            & \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+    
+            & \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+    
+            & \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+    
+            & \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+            
+            \\ \\
+            \cmidrule(lr){1-10}
+    
+            CycleGAN \cite{zhu2020unpaired}  & 0.01s
+            & 74.9 & 3.2 
+            & 133.8 & 2.6
+            & 62.9 & 2.6
+            & 66.1 & 2.3 
+            \\
+            
+            
+            CUT \cite{park2020contrastive} & 0.01s
+            & 43.9 & 6.6 
+            & 186.7 & 2.5 
+            & 72.1 & 2.1 
+            & 68.5 & 2.1 \\
+            
+            \hdashline
+    
+            SDEdit \cite{meng2022sdedit} & 1.56s
+            & 77.2 & 4.0
+            & 198.5 & 4.6  
+            & 66.1 & 2.1 
+            & 76.9 & 2.1\\
+            
+            Plug\&Play \cite{tumanyan2022plugandplay} & 7.57s
+            & 57.3 & 5.2  
+            & 152.4 & 3.8 
+            & 67.3 & 2.8 
+            & 73.3 & 2.6\\
+            
+            Pix2Pix-Zero \cite{parmar2023zeroshot}  & 14.75s
+            & 81.5 & 8.0
+            & 147.4 & 7.8
+            & 68.0 & 3.0
+            & 93.4 & 4.3 \\
+            
+            Cycle-Diffusion \cite{cyclediffusion} & 3.72s
+            & \textbf{38.6} & 6.0 
+            & 132.5 & 5.8 
+            & 64.1 & 3.6
+            & 70.3 & 3.6 \\
+    
+            DDIB \cite{su2022dual} & 4.37s
+            & 44.4 & 13.1  
+            & 163.3 & 11.1 
+            & 90.8 & 7.2
+            & 88.9 & 6.8 \\
+    
+            InstructPix2Pix \cite{brooks2023instructpix2pix} & 3.86s
+            & 51.0 & 6.8 
+            & 141.5 & 7.0 
+            & 68.3 & 3.7 
+            & 85.6 & 4.4 \\
+            \hdashline
+    
+            CycleGAN-Turbo & 0.13s
+            & 41.0 & \textbf{2.1}
+            & \textbf{127.5} & \textbf{1.8} 
+            & \textbf{56.3} & \textbf{0.6} 
+            & \textbf{60.7} & \textbf{0.6}\\
+    
+            \bottomrule 
         \end{tabular}
+        }
+        \vspace{-6pt}
+    
+        \label{tab:cmp_small_ds}
+    \end{table}
 \end{frame}
 
 \begin{frame}
@@ -89,24 +160,115 @@ Datasets:
 \end{figure}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Experiments - Paired Image Translation}
-    \framesubtitle{Comparison to Unpaired Methods}
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\linewidth]{images/day_night_table.png}
-        
-    \end{figure}
-\end{frame}
+
+
+
 
 \begin{frame}
     \frametitle{Experiments - Paired Image Translation}
     \framesubtitle{Comparison to Unpaired Methods}
-    \begin{figure}
+
+    \begin{table}
         \centering
-        \includegraphics[width=1\linewidth]{images/human-pref.png}
-        
-    \end{figure}
+    
+        \resizebox{\linewidth}{!}{
+        \begin{tabular}{l c cc cc cc cc}
+            \toprule 
+            \multirow{3}{*}{\textbf{Method}} 
+            & \multirow{3}{*}{\textbf{\shortstack[c]{Infrence \\ time }}} 
+            & \multicolumn{2}{c}{\textbf{Day $\rightarrow$ Night} }
+            & \multicolumn{2}{c}{\textbf{Night $\rightarrow$ Day} }
+            & \multicolumn{2}{c}{\textbf{Clear $\rightarrow$ Foggy} }
+            & \multicolumn{2}{c}{\textbf{Foggy $\rightarrow$ Clear} }
+            \\
+    
+            \cmidrule(lr){3-4} \cmidrule(lr){5-6} \cmidrule(lr){7-8} \cmidrule(lr){9-10} 
+            &
+            & \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+    
+            & \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+    
+            & \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+    
+            & \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+            
+            \\ \\
+            \cmidrule(lr){1-10}
+    
+            CycleGAN \cite{zhu2020unpaired} & 0.02s
+            & 36.3 & 3.6 
+            & 92.3 & 4.9 
+            & 153.3 & 3.6 
+            & 177.3 & 3.9 
+            \\
+            
+            CUT \cite{park2020contrastive} & 0.03s
+            & 40.7 & 3.5 
+            & 98.5 & 3.8
+            & 152.6 & 3.4 
+            & 163.9 & 4.8  \\
+            
+            \hdashline
+    
+            SDEdit \cite{meng2022sdedit} & 3.10s
+            & 111.7 & 3.4 
+            & 116.1 & 4.1 
+            & 185.3 & 3.1
+            & 209.8 & 4.7\\
+    
+            
+            Plug\&Play \cite{tumanyan2022plugandplay} & 19.67s
+            & 80.8 & 2.9 
+            & 121.3 & \textbf{2.8} 
+            & 179.6 & 3.6 
+            & 193.5 & 3.5 \\
+            
+            Pix2Pix-Zero \cite{parmar2023zeroshot}  & 43.28s
+            & 81.3 & 4.7 
+            & 188.6 & 5.8
+            & 209.3 & 5.5
+            & 367.2 & 13.0
+            \\
+            
+            Cycle-Diffusion \cite{cyclediffusion}  & 11.38s
+            & 101.1 & 3.1 
+            & 110.7 & 3.7 
+            & 178.1 & 3.6 
+            & 185.8 & 3.1\\
+    
+            DDIB \cite{su2022dual} & 11.93s
+            & 172.6 & 9.1
+            & 190.5 & 7.8 
+            & 257.0 & 13.0 
+            & 286.0 & 7.2  \\
+    
+            InstructPix2Pix \cite{brooks2023instructpix2pix} & 11.41s
+            & 80.7 & \textbf{2.1} 
+            & 89.4 & 6.2 
+            & 170.8 & 7.6 
+            & 233.9 & 4.8 
+            \\
+            \hdashline
+    
+            CycleGAN-Turbo & 0.29s
+            & \textbf{31.3} & 3.0
+            & \textbf{45.2} & 3.8 
+            & \textbf{137.0} & \textbf{1.4}
+            & \textbf{147.7} & \textbf{2.4} \\
+    
+            \bottomrule 
+        \end{tabular}
+        }
+        \vspace{-18pt}
+    
+        \label{tab:cmp_driving_ds}
+    \end{table}
+
+
 \end{frame}
 
 
@@ -114,11 +276,61 @@ Datasets:
 \begin{frame}
 \frametitle{Experiments - Paired Image Translation}
 \framesubtitle{Ablation Study}
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{images/ablation_horse_zebra.png}
+
+
+    \begin{table}   
+        \centering
+        \resizebox{\linewidth}{!}{
+        \begin{tabular}{l c c c | cc cc cc cc}
+            \toprule 
+            \multirow{3}{*}{\textbf{Method} }
+            & \multirow{3}{*}{\shortstack[c]{\textbf{Input} \\ \textbf{Type} }}  
+            & \multirow{3}{*}{\shortstack[c]{\textbf{Skip} }}  
+            & \multirow{3}{*}{\shortstack[c]{\textbf{Pre} \\ \textbf{-trained} }}  
+            & \multicolumn{2}{c}{\textbf{Horse $\rightarrow$ Zebra} }
+            & \multicolumn{2}{c}{\textbf{Zebra $\rightarrow$ Horse} }
+            \\
     
-\end{figure}
+            \cmidrule(lr){5-6} \cmidrule(lr){7-8} \cmidrule(lr){9-10} \cmidrule(lr){11-12} 
+    
+            &&&& \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+    
+            & \multirow{2}{*}{\shortstack[c]{FID $\downarrow$ }}  
+            & \multirow{2}{*}{\shortstack[c]{DINO \\ Struct. $\downarrow$ }} 
+            
+            \\ \\
+            \cmidrule(lr){1-12}
+            Conf. A & Direct Input & x & x
+            & 128.6 (+214\%)  & 5.2 (+148\%)
+            & 167.1 (+31\%)  & 4.6 (+156\%)
+            \\
+            
+            Conf. B & ControlNet & x & \checkmark 
+            & 41.2 (+0\%)  & 7.3 (+248\%)
+            & \textbf{99.4 (-22\%)}  & 8.6 (+378\%)\\
+    
+            Conf. C & T2I-Adapter & x & \checkmark 
+            & 55.4 (+35\%)  & 4.7 (+124\%)
+            & 135.4 (+6\%) & 4.8 (+167\%)\\
+            
+            
+            Conf. D & Direct Input & x & \checkmark
+            & \textbf{40.1 (-2\%)}  & 4.4 (+110\%)
+            & 116.2 (-9\%) & 3.0 (+67\%) \\
+            
+            
+            \hdashline
+            Ours & Direct Input & \checkmark & \checkmark
+            & 41.0 & \textbf{2.1}
+            & 127.5 & \textbf{1.8}  \\
+    
+            \bottomrule 
+        \end{tabular}
+        }
+    \vspace{-10pt}
+        \label{tab:ablation_study}
+    \end{table}
 \end{frame}
 
 \begin{frame}

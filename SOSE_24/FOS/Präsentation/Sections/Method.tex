@@ -31,7 +31,6 @@
 \end{frame}
 
 % ---------- Unpaired Training ----------
-
 \begin{frame}
     \frametitle{Method}
     \framesubtitle{Unpaired Training}
@@ -47,7 +46,7 @@
 \begin{frame}
 \frametitle{Method}
 \framesubtitle{Unpaired Training}
-\begin{block}{Cycle consistency with perecptual loss}
+\begin{block}{Cycle consistency with perceptual loss}
     \begin{equation}
         \mathcal{L}_{\text{cycle}}(G, F) = \mathbb{E}_x [ \mathcal{L}_\text{rec} (G(G(x,c_Y), c_X), x) ] + \mathbb{E}_y [ \mathcal{L}_\text{rec} (G(G(y,c_X), c_Y), y) ]
     \end{equation}

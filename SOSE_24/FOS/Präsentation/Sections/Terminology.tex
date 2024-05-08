@@ -8,7 +8,47 @@
     \end{figure}
     \tiny{\footnotemark \url{http://www.lherranz.org/2018/08/07/imagetranslation/}}
 \end{frame}
-\note{}
+\note{
+    \begin{itemize}
+        \item Generative Adversarial Networks: Zwei Netzwerke, Generator und Diskriminator, die gegeneinander trainiert werden        
+            \begin{itemize}
+                \scriptsize\item Generator: versucht die verteilung der Trainingsdaten zu lernen ohne diese zu kennen
+                \scriptsize\item Diskriminator: Unterscheidet zwischen echten und generierten Bildern        
+            \end{itemize}            
+        \item Loss Function: Min-Max Game zwischen Generator und Diskriminator 
+    \end{itemize}
+}
+
+\begin{frame}
+    \frametitle{Terminology}
+    \framesubtitle{Generative Adversarial Networks(GAN) - Loss Function}
+    \begin{block}{GAN Loss Function}
+        
+        \begin{equation}
+            \min_G \max_D \mathcal{L}(D,G) = \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))]
+        \end{equation}
+    
+    \end{block}
+    \tiny{\footnotemark \url{http://www.lherranz.org/2018/08/07/imagetranslation/}}
+\end{frame}
+\note{       
+    
+    \begin{itemize}
+        \item x: echtes bild
+        \item z: Zufälliger Input für den Generator
+        \item $p_{\text{data}}(x)$: Wahrscheinlichkeitsverteilung der echten Daten
+        \item $p_z(z)$: Wahrscheinlichkeitsverteilung des zufälligen Inputs
+        \item $D(x)$: Wahrscheinlichkeit, dass x ein echtes Bild ist
+        \item $G(z)$: Generiertes Bild                        
+    \end{itemize}
+    Diskriminator wird trainiert um die Wahrscheinlichket, dass korrekte Label zu erkennen zu maximieren.\\
+    
+    Probleme: Früh im Training ist der Generator noch sehr schlecht, deswegen wird der $log(1 - D(G(z)))$ Term sehr groß und der Gradient verschwindet.\\
+    In Praxis wird $logD(G(z))$ verwendet, um dieses Problem zu umgehen.\\ 
+    
+    Weiterentwicklungen: DCGANs, Wasserstein Distance als Loss Function oder PG-GANs nur Name dropping
+
+}
     
 % ---------- CycleGAN ----------
 \begin{frame}

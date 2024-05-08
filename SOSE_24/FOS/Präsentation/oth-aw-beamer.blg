@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'oth-aw-beamer.blg'
-[61] biber:340> INFO - === Mo Apr 22, 2024, 22:34:12
-[73] Biber.pm:418> INFO - Reading 'oth-aw-beamer.bcf'
-[122] Biber.pm:972> INFO - Found 21 citekeys in bib section 0
-[131] Biber.pm:4383> INFO - Processing section 0
-[138] Biber.pm:4574> INFO - Looking for bibtex file 'references.bib' for section 0
-[138] bibtex.pm:1713> INFO - LaTeX decoding ...
-[149] bibtex.pm:1518> INFO - Found BibTeX data source 'references.bib'
-[305] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[305] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[305] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[305] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[319] bbl.pm:654> INFO - Writing 'oth-aw-beamer.bbl' with encoding 'UTF-8'
-[330] bbl.pm:757> INFO - Output to oth-aw-beamer.bbl
+[57] biber:340> INFO - === Mi Mai  8, 2024, 18:26:59
+[68] Biber.pm:418> INFO - Reading 'oth-aw-beamer.bcf'
+[114] Biber.pm:972> INFO - Found 25 citekeys in bib section 0
+[123] Biber.pm:4383> INFO - Processing section 0
+[130] Biber.pm:4574> INFO - Looking for bibtex file 'references.bib' for section 0
+[131] bibtex.pm:1713> INFO - LaTeX decoding ...
+[144] bibtex.pm:1518> INFO - Found BibTeX data source 'references.bib'
+[323] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[323] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[323] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[323] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[339] bbl.pm:654> INFO - Writing 'oth-aw-beamer.bbl' with encoding 'UTF-8'
+[352] bbl.pm:757> INFO - Output to oth-aw-beamer.bbl

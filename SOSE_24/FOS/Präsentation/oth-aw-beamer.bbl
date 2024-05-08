@@ -75,6 +75,42 @@
       \verb 1902.08913
       \endverb
     \endentry
+    \entry{brooks2023instructpix2pix}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=fc86624ab341f287c6199bcbb2ac1686}{%
+           family={Brooks},
+           familyi={B\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=c01cb9ac6c63d1ee5a3ca9e45b109fc3}{%
+           family={Holynski},
+           familyi={H\bibinitperiod},
+           given={Aleksander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5a663b27298722834a8cf09bb93d8c94}{%
+           family={Efros},
+           familyi={E\bibinitperiod},
+           given={Alexei\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7191fc02bb59b439638c9a133d8e1844}
+      \strng{fullhash}{7191fc02bb59b439638c9a133d8e1844}
+      \strng{bibnamehash}{7191fc02bb59b439638c9a133d8e1844}
+      \strng{authorbibnamehash}{7191fc02bb59b439638c9a133d8e1844}
+      \strng{authornamehash}{7191fc02bb59b439638c9a133d8e1844}
+      \strng{authorfullhash}{7191fc02bb59b439638c9a133d8e1844}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{InstructPix2Pix: Learning to Follow Image Editing Instructions}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2211.09800
+      \endverb
+    \endentry
     \entry{kakaobrain2022coyo-700m}{misc}{}
       \name{author}{6}{}{%
         {{hash=efc104d6b6b71097531d426170762960}{%
@@ -537,6 +573,98 @@
       \field{title}{T2i-adapter: Learning adapters to dig out more controllable ability for text-to-image diffusion models}
       \field{year}{2023}
     \endentry
+    \entry{park2020contrastive}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=b036e0ed5c21929ab46890b9a1033163}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Taesung},
+           giveni={T\bibinitperiod}}}%
+        {{hash=5a663b27298722834a8cf09bb93d8c94}{%
+           family={Efros},
+           familyi={E\bibinitperiod},
+           given={Alexei\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=0c65190dcbd461dee172354f7938ae43}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=9fbb4b31963f07f34a13b375b4997338}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jun-Yan},
+           giveni={J\bibinithyphendelim Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c13077243208eadfd876137367c2645}
+      \strng{fullhash}{d12bb6b5fb63ab6dbe1c05844a66c030}
+      \strng{bibnamehash}{9c13077243208eadfd876137367c2645}
+      \strng{authorbibnamehash}{9c13077243208eadfd876137367c2645}
+      \strng{authornamehash}{9c13077243208eadfd876137367c2645}
+      \strng{authorfullhash}{d12bb6b5fb63ab6dbe1c05844a66c030}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Contrastive Learning for Unpaired Image-to-Image Translation}
+      \field{year}{2020}
+      \verb{eprint}
+      \verb 2007.15651
+      \endverb
+    \endentry
+    \entry{parmar2023zeroshot}{misc}{}
+      \name{author}{6}{}{%
+        {{hash=9a6966b329175db18e47434c631e63b0}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Gaurav},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b14c1e38525e58e809557d68d6fd5df3}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Krishna\bibnamedelima Kumar},
+           giveni={K\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=0c65190dcbd461dee172354f7938ae43}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=6a3ac2f66212fe669dcab5bc3c2771ea}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yijun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=19d424caa8d4923e4aeb8ee28f1ce8ab}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Jingwan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9fbb4b31963f07f34a13b375b4997338}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Jun-Yan},
+           giveni={J\bibinithyphendelim Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{be47afb04536a0868e2f51ca126349d2}
+      \strng{fullhash}{f3bf5ae2f6251ab734b10e291dbc251d}
+      \strng{bibnamehash}{be47afb04536a0868e2f51ca126349d2}
+      \strng{authorbibnamehash}{be47afb04536a0868e2f51ca126349d2}
+      \strng{authornamehash}{be47afb04536a0868e2f51ca126349d2}
+      \strng{authorfullhash}{f3bf5ae2f6251ab734b10e291dbc251d}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Zero-shot Image-to-Image Translation}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 2302.03027
+      \endverb
+    \endentry
     \entry{salimans2022progressive}{misc}{}
       \name{author}{2}{}{%
         {{hash=e6f76e1a4d058df028530916774ad3a7}{%
@@ -788,6 +916,48 @@
       \field{title}{Dual Diffusion Implicit Bridges for Image-to-Image Translation}
       \field{year}{2023}
     \endentry
+    \entry{tumanyan2022plugandplay}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=ee9f4f3715c4e7d073904e59ffefa1e4}{%
+           family={Tumanyan},
+           familyi={T\bibinitperiod},
+           given={Narek},
+           giveni={N\bibinitperiod}}}%
+        {{hash=042306ebe197abef7d40940e59696820}{%
+           family={Geyer},
+           familyi={G\bibinitperiod},
+           given={Michal},
+           giveni={M\bibinitperiod}}}%
+        {{hash=dc064ec00f18ad5efa4a0c5c97033ec9}{%
+           family={Bagon},
+           familyi={B\bibinitperiod},
+           given={Shai},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b8d9b5553cce7ae37689e63b3f09c09e}{%
+           family={Dekel},
+           familyi={D\bibinitperiod},
+           given={Tali},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{18b0ed24a5d14f168a687961e3866406}
+      \strng{fullhash}{e7ae3b64036a5d07bcd9ac1a4fc13eab}
+      \strng{bibnamehash}{18b0ed24a5d14f168a687961e3866406}
+      \strng{authorbibnamehash}{18b0ed24a5d14f168a687961e3866406}
+      \strng{authornamehash}{18b0ed24a5d14f168a687961e3866406}
+      \strng{authorfullhash}{e7ae3b64036a5d07bcd9ac1a4fc13eab}
+      \field{extraname}{1}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{Plug-and-Play Diffusion Features for Text-Driven Image-to-Image Translation}
+      \field{year}{2022}
+      \verb{eprint}
+      \verb 2211.12572
+      \endverb
+    \endentry
     \entry{tumanyan2022splicing}{misc}{}
       \name{author}{4}{}{%
         {{hash=ee9f4f3715c4e7d073904e59ffefa1e4}{%
@@ -817,6 +987,7 @@
       \strng{authorbibnamehash}{18b0ed24a5d14f168a687961e3866406}
       \strng{authornamehash}{18b0ed24a5d14f168a687961e3866406}
       \strng{authorfullhash}{8f917abd4a29cc457eb4b3d67e90ed4a}
+      \field{extraname}{2}
       \field{sortinit}{T}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
       \field{labelnamesource}{author}
