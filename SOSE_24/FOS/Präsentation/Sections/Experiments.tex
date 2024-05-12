@@ -15,10 +15,24 @@ Datasets:
         Horse $\leftrightarrow$ Zebra & 939 & 1177 & ImageNet \cite{5206848}\\
         Winter $\leftrightarrow$ Summer & 854 & 1273 & Flickr \cite{zhu2020unpaired} \\
         Day $\leftrightarrow$ Night & Day subset & Night subset & BDD100k \cite{yu2020bdd100k}\\
-        Clear $\leftrightarrow$ Foggy & 12454 & 572 from & BDD100k and DENSE \cite{bijelic2020seeing}
+        Clear $\leftrightarrow$ Foggy & 12454 & 572 & BDD100k and DENSE \cite{bijelic2020seeing}
     \end{tabular}       
 \end{table}
 \end{frame}
+\note{    
+    \textbf{Erstens}: Vergleich mit diversen GAN- und Diffusion Modellen\\
+    \textbf{Zweitens}: Analyse der verschiedenen Komponenten des Modells\\
+    \textbf{Drittens}: Vergleich mit unpaired Methoden
+    
+    \begin{itemize}
+        \item 330MB an trainierbaren Parametern, mit LoRA Gewichten, Zero-Conv Layer und erster Conv Layer des U-Net
+        \item Adam Optimizer mit Lernrate: 1e-6, Batch-Size: 8, $\lambda _{\text{idt}} = 1$, $\lambda _{\text{GAN}} = 0.5$
+        \item Horse $\leftrightarrow$ Zebra und Winter $\leftrightarrow$ Summer sind 286x286, hier wird zufällig auf 256x256 gecroppt. In Inference wird die Tranformation auf 256x256 durchgeführt.
+        \item Day $\leftrightarrow$ Night und Clear $\leftrightarrow$ Foggy, hier wird auf 512x512 resized für training und Inference.
+        \item Für Evaluation wird das zugehörige Validation-Set verwendet.4
+    \end{itemize}
+
+}
 
 \begin{frame}
     \frametitle{Experiments - Paired Image Translation}
@@ -30,9 +44,19 @@ Datasets:
         \item Inference runtime using a single NVIDIA RTX A6000 GPU
         \item human preceptual study
     \end{itemize}
-    
-    
 \end{frame}
+\note{
+    Zwei wesentliche Ziele für Image Translation Modelle:\\
+    \textbf{Erstens}: Die Verteilung der Ziel Domain möglichst gut matchen -> FID Score Frechet Inception Distance. Misst den Unterschied zwischen zwei Image sets (echt und fake). Basiert auf der Frechet Distance zwischen Zwei Wahrscheinlichkeitsverteilungen\\
+    \textbf{Zweitens}: Die Struktur des Eingabebildes im übersetzten Bild erhalten -> DINO structural Distillation\\
+    \begin{itemize}
+        \item Ein niedriger FID Score zeigt einen guten Match zwichen der Verteilung der Ziel Domain und der generierten Bilder
+        \item Ein niedriger DINO Score zeigt, dass die Struktur des Eingabebildes im übersetzten Bild erhalten bleibt
+        \item niedriger FID und hoher DINO Score heißt, dass die Struktur des Eingabebildes im übersetzten Bild nicht erhalten bleibt
+        \item hoher FID und niedriger DINO Score heißt, dass das Eingabebild kaum verändert wird -> Beide Scores betrachten
+        \item zusätzlich wird die Inferenzzeit auf einer NVIDIA RTX A6000 GPU gemessen 
+    \end{itemize}
+}
 
 % ---------- Comparison to Unpaired Methods ----------
 \begin{frame}
@@ -44,6 +68,15 @@ Datasets:
         
     \end{figure}
 \end{frame}
+\note{
+    Zuerst für die Tasks Horse $\rightarrow$ Zebra und Zebra $\rightarrow$ Horse und Winter $\rightarrow$ Summer und Summer $\rightarrow$ Winter
+    \begin{itemize}
+        \item Hier nur die Outputs für ein GAN-Modell und ein Diffusion-Modell. Für die Outputs der anderen Modelle für die Horse $\leftrightarrow$ Zebra Task verweise ich auf Anhang C im Paper
+        \item Für die GAN-Modelle werden default Hyperparameter verwendet und auf allen Datensets für 100k Iterationen trainiert
+    \end{itemize}
+}
+
+
 
 
 \begin{frame}
@@ -149,6 +182,17 @@ Datasets:
         \label{tab:cmp_small_ds}
     \end{table}
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Die Oberen 2 Zeilen zeigen die Ergebnisse der GAN-basierten Methoden, die unterste Zeile das Modell aus diesem Paper CycleGAN-Turbo. Die anderen Zeilen sind Diffusion-basierte Methoden
+        \item Die erste spalte zeigt die Inferenzzeit auf einer NVIDIA RTX A6000 GPU. Die restlichen Spalten zeigen die FID und DINO Structural Distillation Scores die jeweiligen Tasks
+        \item CycleGAN-Turbo erreicht die besten Ergebnisse in allen Tasks außer in der Horse $\rightarrow$ Zebra Task, wo es nur knapp hinter Cycle-Diffusion liegt, Cycle-Diffusion erzielt hier jedoch einen schlechten DINO Score und ist 28x Langsamer
+    \end{itemize}
+
+}
+
+
+
 
 \begin{frame}
 \frametitle{Experiments - Paired Image Translation}
@@ -159,6 +203,13 @@ Datasets:
     
 \end{figure}
 \end{frame}
+\note{   
+    \begin{itemize}
+        \item ähnliche Darstellung jetzt für die Tasks Day $\rightarrow$ Night und Night $\rightarrow$ Day und Foggy $\rightarrow$ Clear
+        \item Von links nach rechts: Input, CycleGAN, InstructPix2Pix, CycleGAN-Turbo
+    \end{itemize}
+
+}
 
 
 
@@ -270,6 +321,13 @@ Datasets:
 
 
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Auch hier hat CycleGAN-Turbo die besten Ergebnisse in allen Tasks
+        \item InstructPix2Pix und Plug\&Play haben zwar bessere DINO Scores, jedoch wesentlich schlechtere FID Scores
+    \end{itemize}
+
+}
 
 
 % ---------- Ablation Study ----------
@@ -332,19 +390,34 @@ Datasets:
         \label{tab:ablation_study}
     \end{table}
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Für diesen Vergleich mit anderen Tasks verweise auf Anhang A im Paper. Spoiler: Das Ergebniss ist vergleichbar
+        \item Hier wird die Wichtigkeit der verschiedenen Komponenten des Modells untersucht
+        \item Conf. A: Direkter Input, keine Pre-trained Gewichte, Gewichte random initialisiert, schlechteste Ergebnisse
+        \item Conf. B, C, D nutzen verschieden Pre-trained Gewichte, Conf D hat unter denen die besten Ergebnisse
+        \item Zu dieser Konfiguration werden dann Skip-Connections hinzugefügt, was die Ergebnisse nochmal verbessert
+    \end{itemize}
+}
 
 \begin{frame}
-    \frametitle{Experiments - Paired Image Translation}
+    \frametitle{Experiments - unpaired Image Translation}
     \framesubtitle{Ablation Study}
     \begin{figure}
         \centering
         \includegraphics[width=0.55\linewidth]{images/ablation_images.png}
         
     \end{figure}
-    \end{frame}
+\end{frame}
+\note{
+    \begin{itemize}
+        \item zu den jeweiligen Konfigurationen werden hier die Outputs für Horse $\rightarrow$ Zebra, Zebra $\rightarrow$ Horse und Foggy $\rightarrow$ Clear gezeigt
+        \item Für die Outputs der anderen Taks verweise ich auf Anhang B im Paper
+    \end{itemize}
+}
 % ---------- Extensions ----------
 \begin{frame}
-\frametitle{Experiments - Unpaired Image Translation}
+\frametitle{Experiments - Paired Image Translation}
 \framesubtitle{Training Details}
 \begin{block}{Loss function}
     \begin{align}
@@ -353,10 +426,21 @@ Datasets:
 \end{block}
 with $\mathcal{L}_{\text{rec}}$ = L2-Norm + LPIPS, $\lambda_{\text{clip}} = 4$ and $\lambda_{\text{GAN}} = 0.4$
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Hier wird die Loss-Funktion gezeigt, die für das Training verwendet wird
+        \item $\mathcal{L}_{\text{rec}}$ Reconstruction Loss, die aus der L2-Norm und LPIPS besteht
+        \item $\lambda_{\text{clip}}$ = 4
+        \item $\lambda_{\text{GAN}}$ = 0.4
+        \item LPIPS?
+        \item CLIP?
+    \end{itemize}
+}
 
 \begin{frame}
-    \frametitle{Experiments - Unpaired Image Translation}
+    \frametitle{Experiments - Paired Image Translation}
     \framesubtitle{Training Details}
+    basiert auf Midjourney-Datensatz \footnote{https://huggingface.co/datasets/wanng/midjourney-v5-202304-clean}\\
         Edge-to-Image:
         \begin{itemize}
             \item Canny Edge Detector with random threshold
@@ -368,19 +452,35 @@ with $\mathcal{L}_{\text{rec}}$ = L2-Norm + LPIPS, $\lambda_{\text{clip}} = 4$ a
             \item Initialized with Edge-to-Image model and fine-tuned for 5000 steps with same Optimizer
         \end{itemize}
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Hier werden zwei Modelle trainiert, die auf dem Midjourney-Datensatz basieren
+        \item Edge-to-Image: Hier werden mit dem Canny Edge Detector mit einem random Threshold Kanten erzeugt. \\Adam Optimizer mit Lernrate: 1e-5, Batch-Size: 40, 7500 Schritte
+        \item Sketech-to-Image: Mit mehreren Augmentation werden aus den Bildern Sketches erzeugt.\\ Das Modell wird mit dem Edge-to-Image model initialisiert und dann nochmal für 5000 Schritte trainiert.
+    \end{itemize}
+
+}
 
 \begin{frame}
-    \frametitle{Experiments - Unpaired Image Translation}
-    \framesubtitle{Comparison to Unpaired Methods}
+    \frametitle{Experiments - Paired Image Translation}
+    \framesubtitle{Comparison to Paired Methods}
     \begin{figure}
         \centering
         \includegraphics[width=0.5\linewidth]{images/unpaired_comp1.png}
         
     \end{figure}
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Hier Edge-to-Image im Vergleich zu anderen Modellen
+        \item Sichtbar mehr Realismus als die anderen Modelle
+        \item Vergleichbarer Realismus zu ControlNet mit 100Schritten, obwohl das Edge-To-Image Modell 65x schneller ist
+    \end{itemize}
+
+}
 
 \begin{frame}
-    \frametitle{Experiments - Unpaired Image Translation}
+    \frametitle{Experiments - Paired Image Translation}
     \framesubtitle{Comparison to Unpaired Methods}
     \begin{figure}
         \centering
@@ -388,3 +488,8 @@ with $\mathcal{L}_{\text{rec}}$ = L2-Norm + LPIPS, $\lambda_{\text{clip}} = 4$ a
             
     \end{figure}
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Wie in der Methode beschrieben, ist es möglich mit dem selben Sketch und Prompt verschiedene Outputs zu generieren
+    \end{itemize}
+}

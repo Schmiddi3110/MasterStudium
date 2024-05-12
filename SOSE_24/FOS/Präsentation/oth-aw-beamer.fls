@@ -1803,6 +1803,7 @@ INPUT ./Sections/Experiments.tex
 INPUT Sections/Experiments.tex
 INPUT ./Sections/Experiments.tex
 INPUT Sections/Experiments.tex
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT ./images/horse_zebra.png
 INPUT ./images/horse_zebra.png
 INPUT images/horse_zebra.png
@@ -1818,6 +1819,12 @@ INPUT ./images/ablation_images.png
 INPUT images/ablation_images.png
 INPUT ./images/ablation_images.png
 INPUT ./images/ablation_images.png
+INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmss9.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/lmmi9.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/lmsy9.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmsso9.tfm
 INPUT ./images/unpaired_comp1.png
 INPUT ./images/unpaired_comp1.png
 INPUT images/unpaired_comp1.png
