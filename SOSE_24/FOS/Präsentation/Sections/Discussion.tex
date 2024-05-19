@@ -7,6 +7,14 @@
         \item model training requires a small number of additional trainable parameters
     \end{itemize}
 \end{frame}
+\note{
+    \begin{itemize}
+        \item one-step pre-trained Modelle können als Backbone-Modelle für viele Bildsynthesen-Aufgaben dienen.
+        \item Die Anpassung der Modelle kann durch GAN-Objektive ohne mehrstufiges Diffusionstraining erreicht werden.
+        \item Das Training des Modells erfordert eine geringe Anzahl zusätzlicher trainierbarer Parameter.
+    \end{itemize}
+
+}
     
 % ---------- Limitations ----------
 \begin{frame}
@@ -19,3 +27,10 @@
     \end{itemize}
     
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Die Stärke der Anleitung kann nicht spezifiziert werden, da SD-Turbo keine classifier-free guidance verwendet.
+        \item Negative Prompts werden nicht unterstützt, wodurch Bild Artefakte reduziert werden könnten.
+        \item Das Training ist durch den cycle-consistency loss speicherintensiv.
+    \end{itemize}
+}
