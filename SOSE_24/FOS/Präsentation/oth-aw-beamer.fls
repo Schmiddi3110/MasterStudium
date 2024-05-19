@@ -1735,6 +1735,11 @@ INPUT /usr/share/texmf/tex/latex/lm/t1lmtt.fd
 INPUT /usr/share/texmf/tex/latex/lm/t1lmtt.fd
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmtt8.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
+INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmss8.tfm
 INPUT ./Sections/Related_work.tex
 INPUT Sections/Related_work.tex
 INPUT ./Sections/Related_work.tex
@@ -1749,11 +1754,6 @@ INPUT images/blog_gan.png
 INPUT ./images/blog_gan.png
 INPUT ./images/blog_gan.png
 INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmss10.tfm
-INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
-INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
-INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
-INPUT /usr/share/texmf/tex/latex/lm/ts1lmss.fd
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ts1-lmss8.tfm
 INPUT ./images/blog_cyclegan_h2z2h-768x333.png
 INPUT ./images/blog_cyclegan_h2z2h-768x333.png
 INPUT images/blog_cyclegan_h2z2h-768x333.png
@@ -1789,6 +1789,7 @@ INPUT ./images/Bildschirmfoto vom 2024-04-14 10-57-39.png
 INPUT images/Bildschirmfoto vom 2024-04-14 10-57-39.png
 INPUT ./images/Bildschirmfoto vom 2024-04-14 10-57-39.png
 INPUT ./images/Bildschirmfoto vom 2024-04-14 10-57-39.png
+INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT ./images/Bildschirmfoto vom 2024-04-14 11-06-40.png
 INPUT ./images/Bildschirmfoto vom 2024-04-14 11-06-40.png
 INPUT images/Bildschirmfoto vom 2024-04-14 11-06-40.png
@@ -1803,7 +1804,6 @@ INPUT ./Sections/Experiments.tex
 INPUT Sections/Experiments.tex
 INPUT ./Sections/Experiments.tex
 INPUT Sections/Experiments.tex
-INPUT /usr/share/texmf/fonts/tfm/public/lm/ec-lmssbx10.tfm
 INPUT ./images/horse_zebra.png
 INPUT ./images/horse_zebra.png
 INPUT images/horse_zebra.png

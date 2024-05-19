@@ -14,6 +14,13 @@
       \tiny{\footnotemark \url{https://developer.nvidia.com/blog/improving-diffusion-models-as-an-alternative-to-gans-part-1/}}
       \tiny{\footnotemark \url{https://miro.medium.com/v2/resize:fit:720/format:webp/1*RDPhd2dvmHE4UrAP-QHb9w.png}}
     \end{frame}
+    \note{
+        In dieser Arbeit werden zwei limitierende Faktoren von Diffusion Models angesprochen:\\
+        \begin{itemize}
+            \item Ihre lange Inference Zeit durch das Interative Denoising
+            \item Die Notwendigkeit von Paired Daten
+        \end{itemize}
+    }
     
     % ---------- Proposed solutions ----------
     \begin{frame}
@@ -26,3 +33,13 @@
         \item Adapt pre-trained text-conditional one-step diffusion model to new domains via adversarial learning
     \end{itemize}
 \end{frame}
+\note{
+    \begin{itemize}        
+        \item Um das zu erreichen wird ein One-Step Image-to-Image Translation Ansatz vorgeschlagen, der sowohl in gepaarten als auch ungepaarten Einstellungen funktioniert.\\
+        \item Dieser Ansatz reduziert die Anzahl der Inferenzschritte auf 1 und kann ohne Bildpaare trainiert werden.\\
+        \item Außerdem kann ein vortrainiertes Text-Conditional One-Step Diffusion Model durch adversariales Lernen an neue Domänen angepasst werden.
+        \item Es werden zwei Modelle traniert und mit bestehenden Methoden verglichen. 
+        \item CycleGAN-Turbo für Unpaired Image-to-Image Translation
+        \item Pix2Pix-Turbo für Paired Image-to-Image Translation
+    \end{itemize}
+}

@@ -13,6 +13,17 @@
         \item require training from scratch on new domains   
     \end{itemize}
 \end{frame}
+\note{
+    \begin{itemize}
+        
+        \item Bei Image-to-Image translation versucht das Modell ein von einer source Domain in eine traget Domain zu übersetzen. Hierzu wird eine Kombination von reconstruction und adversarial loss verwendet.
+        \item Aktuelle Arbeiten wie GLIGEN, T2I-Adapter und ControlNet bauen auf vortrainierten text-to-image modellen auf.
+        \item Diese Methoden benötigen jedoch eine große Anzahl an Trainingsdaten und haben eine langsame Inferenzzeit.\\
+        \item Es gibt auch Arbeiten die unpaired Image Translation verwenden. Diese Modelle basieren auf GANs oder Diffusion und benötigen ein komplettes retraining wenn sie auf neue Domains angewendet werden sollen.\\
+        \item Was Paired und Unpaired Daten sind, kommt gleich. 
+    \end{itemize}
+    
+    }
     
     % ---------- Text-to-Image models ----------
 \begin{frame}
@@ -21,23 +32,41 @@
     \begin{itemize}
         \item Large-scale text-conditioned models have enhanced image quality and diversity by training on vast datasets \cite{schuhmann2022laion5b, kakaobrain2022coyo-700m}
         \item Zero-shot methods for editing real images use pre-trained text-to-image models, such as SDEdit \cite{meng2022sdedit}
-        \item Prompt-to-Prompt techniques manipulate or preserve features in cross-attention and self-attention layers during image editing.
-        \item Some approaches fine-tune networks or text embeddings for input images before editing or employ precise inversion methods.
         \item Despite impressive results, these methods face challenges in complex scenes with multiple objects.
-        \item Our work complements these methods by incorporating paired or unpaired data from new domains/tasks.    
+    
     \end{itemize}
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Große Text-to-Image Modelle haben gute Bildquilität und Vielfalt durch das Training auf rießigen Datensätzen.
+        \item Zero-shot Methoden für die Bearbeitung von echten Bildern verwenden vortrainierte Text-to-Image Modelle wie SDEdit.        
+        \item SDEdit bearbeitet reale Bilder, indem es dem Eingabebild Rauschen hinzufügt und es anschließend mit einem vorher trainierten Modell dem Prompt entsprechend entrauscht
+        \item Trotz beeindruckender Ergebnisse haben diese Methoden Herausforderungen in komplexen Szenen mit mehreren Objekten.
+        \item Bei den Experimenten wird das hier entwickelte Modell unteranderem mit SDEdit verglichen.
+    \end{itemize}
+}
     
-    % ---------- One-step generative models ----------
-    \begin{frame}
+% ---------- One-step generative models ----------
+\begin{frame}
     \frametitle{Related Work}
     \framesubtitle{One-step generative models}
     To expedite diffusion model inference, recent works focus on:
     \begin{itemize}
-        \item reducing the number of sampling steps using fast ODE solvers \cite{karras2022elucidating, lu2022dpmsolver}
+        \item reducing the number of sampling steps using ODE solvers \cite{karras2022elucidating, lu2022dpmsolver}
         \item distilling slow multistep teacher models into fast few-step student models \cite{meng2022sdedit, salimans2022progressive}
         \item Using GANs directly for text-to-image synthesis \cite{kang2023scaling, sauer2023stylegant}
     \end{itemize}
     
     This work presents the first one-step conditional model that use both text and conditioning images.
 \end{frame}
+\note{
+    \begin{itemize}
+        \item Statt vielen denoising Schritten im Diffusion wird ein einziger Schritt verwendet.\\
+        \item Andere Arbeiten verwenden ODE Solver um die Anzahl der Schritte zu reduzieren.\\
+        \item Es gibt auch Arbeiten die langsame Modelle in schnelle Modelle umwandeln.\\
+        \item GANs werden auch direkt für Text-to-Image Synthese verwendet.\\
+        \item Diese Arbeit stellt das erste One-Step Conditional Model vor, das sowohl Text als auch Konditionierungs-Bilder verwendet.
+        
+    \end{itemize}
+    
+}
