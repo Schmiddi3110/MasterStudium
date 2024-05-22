@@ -7,8 +7,8 @@ services:
       - ./product:/usr/src/app
     ports:
       - 5001:80
-    env_file:
-      - .env
+    environment:
+      - NEWITEM=MILK
 
   website:
     image: php:apache

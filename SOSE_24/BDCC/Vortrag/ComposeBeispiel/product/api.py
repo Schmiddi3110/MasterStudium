@@ -11,9 +11,9 @@ api = Api(app)
 
 class Product(Resource):
     def get(self):
-        new_item = os.environ['NEW_ITEM']
+        new_item = os.getenv('NEWITEM')
         return {
-            'products': ['Ice cream', 'Chocolate', 'Fruit', 'Eggs', new_item]
+            'products': ['Ice cream', 'Chocolate', 'Fruit', 'Milk', new_item]
         }
 
 # Create routes
