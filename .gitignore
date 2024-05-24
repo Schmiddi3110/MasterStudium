@@ -3,6 +3,7 @@
 
 # ignore PythonEnvironment
 PythonEnvironment
+PythonEnvrionment
 
 #ignore .idea Folder
 .idea
