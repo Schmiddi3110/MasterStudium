@@ -23,3 +23,4 @@ MAL/SupportVectorMachines/mnist-dataset/*
 SOSE_24/DEV/Shallow Networks to CNN/data
 SOSE_24/DEV/CNN_to_Transformers/Lecture5/vit-base-patch16-224-in21k-finetuned-cifar-10/*
 SOSE_24/DEV/CNN_to_Transformers/Lecture5/logs/*
+*.tar.gz
