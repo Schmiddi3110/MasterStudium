@@ -25,3 +25,4 @@ SOSE_24/DEV/CNN_to_Transformers/Lecture5/vit-base-patch16-224-in21k-finetuned-ci
 SOSE_24/DEV/CNN_to_Transformers/Lecture5/logs/*
 *.tar.gz
 SOSE_24/DEV/CNN_to_Transformers/Lecture6/data/UTKFace/*
+SOSE_24/DL/ModelArchitecturesLearningConcepts/DEL-08-1-Architectures-Learning-Concepts-CNN.pdf
